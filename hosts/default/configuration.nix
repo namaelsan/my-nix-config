@@ -21,7 +21,7 @@
  # fileSystems."/mnt/win10" =
  #   {
  #     device = "/dev/nvme0n1p2";
- #     fsType = "ntfs-3g"; 
+ #     fsType = "ntfs-3g";
  #     options = [ "rw" "uid=1000"];
  #   };
 
