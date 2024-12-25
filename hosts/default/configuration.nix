@@ -19,7 +19,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.supportedFilesystems = ["ntfs"];
- fileSystems."/mnt/win10" =
+  fileSystems."/mnt/win10" =
    {
      device = "/dev/nvme0n1p2";
      fsType = "ntfs-3g";
@@ -120,11 +120,12 @@
   environment.systemPackages = with pkgs; [
     fish # shell
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vscode
     wget
-    fastfetch ## print system info but fast
-    ntfs3g ## read / mount ntfs
-    lshw ## hardware info
-    ncdu ## list files big size
+    fastfetch # print system info but fast
+    ntfs3g # read / mount ntfs
+    lshw # hardware info
+    ncdu # list files big size
     pstree # process tree
   ];
 
