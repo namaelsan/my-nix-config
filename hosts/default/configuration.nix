@@ -130,6 +130,8 @@
   services.zapret.enable = true;
   services.zapret.params = ["--dpi-desync=fake --dpi-desync-ttl=3"];
 
+  programs.adb.enable = true;
+
   services.flatpak.enable = true;
 
   programs.fish.enable = true;
