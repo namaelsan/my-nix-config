@@ -118,13 +118,14 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    fish
+    fish # shell
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-    fastfetch
-    ntfs3g
-    lshw
-    ncdu
+    fastfetch ## print system info but fast
+    ntfs3g ## read / mount ntfs
+    lshw ## hardware info
+    ncdu ## list files big size
+    pstree # process tree
   ];
 
   services.zapret.enable = true;
