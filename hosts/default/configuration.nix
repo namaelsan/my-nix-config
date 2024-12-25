@@ -106,6 +106,9 @@
     shell = pkgs.fish;
   };
 
+  programs.steam.enable = true;
+  programs.gamescope.enable = true;
+
   # Install firefox.
   programs.firefox.enable = true;
 
