@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
+      ./nvidia.nix
       #./game.nix
       ./services.nix
     ];
@@ -120,6 +121,7 @@
     fastfetch
     vscode
     ntfs3g
+    lshw
   ];
 
   services.zapret.enable = true;
