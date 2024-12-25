@@ -19,12 +19,12 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.supportedFilesystems = ["ntfs"];
- # fileSystems."/mnt/win10" =
- #   {
- #     device = "/dev/nvme0n1p2";
- #     fsType = "ntfs-3g";
- #     options = [ "rw" "uid=1000"];
- #   };
+ fileSystems."/mnt/win10" =
+   {
+     device = "/dev/nvme0n1p2";
+     fsType = "ntfs-3g";
+     options = [ "rw" "uid=1000"];
+   };
 
   programs.direnv.enable = true;
   networking.hostName = "nixos-laptop"; # Define your hostname.
@@ -57,7 +57,7 @@
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
+  services.xserver.enable = false;
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
