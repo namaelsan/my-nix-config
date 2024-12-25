@@ -128,7 +128,7 @@
   ];
 
   services.zapret.enable = true;
-  services.zapret.params = ["-–dpi-desync=fake --dpi-desync-ttl=3"];
+  services.zapret.params = ["--dpi-desync=fake --dpi-desync-ttl=3"];
 
   services.flatpak.enable = true;
 
