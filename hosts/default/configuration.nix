@@ -20,6 +20,7 @@
     efiSysMountPoint = "/boot"; # ← use the same mount point here.
   };
   grub = {
+    useOSProber = true;
      efiSupport = true;
      #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
      device = "nodev";
@@ -135,7 +136,14 @@
     lshw # hardware info
     ncdu # list files big size
     pstree # process tree
+    gparted
   ];
+
+  environment.shellAliases = {
+    rebuild = "sudo nixos-rebuild switch --flake nixos/#default";
+    "cd.." = "cd ..";
+    "cd-" = "cd -";
+  };
 
   services.zapret.enable = true;
   services.zapret.params = ["--dpi-desync=fake --dpi-desync-ttl=3"];
