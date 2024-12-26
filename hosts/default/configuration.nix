@@ -136,6 +136,7 @@
     ncdu # list files big size
     pstree # process tree
     gparted
+    gedit
   ];
 
 
