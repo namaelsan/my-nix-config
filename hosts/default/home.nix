@@ -1,6 +1,12 @@
+
 { config, pkgs, ... }:
 
+
 {
+  imports = [
+      ./services.nix
+  ];
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "namael";
@@ -33,7 +39,7 @@
     gamescope
     universal-android-debloater
     telegram-desktop
-    android-studio
+    spotify
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of

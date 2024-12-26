@@ -11,7 +11,6 @@
       inputs.home-manager.nixosModules.default
       ./nvidia.nix
       #./game.nix
-      ./services.nix
     ];
 
   boot.loader = {
@@ -139,6 +138,7 @@
     gparted
   ];
 
+
   environment.shellAliases = {
     rebuild = "sudo nixos-rebuild switch --flake /home/namael/nixos/#default";
     nixdiff = "nix profile diff-closures --profile /nix/var/nix/profiles/system";
@@ -162,6 +162,10 @@
     users = {
       "namael" = import ./home.nix;
     };
+  };
+
+  environment.variables = {
+    NIXPKGS_ACCEPT_ANDROID_SDK_LICENSE = 1;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
