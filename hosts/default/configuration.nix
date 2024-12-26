@@ -140,7 +140,8 @@
   ];
 
   environment.shellAliases = {
-    rebuild = "sudo nixos-rebuild switch --flake nixos/#default";
+    rebuild = "sudo nixos-rebuild switch --flake /home/namael/nixos/#default";
+    nixdiff = "nix profile diff-closures --profile /nix/var/nix/profiles/system";
     "cd.." = "cd ..";
     "cd-" = "cd -";
   };
