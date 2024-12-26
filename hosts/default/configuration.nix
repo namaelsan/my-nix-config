@@ -26,13 +26,13 @@
   };
 };
 
-  boot.supportedFilesystems = ["ntfs"];
-  fileSystems."/mnt/win10" =
-   {
-     device = "/dev/nvme0n1p2";
-     fsType = "ntfs-3g";
-     options = [ "rw" "uid=1000"];
-   };
+  # boot.supportedFilesystems = ["ntfs"];
+  # fileSystems."/mnt/win10" =
+  #  {
+  #    device = "/dev/nvme0n1p2";
+  #    fsType = "ntfs-3g";
+  #    options = [ "rw" "uid=1000"];
+  #  };
 
   programs.direnv.enable = true;
   networking.hostName = "nixos-laptop"; # Define your hostname.
@@ -165,9 +165,8 @@
     };
   };
 
-  environment.variables = {
-    NIXPKGS_ACCEPT_ANDROID_SDK_LICENSE = 1;
-  };
+
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
