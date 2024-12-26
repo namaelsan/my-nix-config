@@ -118,7 +118,10 @@
   programs.gamescope.enable = true;
 
   # Install firefox.
-  programs.firefox.enable = true;
+  programs.firefox = {
+    enable = true;
+    nativeMessagingHosts.packages = with pkgs; [ vdhcoapp ];
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -128,7 +131,6 @@
   environment.systemPackages = with pkgs; [
     fish # shell
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    vscode
     wget
     fastfetch # print system info but fast
     ntfs3g # read / mount ntfs
