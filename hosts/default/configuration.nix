@@ -74,6 +74,22 @@
     };
   };
 
+  # Enable hyprland
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
+  environment.sessionVariables = {
+    # somehyprland variables
+    # # If cursor becomes invisible ENABLE
+    # WLR_NO_HARDWARE_CURSORS = "1";
+    # # Hint electron apps to use wayland
+    # NIXOS_OZONE_WL = "1";
+    # hyprland vars over
+  };
+
+
   # Configure console keymap
   console.keyMap = "trq";
 
@@ -138,7 +154,20 @@
     qemu
     virt-manager
     home-manager
+    
+    # hyprland stuff
+    (waybar.overrideAttrs (oldAttrs: {
+      mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
+    }))
+    mako
+    kitty
+    alacritty
+    rofi-wayland
+    # hyprland stuff over
   ];
+
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   virtualisation.libvirtd.enable = true;
 
