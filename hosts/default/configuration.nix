@@ -137,6 +137,7 @@
     gedit
     qemu
     virt-manager
+    home-manager
   ];
 
   virtualisation.libvirtd.enable = true;
