@@ -80,7 +80,7 @@
       layout = "tr";
       variant = "";
     };
-  }
+  };
 
   # Configure console keymap
   console.keyMap = "trq";
@@ -116,7 +116,6 @@
       kdePackages.kate
     #  thunderbird
     ];
-    shell = pkgs.fish;
   };
 
   programs.steam.enable = true;
