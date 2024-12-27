@@ -135,8 +135,11 @@
     pstree # process tree
     gparted
     gedit
+    qemu
+    virt-manager
   ];
 
+  virtualisation.libvirtd.enable = true;
 
   environment.shellAliases = {
     rebuild = "sudo nixos-rebuild switch --flake /home/namael/nixos/#default";
