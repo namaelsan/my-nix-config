@@ -169,6 +169,8 @@
     users = {
       "namael" = import ./home.nix;
     };
+    # #DONT ENABLE THIS LINE SDDM WONT LOGIN
+    # shell = pkgs.fish; 
   };
 
 
