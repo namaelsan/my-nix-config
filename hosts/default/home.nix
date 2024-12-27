@@ -37,6 +37,8 @@
     git
     steam
     gamescope
+    gamemode
+    mangohud
     universal-android-debloater
     telegram-desktop
     spotify
