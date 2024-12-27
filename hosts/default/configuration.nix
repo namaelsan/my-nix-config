@@ -24,15 +24,7 @@
       #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
       device = "nodev";
     };
-};
-
-  # boot.supportedFilesystems = ["ntfs"];
-  # fileSystems."/mnt/win10" =
-  #  {
-  #    device = "/dev/nvme0n1p2";
-  #    fsType = "ntfs-3g";
-  #    options = [ "rw" "uid=1000"];
-  #  };
+  };
 
   programs.direnv.enable = true;
   networking.hostName = "nixos-laptop"; # Define your hostname.
