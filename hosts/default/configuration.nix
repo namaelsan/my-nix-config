@@ -63,19 +63,24 @@
     LC_TIME = "tr_TR.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
+  services = {
+    # Enable the X11 windowing system.
+    # You can disable this if you're only using the Wayland session.
+    xserver.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
-  
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "tr";
-    variant = "";
-  };
+    # Enable the KDE Plasma Desktop Environment.
+    displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
+    desktopManager.plasma6.enable = true;
+    
+    # Configure keymap in X11
+    xserver.xkb = {
+      layout = "tr";
+      variant = "";
+    };
+  }
 
   # Configure console keymap
   console.keyMap = "trq";
