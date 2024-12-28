@@ -19,7 +19,7 @@
       efiSysMountPoint = "/boot"; # ← use the same mount point here.
     };
     grub = {
-      useOSProber = true;
+      useOSProber = false;
       efiSupport = true;
       #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
       device = "nodev";
