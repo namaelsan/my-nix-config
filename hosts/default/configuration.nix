@@ -13,13 +13,28 @@
       #./game.nix
     ];
 
+  # REMOVE AFTER FLAKE UPDATE
+  nixpkgs.overlays = [
+    (self: super: {
+      dmraid = super.dmraid.overrideAttrs (oA: {
+        patches = oA.patches ++ [
+          (super.fetchpatch {
+            url = "https://raw.githubusercontent.com/NixOS/nixpkgs/f298cd74e67a841289fd0f10ef4ee85cfbbc4133/pkgs/os-specific/linux/dmraid/fix-dmevent_tool.patch";
+            sha256 = "sha256-MmAzpdM3UNRdOk66CnBxVGgbJTzJK43E8EVBfuCFppc=";
+          })
+        ];
+      });
+    })
+  ];
+  # REMOVE
+
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
       efiSysMountPoint = "/boot"; # ← use the same mount point here.
     };
     grub = {
-      useOSProber = false;
+      useOSProber = true;
       efiSupport = true;
       #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
       device = "nodev";
@@ -174,6 +189,8 @@
     # hyprland stuff over
   ];
 
+
+
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
@@ -206,28 +223,6 @@
     # shell = pkgs.fish; 
   };
 
-
-
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
@@ -235,5 +230,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
-
 }
