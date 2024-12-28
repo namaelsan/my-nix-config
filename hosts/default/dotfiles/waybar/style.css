@@ -13,7 +13,7 @@
 /* -----------------------------------------------------
  * Import Pywal colors 
  * ----------------------------------------------------- */
-@import 'style-light.css';
+/* @import 'style-light.css'; */
 @define-color backgroundlight #FFFFFF;
 @define-color backgrounddark #FFFFFF;
 @define-color workspacesbackground1 #FFFFFF;
@@ -29,7 +29,7 @@
  * ----------------------------------------------------- */
 
 * {
-    font-family: "Fira Sans Semibold", "Font Awesome 6 Free", FontAwesome,  Roboto, Helvetica, Arial, sans-serif;
+    font-family: "Fira Sans Semibold", FontAwesome,  Roboto, Arial, Helvetica, sans-serif, "Font Awesome 6 Free";
     border: none;
     border-radius: 0px;
 }

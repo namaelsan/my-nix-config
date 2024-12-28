@@ -2,4 +2,4 @@
 
 pkill waybar
 
-waybar -c ~/nixos/hosts/default/dotfiles/config & -s ~/nixos/hosts/default/dotfiles/style.css
+waybar -c ~/nixos/hosts/default/dotfiles/waybar/config -s ~/nixos/hosts/default/dotfiles/waybar/style.css

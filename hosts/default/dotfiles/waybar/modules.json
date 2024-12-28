@@ -44,7 +44,7 @@
     },
   
     "custom/ml4w-welcome": {
-      "on-click": "sleep 0.1 && ~/.config/ml4w/settings/ml4w-sidebar.sh",
+      "on-click": "sleep 0.1 && /home/namael/nixos/hosts/default/dotfiles/waybar/scripts/ml4w-sidebar.sh",
       "on-click-right": "sleep 0.1 && com.ml4w.welcome",
       "format": " ",
       "tooltip-format": "Open Sidebar"
@@ -61,9 +61,9 @@
   
     "custom/cliphist": {
       "format": "",
-      "on-click": "sleep 0.1 && ~/.config/ml4w/scripts/cliphist.sh",
-      "on-click-right": "sleep 0.1 && ~/.config/ml4w/scripts/cliphist.sh d",
-      "on-click-middle": "sleep 0.1 && ~/.config/ml4w/scripts/cliphist.sh w",
+      "on-click": "sleep 0.1 && ~/nixos/hosts/default/dotfiles/waybar/scripts/cliphist.sh",
+      "on-click-right": "sleep 0.1 && ~/nixos/hosts/default/dotfiles/waybar/scripts/cliphist.sh d",
+      "on-click-middle": "sleep 0.1 && ~/nixos/hosts/default/dotfiles/waybar/scripts/cliphist.sh w",
       "tooltip-format": "Left: Open clipboard Manager\nRight: Delete an entry\nMiddle: Clear list"
     },
   
@@ -80,13 +80,13 @@
     "custom/wallpaper": {
       "format": "",
       "on-click": "bash -c waypaper &",
-      "on-click-right": "~/.config/hypr/scripts/wallpaper-effects.sh",
+      "on-click-right": "/home/namael/nixos/hosts/default/dotfiles/waybar/scripts/wallpaper-effects.sh",
       "tooltip-format": "Left: Select a wallpaper\nRight: Select wallpaper effect"
     },
   
     "custom/waybarthemes": {
       "format": "",
-      "on-click": "~/.config/waybar/themeswitcher.sh",
+      "on-click": "/home/namael/nixos/hosts/default/dotfiles/waybar/scripts/themeswitcher.sh",
       "tooltip-format": "Select a waybar theme"
     },
   
@@ -139,7 +139,7 @@
     // Power Menu
     "custom/exit": {
       "format": "",
-      "on-click": "~/.config/ml4w/scripts/wlogout.sh",
+      "on-click": "/home/namael/nixos/hosts/default/dotfiles/waybar/scripts/wlogout.sh",
       "on-click-right": "hyprlock",
       "tooltip-format": "Left: Power menu\nRight: Lock screen"
     },
@@ -147,8 +147,8 @@
     "custom/hyprshade": {
       "format": "",
       "tooltip-format": "Toggle Screen Shader",
-      "on-click": "sleep 0.5; ~/.config/hypr/scripts/hyprshade.sh",
-      "on-click-right": "sleep 0.5; ~/.config/hypr/scripts/hyprshade.sh rofi"
+      "on-click": "sleep 0.5; /home/namael/nixos/hosts/default/dotfiles/waybar/scripts/hyprshade.sh",
+      "on-click-right": "sleep 0.5; /home/namael/nixos/hosts/default/dotfiles/waybar/scripts/hyprshade.sh rofi"
     },
   
     "custom/hypridle": {
@@ -157,8 +157,8 @@
       "escape": true,
       "exec-on-event": true,
       "interval": 60,
-      "exec": "~/.config/hypr/scripts/hypridle.sh status",
-      "on-click": "~/.config/hypr/scripts/hypridle.sh toggle"
+      "exec": "/home/namael/nixos/hosts/default/dotfiles/waybar/scripts/hypridle.sh status",
+      "on-click": "/home/namael/nixos/hosts/default/dotfiles/waybar/scripts/hypridle.sh toggle"
     },
   
     "keyboard-state": {

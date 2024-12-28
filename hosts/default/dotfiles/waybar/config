@@ -6,7 +6,7 @@
     "spacing": 0,
 
     "include": [
-        "/home/namael/nixos/hosts/default/dotfiles/modules.json"
+        "/home/namael/nixos/hosts/default/dotfiles/waybar/modules.json"
     ],
 
     "modules-left": [
@@ -26,7 +26,6 @@
         "battery", 
         "network",
         "group/hardware",
-        "custom/cliphist",
         "custom/hypridle",
         "custom/hyprshade",
         "tray",
