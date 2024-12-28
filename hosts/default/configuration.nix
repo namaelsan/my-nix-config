@@ -171,6 +171,7 @@
     home-manager
     vlc
     mpv
+    killall
     
     # hyprland stuff
     (waybar.overrideAttrs (oldAttrs: {
@@ -188,7 +189,6 @@
     # hyprland-qtutils 
     # hyprland stuff over
   ];
-
 
 
   xdg.portal.enable = true;
