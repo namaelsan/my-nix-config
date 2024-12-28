@@ -177,6 +177,7 @@
     (waybar.overrideAttrs (oldAttrs: {
       mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
     }))
+    pywal # colorcheme creator for wallpaper
     mako # notifications
     swww # wallpaper
     kitty # default terminal
