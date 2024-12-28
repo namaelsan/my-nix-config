@@ -159,10 +159,17 @@
     (waybar.overrideAttrs (oldAttrs: {
       mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
     }))
-    mako
-    kitty
-    alacritty
-    rofi-wayland
+
+    mako # notifications
+    swww # wallpaper
+    kitty # default terminal
+    alacritty # pref terminal
+    rofi-wayland # app launcher
+    networkmanagerapplet
+    grim # screenshot
+    slupr # select from screenshot
+    wl-copy # copy to clipboard wayland
+    # hyprland-qtutils 
     # hyprland stuff over
   ];
 
