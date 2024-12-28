@@ -154,12 +154,13 @@
     qemu
     virt-manager
     home-manager
+    vlc
+    mpv
     
     # hyprland stuff
     (waybar.overrideAttrs (oldAttrs: {
       mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
     }))
-
     mako # notifications
     swww # wallpaper
     kitty # default terminal
@@ -167,8 +168,8 @@
     rofi-wayland # app launcher
     networkmanagerapplet
     grim # screenshot
-    slupr # select from screenshot
-    wl-copy # copy to clipboard wayland
+    slurp # select from screenshot
+    wl-clipboard # copy to clipboard wayland
     # hyprland-qtutils 
     # hyprland stuff over
   ];
