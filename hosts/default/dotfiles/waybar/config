@@ -12,6 +12,7 @@
     "modules-left": [
         "custom/appmenu",
         "custom/settings",
+        "wlr/taskbar",
         "hyprland/window",
         "custom/starter"
     ],
