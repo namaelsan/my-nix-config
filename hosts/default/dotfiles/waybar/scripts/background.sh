@@ -27,4 +27,3 @@ sed -i "s/@define-color textcolor2 .*/@define-color textcolor2 $(cat ~/.cache/wa
 
 # Restart Hyprland and Waybar to apply the changes
 hyprctl reload
-pkill waybar && waybar &
