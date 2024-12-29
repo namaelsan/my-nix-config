@@ -172,6 +172,7 @@
     vlc
     mpv
     killall
+    zapret
     
     # hyprland stuff
     (waybar.overrideAttrs (oldAttrs: {
