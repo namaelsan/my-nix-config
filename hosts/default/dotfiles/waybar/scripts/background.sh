@@ -20,6 +20,7 @@ sed -i "s/^col.background = .*/col.background = $(cat ~/.cache/wal/colors | sed 
 
 # # Update Waybar colors
 # # Replace @define-color values in your Waybar style.css file
+# # waybard imports the file itself this part is not needed
 # sed -i "s/@define-color backgrounddark .*/@define-color backgrounddark $(cat ~/.cache/wal/colors | sed -n '1p');/" "$WAYBAR_STYLE"
 # sed -i "s/@define-color backgroundlight .*/@define-color backgroundlight $(cat ~/.cache/wal/colors | sed -n '2p');/" "$WAYBAR_STYLE"
 # sed -i "s/@define-color workspacesbackground1 .*/@define-color workspacesbackground1 $(cat ~/.cache/wal/colors | sed -n '3p');/" "$WAYBAR_STYLE"
