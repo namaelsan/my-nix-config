@@ -13,14 +13,14 @@
 /* -----------------------------------------------------
  * Import Pywal colors 
  * ----------------------------------------------------- */
-@import '/home/namael/.cache/wal/colors-waybar.css';
-@define-color backgroundlight #FFFFFF;
-@define-color backgrounddark #FFFFFF;
+@import url('/home/namael/.cache/wal/colors-waybar.css');
+/* @define-color foreground #FFFFFF;
+@define-color background #FFFFFF; */
 @define-color workspacesbackground1 #FFFFFF;
-@define-color workspacesbackground2 #CCCCCC;
+/* @define-color foreground #CCCCCC; */
 @define-color bordercolor #FFFFFF;
-@define-color textcolor1 #000000;
-@define-color textcolor2 #000000;
+/* @define-color foreground #000000; */
+/* @define-color background #000000; */
 @define-color textcolor3 #FFFFFF;
 @define-color iconcolor #FFFFFF;
 
@@ -54,7 +54,7 @@ window#waybar {
     font-weight: bold;
     font-style: normal;
     font-size: 16px;
-    color: @textcolor1;
+    color: @background;
 }
 
 #workspaces button {
@@ -67,17 +67,18 @@ window#waybar {
 }
 
 #workspaces button.active {
-    color: @textcolor1;
-    background: @workspacesbackground2;
+    color: @background;
+    background: @foreground;
     border-radius: 15px;
     min-width: 40px;
     transition: all 0.3s ease-in-out;
 }
 
 #workspaces button:hover {
-    color: @textcolor1;
-    background: @workspacesbackground2;
+    color: @background;
+    background: @foreground;
     border-radius: 15px;
+    opacity: 0.6
 }
 
 /* -----------------------------------------------------
@@ -86,14 +87,14 @@ window#waybar {
 
 tooltip {
     border-radius: 16px;
-    background-color: @backgroundlight;
+    background-color: @foreground;
     opacity:0.9;
     padding:20px;
     margin:0px;
 }
 
 tooltip label {
-    color: @textcolor2;
+    color: @background;
 }
 
 /* -----------------------------------------------------
@@ -101,13 +102,14 @@ tooltip label {
  * ----------------------------------------------------- */
 
 #window {
-    background: @backgroundlight;
+    background: @foreground;
     margin: 10px 15px 10px 0px;
     padding: 2px 10px 2px 10px;
     border-radius: 12px;
-    color:@textcolor2;
+    color:@background;
     font-size:16px;
     font-weight:normal;
+    opacity: 0.82;
 }
 
 window#waybar.empty #window {
@@ -119,13 +121,14 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #taskbar {
-    background: @backgroundlight;
+    background: @color1;
     margin: 6px 15px 6px 0px;
     padding:0px;
     border-radius: 15px;
     font-weight: normal;
     font-style: normal;
-    border: 3px solid @backgroundlight;
+    border: 3px solid @foreground;
+    opacity: 0.82;
 }
 
 #taskbar button {
@@ -219,7 +222,7 @@ window#waybar.empty #window {
     margin-right: 15px;
     font-size: 22px;
     font-weight: bold;
-    opacity: 0.8;
+    opacity: 0.82;
     color: @iconcolor;
 }
 
@@ -227,7 +230,7 @@ window#waybar.empty #window {
     margin-right: 15px;
     font-size: 20px;
     font-weight: bold;
-    opacity: 0.8;
+    opacity: 0.82;
     color: #dc2f2f;
 }
 
@@ -236,12 +239,14 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #custom-appmenu {
-    background-color: @backgrounddark;
+    background-color: @color1;
     font-size: 16px;
-    color: @textcolor1;
+    color: @foreground;
     border-radius: 15px;
     padding: 2px 10px 2px 10px;
     margin: 10px 15px 10px 10px;
+    border: 2px solid @foreground;
+    opacity: 0.82;
 }
 
 /* -----------------------------------------------------
@@ -260,16 +265,16 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #custom-updates {
-    background-color: @backgroundlight;
+    background-color: @foreground;
     font-size: 16px;
-    color: @textcolor2;
+    color: @background;
     border-radius: 15px;
     padding: 2px 10px 2px 10px;
     margin: 10px 15px 10px 0px;
 }
 
 #custom-updates.green {
-    background-color: @backgroundlight;
+    background-color: @foreground;
 }
 
 #custom-updates.yellow {
@@ -302,12 +307,14 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #clock {
-    background-color: @backgrounddark;
+    background-color: @color1;
     font-size: 16px;
-    color: @textcolor1;
+    color: @foreground;
     border-radius: 15px;
     padding: 2px 10px 2px 10px;
     margin: 10px 15px 10px 0px;
+    border: 2px solid @foreground;
+    opacity: 0.82;
 }
 
 /* -----------------------------------------------------
@@ -315,9 +322,9 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
  #backlight {
-    background-color: @backgroundlight;
+    background-color: @foreground;
     font-size: 16px;
-    color: @textcolor2;
+    color: @background;
     border-radius: 15px;
     padding: 2px 10px 2px 10px;
     margin: 10px 15px 10px 0px;
@@ -328,17 +335,18 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #pulseaudio {
-    background-color: @backgroundlight;
+    background-color: @foreground;
     font-size: 16px;
-    color: @textcolor2;
+    color: @background;
     border-radius: 15px;
     padding: 2px 10px 2px 10px;
     margin: 10px 15px 10px 0px;
+    opacity: 0.82;
 }
 
 #pulseaudio.muted {
-    background-color: @backgrounddark;
-    color: @textcolor1;
+    background-color: @background;
+    color: @foreground;
 }
 
 /* -----------------------------------------------------
@@ -346,22 +354,23 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #network {
-    background-color: @backgroundlight;
+    background-color: @foreground;
     font-size: 16px;
-    color: @textcolor2;
+    color: @background;
     border-radius: 15px;
     padding: 2px 10px 2px 10px;
     margin: 10px 15px 10px 0px;
+    opacity: 0.82;
 }
 
 #network.ethernet {
-    background-color: @backgroundlight;
-    color: @textcolor2;
+    background-color: @foreground;
+    color: @background;
 }
 
 #network.wifi {
-    background-color: @backgroundlight;
-    color: @textcolor2;
+    background-color: @foreground;
+    color: @background;
 }
 
 /* -----------------------------------------------------
@@ -369,9 +378,9 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
  #bluetooth, #bluetooth.on, #bluetooth.connected {
-    background-color: @backgroundlight;
+    background-color: @foreground;
     font-size: 16px;
-    color: @textcolor2;
+    color: @background;
     border-radius: 15px;
     padding: 2px 10px 2px 10px;
     margin: 10px 15px 10px 0px;
@@ -388,23 +397,24 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #battery {
-    background-color: @backgroundlight;
+    background-color: @foreground;
     font-size: 16px;
-    color: @textcolor2;
+    color: @background;
     border-radius: 15px;
     padding: 2px 15px 0px 10px;
     margin: 10px 15px 10px 0px;
+    opacity: 0.82;
 }
 
 #battery.charging, #battery.plugged {
-    color: @textcolor2;
-    background-color: @backgroundlight;
+    color: @background;
+    background-color: @foreground;
 }
 
 @keyframes blink {
     to {
-        background-color: @backgroundlight;
-        color: @textcolor2;
+        background-color: @foreground;
+        color: @background;
     }
 }
 
