@@ -47,6 +47,7 @@
     flutter
     stremio
     font-awesome
+    syncplay
   ];
 
   fonts.fontconfig.enable =  true;
