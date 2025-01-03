@@ -52,6 +52,8 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  networking.firewall.allowedTCPPorts = [ 29549 ];  # Replace PORT_NUMBER with qBittorrent's port.
+
   # Set your time zone.
   time.timeZone = "Europe/Istanbul";
 
@@ -173,6 +175,8 @@
     mpv
     killall
     zapret
+    wine
+    winetricks
     
     # hyprland stuff
     (waybar.overrideAttrs (oldAttrs: {
@@ -188,7 +192,6 @@
     grim # screenshot
     slurp # select from screenshot
     wl-clipboard # copy to clipboard wayland
-    # hyprland-qtutils 
     # hyprland stuff over
   ];
 

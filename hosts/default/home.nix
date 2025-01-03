@@ -48,6 +48,8 @@
     stremio
     font-awesome
     syncplay
+    qbittorrent
+    lutris
   ];
 
   fonts.fontconfig.enable =  true;
