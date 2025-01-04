@@ -28,6 +28,9 @@
   ];
   # REMOVE
 
+  # default = lts kernel
+  # boot.kernelPackages = pkgs.linuxPackages_latest; # use latest kernel
+  boot.kernelPackages = pkgs.linuxPackages_lqx; # Liquorix kernel
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
@@ -40,6 +43,13 @@
       device = "nodev";
     };
   };
+
+  # add swap file
+    swapDevices = [ {
+    device = "/var/lib/swapfile";
+    size = 16*1024;
+  } ];
+
 
   programs.direnv.enable = true;
   networking.hostName = "nixos-laptop"; # Define your hostname.
@@ -177,6 +187,10 @@
     zapret
     wine
     winetricks
+    rar
+    unrar
+    sqlite
+    jdk
     
     # hyprland stuff
     (waybar.overrideAttrs (oldAttrs: {
