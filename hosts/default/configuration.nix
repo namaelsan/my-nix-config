@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, lib, ... }:
 
 {
   imports =
@@ -13,24 +13,11 @@
       #./game.nix
     ];
 
-  # REMOVE AFTER FLAKE UPDATE
-  nixpkgs.overlays = [
-    (self: super: {
-      dmraid = super.dmraid.overrideAttrs (oA: {
-        patches = oA.patches ++ [
-          (super.fetchpatch {
-            url = "https://raw.githubusercontent.com/NixOS/nixpkgs/f298cd74e67a841289fd0f10ef4ee85cfbbc4133/pkgs/os-specific/linux/dmraid/fix-dmevent_tool.patch";
-            sha256 = "sha256-MmAzpdM3UNRdOk66CnBxVGgbJTzJK43E8EVBfuCFppc=";
-          })
-        ];
-      });
-    })
-  ];
-  # REMOVE
+  programs.ssh.askPassword = lib.mkForce "/nix/store/awb6dzl5kcwi2910frjcw0b96988fp2b-ksshaskpass-6.2.4/bin/ksshaskpass";
 
   # default = lts kernel
-  # boot.kernelPackages = pkgs.linuxPackages_latest; # use latest kernel
-  boot.kernelPackages = pkgs.linuxPackages_lqx; # Liquorix kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest; # use latest kernel
+  # boot.kernelPackages = pkgs.linuxPackages_lqx; # Liquorix kernel
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
@@ -93,6 +80,7 @@
       wayland.enable = true;
     };
     desktopManager.plasma6.enable = true;
+    xserver.desktopManager.gnome.enable = true;
     
     # Configure keymap in X11
     xserver.xkb = {
@@ -124,7 +112,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
