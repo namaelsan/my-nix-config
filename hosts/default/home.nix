@@ -50,6 +50,7 @@
     syncplay
     qbittorrent
     lutris
+    libreoffice-qt
   ];
 
   fonts.fontconfig.enable =  true;
