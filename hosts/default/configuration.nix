@@ -47,9 +47,12 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    wifi.scanRandMacAddress = false;
+  };
 
-  networking.firewall.allowedTCPPorts = [ 29549 ];  # Replace PORT_NUMBER with qBittorrent's port.
+  networking.firewall.allowedTCPPorts = [ 29549 57621 ];  # Replace PORT_NUMBER with qBittorrent's port.
 
   # Set your time zone.
   time.timeZone = "Europe/Istanbul";
@@ -179,6 +182,7 @@
     unrar
     sqlite
     jdk
+    linux-wifi-hotspot
     
     # hyprland stuff
     (waybar.overrideAttrs (oldAttrs: {
@@ -208,6 +212,7 @@
     nixdiff = "nix profile diff-closures --profile /nix/var/nix/profiles/system";
     "cd.." = "cd ..";
     "cd-" = "cd -";
+    hotspot = "sudo create_ap wlo1 enp4s0 MyAccesPoint";
   };
 
   services.zapret.enable = true;
