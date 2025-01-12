@@ -41,7 +41,7 @@
     mangohud
     universal-android-debloater
     telegram-desktop
-    spotify
+    # spotify installed from flatpak
     android-studio # NOTE: android sdk was installed manually
     vdhcoapp # video download helper coapp
     flutter
@@ -51,6 +51,8 @@
     qbittorrent
     lutris
     libreoffice-qt
+    puddletag
+    cryptomator
   ];
 
   fonts.fontconfig.enable =  true;
@@ -61,8 +63,6 @@
     userEmail = "x.arybidx@gmail.com";
   };
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
   home.file = {
     ".config/hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/hyprland/hyprland.conf;
   };
