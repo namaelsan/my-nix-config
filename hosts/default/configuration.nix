@@ -167,22 +167,23 @@
     lshw # hardware info
     ncdu # list files big size
     pstree # process tree
-    gparted
-    gedit
-    qemu
-    virt-manager
-    home-manager
-    vlc
-    mpv
-    killall
-    zapret
-    wine
-    winetricks
-    rar
-    unrar
-    sqlite
-    jdk
-    linux-wifi-hotspot
+    gparted # gtk partition manager
+    gedit # text editor
+    qemu # virtualisation tool
+    virt-manager # virtual machine manager
+    home-manager # home manager for nixos
+    vlc # video player
+    mpv # video player
+    killall # process killer
+    zapret # dpi bypasser
+    wine # windows compatibility layer
+    winetricks # edit wine prefixes
+    rar # enables rar compressing
+    unrar # enables rar uncompressing
+    sqlite # local sql database tool
+    jdk # java development kit
+    linux-wifi-hotspot # tool for hotspot
+    nixpkgs-fmt # format .nix files
     
     # hyprland stuff
     (waybar.overrideAttrs (oldAttrs: {
@@ -218,10 +219,12 @@
   services.zapret.enable = true;
   services.zapret.params = ["--dpi-desync=fake --dpi-desync-ttl=3"];
 
+  # android debugger
   programs.adb.enable = true;
 
   services.flatpak.enable = true;
 
+  # shell
   programs.fish.enable = true;
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
