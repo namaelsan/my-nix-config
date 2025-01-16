@@ -8,5 +8,5 @@ nm-applet --indicator &
 
 
 $terminal & 
-~/nixos/hosts/default/dotfiles/launch.sh
+~/nixos/hosts/default/dotfiles/waybar/launch.sh
 mako 
