@@ -53,6 +53,7 @@
     libreoffice-qt
     puddletag
     cryptomator
+    ffmpeg
   ];
 
   fonts.fontconfig.enable =  true;
