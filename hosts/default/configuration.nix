@@ -16,8 +16,8 @@
   programs.ssh.askPassword = lib.mkForce "/nix/store/awb6dzl5kcwi2910frjcw0b96988fp2b-ksshaskpass-6.2.4/bin/ksshaskpass";
 
   # default = lts kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest; # use latest kernel
-  # boot.kernelPackages = pkgs.linuxPackages_lqx; # Liquorix kernel
+  # boot.kernelPackages = pkgs.linuxPackages_latest; # use latest kernel
+  boot.kernelPackages = pkgs.linuxPackages_lqx; # Liquorix kernel
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
@@ -75,16 +75,21 @@
   services = {
     # Enable the X11 windowing system.
     # You can disable this if you're only using the Wayland session.
-    xserver.enable = true;
+    xserver.enable = false;
 
     # Enable the KDE Plasma Desktop Environment.
     displayManager.sddm = {
       enable = true;
       wayland.enable = true;
+      settings = {
+        General = {
+          Numlock = "on"; # enable numlock on login
+        };
+      };
     };
     desktopManager.plasma6.enable = true;
     xserver.desktopManager.gnome.enable = true;
-    
+
     # Configure keymap in X11
     xserver.xkb = {
       layout = "tr";
@@ -140,7 +145,7 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       kdePackages.kate
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -160,7 +165,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     fish # shell
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     fastfetch # print system info but fast
     ntfs3g # read / mount ntfs
@@ -184,7 +189,8 @@
     jdk # java development kit
     linux-wifi-hotspot # tool for hotspot
     nixpkgs-fmt # format .nix files
-    
+    libinput
+
     # hyprland stuff
     (waybar.overrideAttrs (oldAttrs: {
       mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
