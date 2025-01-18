@@ -2,17 +2,25 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, lib, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
-      ./nvidia.nix
-      #./game.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.default
+    ./nvidia.nix
+    #./game.nix
+    # ./system-services.nix
+  ];
 
+  # required for having both plasma6 and gnome enabled
   programs.ssh.askPassword = lib.mkForce "/nix/store/awb6dzl5kcwi2910frjcw0b96988fp2b-ksshaskpass-6.2.4/bin/ksshaskpass";
 
   # default = lts kernel
@@ -32,11 +40,12 @@
   };
 
   # add swap file
-    swapDevices = [ {
-    device = "/var/lib/swapfile";
-    size = 16*1024;
-  } ];
-
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 16 * 1024;
+    }
+  ];
 
   programs.direnv.enable = true;
   networking.hostName = "nixos-laptop"; # Define your hostname.
@@ -52,7 +61,10 @@
     wifi.scanRandMacAddress = false;
   };
 
-  networking.firewall.allowedTCPPorts = [ 29549 57621 ];  # Replace PORT_NUMBER with qBittorrent's port.
+  networking.firewall.allowedTCPPorts = [
+    29549
+    57621
+  ]; # Replace PORT_NUMBER with qBittorrent's port.
 
   # Set your time zone.
   time.timeZone = "Europe/Istanbul";
@@ -112,7 +124,6 @@
     # hyprland vars over
   };
 
-
   # Configure console keymap
   console.keyMap = "trq";
 
@@ -142,7 +153,11 @@
   users.users.namael = {
     isNormalUser = true;
     description = "Namael";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "gamemode"
+    ];
     packages = with pkgs; [
       kdePackages.kate
       #  thunderbird
@@ -188,12 +203,12 @@
     sqlite # local sql database tool
     jdk # java development kit
     linux-wifi-hotspot # tool for hotspot
-    nixpkgs-fmt # format .nix files
+    nixfmt-rfc-style # format .nix files
     libinput
 
     # hyprland stuff
     (waybar.overrideAttrs (oldAttrs: {
-      mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
+      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
     }))
     pywal # colorcheme creator for wallpaper
     mako # notifications
@@ -208,11 +223,11 @@
     # hyprland stuff over
   ];
 
-
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   virtualisation.libvirtd.enable = true;
+  programs.gamemode.enable = true;
 
   environment.shellAliases = {
     rebuild = "sudo nixos-rebuild switch --flake /home/namael/nixos/#default";
@@ -223,7 +238,7 @@
   };
 
   services.zapret.enable = true;
-  services.zapret.params = ["--dpi-desync=fake --dpi-desync-ttl=3"];
+  services.zapret.params = [ "--dpi-desync=fake --dpi-desync-ttl=3" ];
 
   # android debugger
   programs.adb.enable = true;
@@ -233,15 +248,18 @@
   # shell
   programs.fish.enable = true;
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs;};
+    extraSpecialArgs = { inherit inputs; };
     users = {
       "namael" = import ./home.nix;
     };
     # #DONT ENABLE THIS LINE SDDM WONT LOGIN
-    # shell = pkgs.fish; 
+    # shell = pkgs.fish;
   };
 
   # This value determines the NixOS release from which the default
