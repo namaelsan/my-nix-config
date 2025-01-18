@@ -1,16 +1,16 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
-  systemd.services.enableNumlock = {
-    enable = true;
-    description = "Enable NumLock on TTY2 at boot";
-    after = [ "sysinit.target" ];  # Ensure it runs after the system initializes
-    wantedBy = [ "multi-user.target" ]; # Run in multi-user mode
-
+  systemd.services.numLockOnTty = {
+    wantedBy = [ "default.target" ];
     serviceConfig = {
-      ExecStart = "/usr/bin/setleds +num < /dev/tty2";
-      Type = "oneshot"; # Run the command once
-      StandardInput = "tty"; # Required for `setleds` to work with TTY
+      # /run/current-system/sw/bin/setleds -D +num < "$tty";
+      # ExecStartPre = "${pkgs.coreutils}/bin/sleep 0.5"; # Delay of 0.5 seconds
+      ExecStart = lib.mkForce (
+        pkgs.writeShellScript "numLockOnTty" ''
+          ${pkgs.coreutils}/bin/echo 'key x:Num_Lock' | ${pkgs.dotool}/bin/dotool
+        ''
+      );
     };
   };
 }

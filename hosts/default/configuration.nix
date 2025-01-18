@@ -17,7 +17,7 @@
     inputs.home-manager.nixosModules.default
     ./nvidia.nix
     #./game.nix
-    # ./system-services.nix
+    ./system-services.nix
   ];
 
   # required for having both plasma6 and gnome enabled
@@ -204,7 +204,7 @@
     jdk # java development kit
     linux-wifi-hotspot # tool for hotspot
     nixfmt-rfc-style # format .nix files
-    libinput
+    dotool # simulate key press
 
     # hyprland stuff
     (waybar.overrideAttrs (oldAttrs: {
