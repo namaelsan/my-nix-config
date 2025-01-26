@@ -29,31 +29,32 @@
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
-    vscode
-    protonplus
-    rclone
-    vesktop
+    vscode # text editor
+    protonplus # protonge etc. version installer
+    rclone # used for mounting dropbox drive
+    vesktop # discord with plugins
     keepassxc
-    git
+    git # version control
     steam
-    gamescope
-    gamemode
-    mangohud
-    universal-android-debloater
-    telegram-desktop
+    gamescope # tool for starting games in isolated environments
+    gamemode # optimize system resources for gameplay
+    mangohud # systeminfo hud
+    universal-android-debloater # debloat your android device
+    telegram-desktop # messaging app
     # spotify installed from flatpak
     android-studio # NOTE: android sdk was installed manually
     vdhcoapp # video download helper coapp
-    flutter
-    stremio
-    font-awesome
-    syncplay
-    qbittorrent
-    lutris
-    libreoffice-qt
-    puddletag
-    cryptomator
-    ffmpeg
+    flutter # flutter programming language sdk
+    stremio # watch movies etc from different sources
+    font-awesome # font for waybar theme
+    syncplay # play video files in sync online
+    qbittorrent # torrent client
+    lutris # game launcher/helper
+    libreoffice-qt # fos office alternative
+    puddletag # mp3 info editor
+    cryptomator # encryipt files
+    ffmpeg # video and stuff helper tool
+    python3 # python programing language support
   ];
 
   fonts.fontconfig.enable =  true;
