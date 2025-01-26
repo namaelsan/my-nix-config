@@ -205,6 +205,7 @@
     linux-wifi-hotspot # tool for hotspot
     nixfmt-rfc-style # format .nix files
     dotool # simulate key press
+    gnome-tweaks 
 
     # hyprland stuff
     (waybar.overrideAttrs (oldAttrs: {
