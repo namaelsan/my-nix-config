@@ -21,7 +21,7 @@
   ];
 
   # required for having both plasma6 and gnome enabled
-  programs.ssh.askPassword = lib.mkForce "/nix/store/awb6dzl5kcwi2910frjcw0b96988fp2b-ksshaskpass-6.2.4/bin/ksshaskpass";
+  # programs.ssh.askPassword = lib.mkForce "/nix/store/awb6dzl5kcwi2910frjcw0b96988fp2b-ksshaskpass-6.2.4/bin/ksshaskpass";
 
   # default = lts kernel
   # boot.kernelPackages = pkgs.linuxPackages_latest; # use latest kernel
@@ -100,7 +100,7 @@
       };
     };
     desktopManager.plasma6.enable = true;
-    xserver.desktopManager.gnome.enable = true;
+    # xserver.desktopManager.gnome.enable = true;
 
     # Configure keymap in X11
     xserver.xkb = {
@@ -151,6 +151,7 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.namael = {
+    shell = pkgs.fish;
     isNormalUser = true;
     description = "Namael";
     extraGroups = [
