@@ -206,7 +206,7 @@
     linux-wifi-hotspot # tool for hotspot
     nixfmt-rfc-style # format .nix files
     dotool # simulate key press
-    gnome-tweaks 
+    protonvpn-gui # vpn
 
     # hyprland stuff
     (waybar.overrideAttrs (oldAttrs: {
