@@ -55,6 +55,7 @@
     cryptomator # encryipt files
     ffmpeg # video and stuff helper tool
     python3 # python programing language support
+    prismlauncher # official minecraft launcher
   ];
 
   fonts.fontconfig.enable =  true;
