@@ -207,6 +207,7 @@
     nixfmt-rfc-style # format .nix files
     dotool # simulate key press
     protonvpn-gui # vpn
+    heroic # Native GOG, Epic, and Amazon Games Launcher for Linux, Windows and Mac 
 
     # hyprland stuff
     (waybar.overrideAttrs (oldAttrs: {
@@ -241,6 +242,7 @@
 
   services.zapret.enable = true;
   services.zapret.params = [ "--dpi-desync=fake --dpi-desync-ttl=3" ];
+  # dont forget to change dns in network settings
 
   # android debugger
   programs.adb.enable = true;
