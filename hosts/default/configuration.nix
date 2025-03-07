@@ -165,7 +165,10 @@
     ];
   };
 
-  programs.steam.enable = true;
+  programs.steam = {
+    enable = true;
+    extraCompatPackages = [ pkgs.proton-ge-bin ];
+  };
   programs.gamescope.enable = true;
 
   # Install firefox.
@@ -207,7 +210,7 @@
     nixfmt-rfc-style # format .nix files
     dotool # simulate key press
     protonvpn-gui # vpn
-    heroic # Native GOG, Epic, and Amazon Games Launcher for Linux, Windows and Mac 
+    heroic # Native GOG, Epic, and Amazon Games Launcher for Linux, Windows and Mac
 
     # hyprland stuff
     (waybar.overrideAttrs (oldAttrs: {
@@ -248,6 +251,7 @@
   programs.adb.enable = true;
 
   services.flatpak.enable = true;
+  programs.appimage.enable = true;
 
   # shell
   programs.fish.enable = true;
