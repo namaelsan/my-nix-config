@@ -144,6 +144,21 @@
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
     #media-session.enable = true;
+    
+    # set min values to 256 to reduce cracks and pops in audio in cpu intensive situations
+    extraConfig.pipewire-pulse."92-low-latency" = {
+    "context.properties" = [
+      {
+        name = "libpipewire-module-protocol-pulse";
+        args = { };
+      }
+    ];
+    "pulse.properties" = {
+      "pulse.min.req" = "256/48000";
+      "pulse.min.quantum" = "256/48000";
+      "pulse.min.frag" = "256/48000";
+    };
+    };
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
