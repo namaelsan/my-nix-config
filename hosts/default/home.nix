@@ -35,7 +35,6 @@
     vesktop # discord with plugins
     keepassxc
     git # version control
-    steam
     gamescope # tool for starting games in isolated environments
     gamemode # optimize system resources for gameplay
     mangohud # systeminfo hud
@@ -56,6 +55,7 @@
     ffmpeg # video and stuff helper tool
     python3 # python programing language support
     prismlauncher # official minecraft launcher
+    jetbrains.rider # webdevelopment
   ];
 
   fonts.fontconfig.enable =  true;
