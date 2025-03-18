@@ -186,8 +186,8 @@
   };
   programs.gamescope.enable = true;
 
-  # Install firefox.
-  programs.firefox = {
+  # Install librewolf.
+  programs.librewolf = {
     enable = true;
     nativeMessagingHosts.packages = with pkgs; [ vdhcoapp ];
   };
