@@ -186,11 +186,6 @@
   };
   programs.gamescope.enable = true;
 
-  # Install librewolf.
-  programs.librewolf = {
-    enable = true;
-    nativeMessagingHosts.packages = with pkgs; [ vdhcoapp ];
-  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

@@ -66,6 +66,12 @@
     userEmail = "x.arybidx@gmail.com";
   };
 
+  # Install librewolf.
+  programs.librewolf = {
+    enable = true;
+
+  };
+
   home.file = {
     ".config/hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/hyprland/hyprland.conf;
     ".config/fish/config.fish".source = config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/fish/config.fish;
