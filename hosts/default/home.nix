@@ -56,6 +56,7 @@
     python3 # python programing language support
     prismlauncher # official minecraft launcher
     jetbrains.rider # webdevelopment
+    signal-desktop # signal messaging app
   ];
 
   fonts.fontconfig.enable =  true;
