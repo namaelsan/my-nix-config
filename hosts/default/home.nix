@@ -1,10 +1,11 @@
+{ config, pkgs, inputs, ... }:
 
-{ config, pkgs, ... }:
-
-
+let
+  system = "x86_64-linux";
+in
 {
   imports = [
-      ./user-services.nix
+    ./user-services.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -57,9 +58,10 @@
     prismlauncher # official minecraft launcher
     jetbrains.rider # webdevelopment
     signal-desktop # signal messaging app
+    inputs.zen-browser.packages."${system}".default # zen browser
   ];
 
-  fonts.fontconfig.enable =  true;
+  fonts.fontconfig.enable = true;
 
   programs.git = {
     enable = true;
@@ -74,8 +76,10 @@
   };
 
   home.file = {
-    ".config/hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/hyprland/hyprland.conf;
-    ".config/fish/config.fish".source = config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/fish/config.fish;
+    ".config/hypr/hyprland.conf".source =
+      config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/hyprland/hyprland.conf;
+    ".config/fish/config.fish".source =
+      config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/fish/config.fish;
   };
 
   home.sessionVariables = {
