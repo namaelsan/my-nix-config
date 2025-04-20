@@ -221,6 +221,7 @@
     dotool # simulate key press
     protonvpn-gui # vpn
     heroic # Native GOG, Epic, and Amazon Games Launcher for Linux, Windows and Mac
+    inputs.kwin-effects-forceblur.packages.${pkgs.system}.default
 
     # hyprland stuff
     (waybar.overrideAttrs (oldAttrs: {
