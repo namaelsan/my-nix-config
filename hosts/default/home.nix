@@ -59,6 +59,7 @@ in
     jetbrains.rider # webdevelopment
     signal-desktop # signal messaging app
     inputs.zen-browser.packages."${system}".default # zen browser
+    cemu
   ];
 
   fonts.fontconfig.enable = true;
