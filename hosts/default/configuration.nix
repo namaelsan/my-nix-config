@@ -144,20 +144,20 @@
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
     #media-session.enable = true;
-    
+
     # set min values to 256 to reduce cracks and pops in audio in cpu intensive situations
     extraConfig.pipewire-pulse."92-low-latency" = {
-    "context.properties" = [
-      {
-        name = "libpipewire-module-protocol-pulse";
-        args = { };
-      }
-    ];
-    "pulse.properties" = {
-      "pulse.min.req" = "256/48000";
-      "pulse.min.quantum" = "256/48000";
-      "pulse.min.frag" = "256/48000";
-    };
+      "context.properties" = [
+        {
+          name = "libpipewire-module-protocol-pulse";
+          args = { };
+        }
+      ];
+      "pulse.properties" = {
+        "pulse.min.req" = "256/48000";
+        "pulse.min.quantum" = "256/48000";
+        "pulse.min.frag" = "256/48000";
+      };
     };
   };
 
@@ -185,7 +185,6 @@
     extraCompatPackages = [ pkgs.proton-ge-bin ];
   };
   programs.gamescope.enable = true;
-
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -254,14 +253,24 @@
     hotspot = "sudo create_ap wlo1 enp4s0 MyAccesPoint";
   };
 
-  services.zapret.enable = true;
-  services.zapret.params = [ "--dpi-desync=fake --dpi-desync-ttl=3" ];
-  # dont forget to change dns in network settings
-
   # android debugger
   programs.adb.enable = true;
 
-  services.flatpak.enable = true;
+  services = {
+    deluge = {
+      enable = true;
+      web.enable = true;
+    };
+
+    flatpak.enable = true;
+
+    # dont forget to change dns in network settings
+    zapret = {
+      enable = true;
+      params = [ "--dpi-desync=fake --dpi-desync-ttl=3" ];
+    };
+  };
+
   programs.appimage.enable = true;
 
   # shell
