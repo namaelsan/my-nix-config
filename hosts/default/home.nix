@@ -48,7 +48,7 @@ in
     stremio # watch movies etc from different sources
     font-awesome # font for waybar theme
     syncplay # play video files in sync online
-    qbittorrent # torrent client
+    # qbittorrent # torrent client
     lutris # game launcher/helper
     libreoffice-qt # fos office alternative
     puddletag # mp3 info editor
