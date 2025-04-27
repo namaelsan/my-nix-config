@@ -20,8 +20,8 @@
     ./system-services.nix
   ];
 
-  # required for having both plasma6 and gnome enabled
-  # programs.ssh.askPassword = lib.mkForce "/nix/store/awb6dzl5kcwi2910frjcw0b96988fp2b-ksshaskpass-6.2.4/bin/ksshaskpass";
+  hardware.bluetooth.enable = false;
+  hardware.xpadneo.enable = true; # controller in xbox one mode
 
   # default = lts kernel
   # boot.kernelPackages = pkgs.linuxPackages_latest; # use latest kernel
