@@ -16,12 +16,11 @@
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
     ./nvidia.nix
-    #./game.nix
+    ./game.nix
     ./system-services.nix
   ];
 
   hardware.bluetooth.enable = false;
-  hardware.xpadneo.enable = true; # controller in xbox one mode
 
   # default = lts kernel
   # boot.kernelPackages = pkgs.linuxPackages_latest; # use latest kernel
@@ -112,13 +111,14 @@
   # Enable hyprland
   programs.hyprland = {
     enable = true;
+    nvidiaPatches = true;
     xwayland.enable = true;
   };
 
   environment.sessionVariables = {
     # somehyprland variables
     # # If cursor becomes invisible ENABLE
-    # WLR_NO_HARDWARE_CURSORS = "1";
+    WLR_NO_HARDWARE_CURSORS = "1";
     # # Hint electron apps to use wayland
     # NIXOS_OZONE_WL = "1";
     # hyprland vars over
@@ -180,11 +180,6 @@
     ];
   };
 
-  programs.steam = {
-    enable = true;
-    extraCompatPackages = [ pkgs.proton-ge-bin ];
-  };
-  programs.gamescope.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
