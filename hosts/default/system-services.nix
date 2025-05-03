@@ -11,7 +11,7 @@
       ExecStart = lib.mkForce (
         pkgs.writeShellScript "numLockOnTty7" ''
           # Wait for SDDM to start (optional delay)
-          ${pkgs.coreutils}/bin/sleep 1.5
+          ${pkgs.coreutils}/bin/sleep 2
 
           # Set the DISPLAY environment variable for tty7
           export DISPLAY=":0"
