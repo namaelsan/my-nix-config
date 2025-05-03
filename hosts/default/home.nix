@@ -60,7 +60,7 @@ in
     signal-desktop # signal messaging app
     inputs.zen-browser.packages."${system}".default # zen browser
     cemu # wiiu emulator
-    ppsspp-sdl-wayland # psp emulator
+    ppsspp-sdl # psp emulator
   ];
 
   fonts.fontconfig.enable = true;
