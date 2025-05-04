@@ -218,6 +218,7 @@
     inputs.kwin-effects-forceblur.packages.${pkgs.system}.default
 
     # hyprland stuff
+    hyprsome # multiple monitor workspace configuration
     (waybar.overrideAttrs (oldAttrs: {
       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
     }))
