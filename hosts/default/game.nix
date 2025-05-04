@@ -13,7 +13,6 @@
   programs.gamemode.enable = true;
 
   hardware = {
-    opengl.enable = true;
     xpadneo.enable = true; # controller in xbox one mode
   };
 }

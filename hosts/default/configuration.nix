@@ -111,7 +111,7 @@
   # Enable hyprland
   programs.hyprland = {
     enable = true;
-    nvidiaPatches = true;
+    # nvidiaPatches = true; #NO LONGER NEEDED DONT ADD BACK
     xwayland.enable = true;
   };
 
