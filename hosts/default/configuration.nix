@@ -21,6 +21,7 @@
   ];
 
   hardware.bluetooth.enable = false;
+  hardware.i2c.enable = true;
 
   # default = lts kernel
   # boot.kernelPackages = pkgs.linuxPackages_latest; # use latest kernel
@@ -173,6 +174,7 @@
       "networkmanager"
       "wheel"
       "gamemode"
+      "input"
     ];
     packages = with pkgs; [
       kdePackages.kate
@@ -216,13 +218,13 @@
     heroic # Native GOG, Epic, and Amazon Games Launcher for Linux, Windows and Mac
     inputs.kwin-effects-forceblur.packages.${pkgs.system}.default # forceblur effect for manually setting blur in kde. transparency = blur in selected window classes
     mesa-demos # mesa tools (glxgears glxinfo)
+    ddcutil # external monitor brightness
+    brightnessctl # laptop display brightness
 
     # hyprland stuff
     gtk3 # for image rendering in waybar
     hyprsome # multiple monitor workspace configuration
-    (waybar.overrideAttrs (oldAttrs: {
-      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-    }))
+    waybar # waybar
     pywal16 # colorcheme creator for wallpaper
     imagemagick # cli image manipulation tools
     mako # notifications
