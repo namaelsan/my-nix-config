@@ -1,20 +1,16 @@
 {
-    "hyprland/workspaces": {
-      "on-scroll-up": "hyprctl dispatch workspace r-1",
-      "on-scroll-down": "hyprctl dispatch workspace r+1",
-      "on-click": "activate",
-      "active-only": false,
-      "all-outputs": true,
-      "format": "{}",
-      "format-icons": {
-        "urgent": "",
-        "active": "",
-        "default": ""
-      },
-      "persistent-workspaces": {
-        "*": 5
-      }
-    },
+  "hyprland/workspaces" : {
+    "on-click": "activate",
+    "active-only": false,
+    "all-outputs": true,
+    "format": "{icon}",
+    "format-icons": {
+  "urgent": "",
+  "active":  "",
+  "default": "",
+        "sort-by-number": true
+    }
+},
   
     "wlr/taskbar": {
       "format": "{icon}",
@@ -32,23 +28,16 @@
       }
     },
   
-    "hyprland/window": {
-      "rewrite": {
-        "(.*) - Brave": "$1",
-        "(.*) - Chromium": "$1",
-        "(.*) - Brave Search": "$1",
-        "(.*) - Outlook": "$1",
-        "(.*) Microsoft Teams": "$1"
-      },
-      "separate-outputs": true
-    },
-  
-    "custom/ml4w-welcome": {
-      "on-click": "sleep 0.1 && /home/namael/nixos/hosts/default/dotfiles/waybar/scripts/ml4w-sidebar.sh",
-      "on-click-right": "sleep 0.1 && com.ml4w.welcome",
-      "format": " ",
-      "tooltip-format": "Open Sidebar"
-    },
+    // "hyprland/window": {
+    //   "rewrite": {
+    //     "(.*) - Brave": "$1",
+    //     "(.*) - Chromium": "$1",
+    //     "(.*) - Brave Search": "$1",
+    //     "(.*) - Outlook": "$1",
+    //     "(.*) Microsoft Teams": "$1"
+    //   },
+    //   "separate-outputs": true
+    // },
   
     "custom/empty": {
       "format": ""
@@ -115,18 +104,18 @@
     },
   
     "custom/windowsvm": {
-      "format": "",
+      "format": "    ",
       "on-click": "~/.config/ml4w/scripts/launchvm.sh",
       "tooltip": false
     },
   
     "custom/appmenu": {
       // START APPS LABEL
-      "format": "Apps",
+      "format": "",
       // END APPS LABEL
-      "on-click": "sleep 0.2;pkill rofi || rofi -show drun -replace",
+      "on-click": "~/nixos/hosts/default/dotfiles/waybar/scripts/applauncher.sh",
       "on-click-right": "~/.config/hypr/scripts/keybindings.sh",
-      "tooltip-format": "Left: Open the application launcher\nRight: Show all keybindings"
+      "tooltip-format": "Left: Open the application launcher\nRight: Show all keybindings",
     },
   
     "custom/appmenuicon": {

@@ -1,37 +1,31 @@
 {
-    "layer": "top",
-    "margin-bottom": 0,
-    "margin-left": 0,
-    "margin-right": 0,    
-    "spacing": 0,
 
     "include": [
         "/home/namael/nixos/hosts/default/dotfiles/waybar/modules.json"
     ],
 
+    "layer": "top", // Waybar at top layer
+    "height": 30, // Waybar height (to be removed for auto height)
+    "spacing": 4, // Gaps between modules (4px)
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-right": 0,
     "modules-left": [
         "custom/appmenu",
-        "custom/settings",
-        "wlr/taskbar",
-        "hyprland/window",
-        "custom/starter"
+        "hyprland/window"
     ],
-
     "modules-center": [
         "hyprland/workspaces"
     ],
-
     "modules-right": [
-        "pulseaudio",
-        "bluetooth",
-        "battery", 
+        "keyboard-state", 
+        "pulseaudio", 
         "network",
-        "group/hardware",
-        "custom/hypridle",
-        "custom/hyprshade",
-        "tray",
-        "custom/exit",
-        "custom/ml4w-welcome",
-        "clock"
+        "cpu", 
+        "memory", 
+        "battery", 
+        "clock", 
+        "custom/exit", 
+        "tray"
     ]
 }
