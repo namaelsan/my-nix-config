@@ -215,23 +215,28 @@
     dotool # simulate key press
     protonvpn-gui # vpn
     heroic # Native GOG, Epic, and Amazon Games Launcher for Linux, Windows and Mac
-    inputs.kwin-effects-forceblur.packages.${pkgs.system}.default
+    inputs.kwin-effects-forceblur.packages.${pkgs.system}.default # forceblur effect for manually setting blur in kde. transparency = blur in selected window classes
+    fira # fira font family
 
     # hyprland stuff
+    gtk3 # for image rendering in waybar
     hyprsome # multiple monitor workspace configuration
     (waybar.overrideAttrs (oldAttrs: {
       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
     }))
-    pywal # colorcheme creator for wallpaper
+    pywal16 # colorcheme creator for wallpaper
+    imagemagick # cli image manipulation tools
     mako # notifications
     swww # wallpaper
     kitty # default terminal
     alacritty # pref terminal
     rofi-wayland # app launcher
     networkmanagerapplet
-    grim # screenshot
-    slurp # select from screenshot
+    hyprshot # standalone screenshot tool
+    libnotify # library to send notification
     wl-clipboard # copy to clipboard wayland
+    pavucontrol # sound controls
+    clipse # clipbard manager
     # hyprland stuff over
   ];
 
