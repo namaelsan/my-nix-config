@@ -82,6 +82,8 @@ in
       config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/hyprland/hyprland.conf;
     ".config/fish/config.fish".source =
       config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/fish/config.fish;
+    ".config/alacritty/alacritty.toml".source =
+      config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/alacritty/alacritty.toml;
   };
 
   home.sessionVariables = {
