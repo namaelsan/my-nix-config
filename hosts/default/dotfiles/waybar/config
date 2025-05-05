@@ -18,14 +18,15 @@
         "hyprland/workspaces"
     ],
     "modules-right": [
+        "tray",
+        "group/tools",
         "keyboard-state", 
         "pulseaudio", 
-        "network",
+        // "network",
         "cpu", 
         "memory", 
         "battery", 
         "clock", 
         "custom/exit", 
-        "tray"
     ]
 }
