@@ -22,9 +22,9 @@ choice=$(echo -e "$options" | rofi -dmenu -i -no-show-icons -theme ~/.cache/wal/
 
 case $choice in
 	$option1)
-		swaylock ;;
+		hyprlock;;
 	$option2)
-		hyprctl dispatch exit ;;
+		loginctl terminate-user $USER ;;
 	$option3)
 		systemctl reboot ;;
 	$option4)
