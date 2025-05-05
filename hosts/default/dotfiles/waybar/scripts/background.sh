@@ -10,7 +10,7 @@ WAYBAR_STYLE="$HOME/nixos/hosts/default/dotfiles/waybar/style.css"
 swww img "$SELECTED_WALLPAPER" --transition-type random --transition-duration 3
 
 # Generate colors using pywal
-wal -i "$SELECTED_WALLPAPER" -q -n
+wal -n -e --cols16 darken -i "$SELECTED_WALLPAPER" 
 
 # Update Hyprland colors
 # Replace colors in your Hyprland config using pywal colors
