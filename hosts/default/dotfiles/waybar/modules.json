@@ -50,10 +50,10 @@
   
     "custom/cliphist": {
       "format": "",
-      "on-click": "sleep 0.1 && ~/nixos/hosts/default/dotfiles/waybar/scripts/cliphist.sh",
-      "on-click-right": "sleep 0.1 && ~/nixos/hosts/default/dotfiles/waybar/scripts/cliphist.sh d",
-      "on-click-middle": "sleep 0.1 && ~/nixos/hosts/default/dotfiles/waybar/scripts/cliphist.sh w",
-      "tooltip-format": "Left: Open clipboard Manager\nRight: Delete an entry\nMiddle: Clear list"
+      "on-click": "sleep 0.1 && ~/nixos/hosts/default/scripts/cliphist/cliphist.sh",
+      // "on-click-right": "sleep 0.1 && ~/nixos/hosts/default/scripts/cliphist/cliphist.sh w",
+      "on-click-middle": "sleep 0.1 && ~/nixos/hosts/default/scripts/cliphist/cliphist.sh d",
+      "tooltip-format": "Left: Open clipboard Manager\nMiddle: Clear list"
     },
   
     "custom/updates": {
@@ -128,7 +128,7 @@
     // Power Menu
     "custom/exit": {
       "format": "",
-      "on-click": "/home/namael/nixos/hosts/default/dotfiles/waybar/scripts/wlogout.sh",
+      "on-click": "~/nixos/hosts/default/dotfiles/waybar/scripts/powermenu-hypr.sh",
       "on-click-right": "hyprlock",
       "tooltip-format": "Left: Power menu\nRight: Lock screen"
     },
