@@ -24,7 +24,7 @@ case $choice in
 	$option1)
 		hyprlock;;
 	$option2)
-		loginctl terminate-user $USER ;;
+		hyprctl dispatch exit ;;
 	$option3)
 		systemctl reboot ;;
 	$option4)
