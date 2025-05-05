@@ -215,7 +215,6 @@
     protonvpn-gui # vpn
     heroic # Native GOG, Epic, and Amazon Games Launcher for Linux, Windows and Mac
     inputs.kwin-effects-forceblur.packages.${pkgs.system}.default # forceblur effect for manually setting blur in kde. transparency = blur in selected window classes
-    fira # fira font family
     mesa-demos # mesa tools (glxgears glxinfo)
 
     # hyprland stuff
@@ -239,6 +238,11 @@
     clipse # clipbard manager
     hyprlock # lockscreen
     # hyprland stuff over
+  ];
+
+  fonts.packages = with pkgs; [
+    fira # fira font family
+    nerd-fonts.symbols-only
   ];
 
   xdg.portal.enable = true;
@@ -278,8 +282,8 @@
       enable = true;
       settings = {
         # Set the min/max/turbo frequency for the Intel GPU. Possible values depend on your hardware. See the output of tlp-stat -g for available frequencies.
-        INTEL_GPU_MIN_FREQ_ON_AC=300;
-        INTEL_GPU_MIN_FREQ_ON_BAT=100;
+        INTEL_GPU_MIN_FREQ_ON_AC = 500;
+        INTEL_GPU_MIN_FREQ_ON_BAT = 100;
         # INTEL_GPU_MAX_FREQ_ON_AC=0
         # INTEL_GPU_MAX_FREQ_ON_BAT=0
         # INTEL_GPU_BOOST_FREQ_ON_AC=0
