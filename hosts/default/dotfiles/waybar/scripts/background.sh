@@ -11,24 +11,7 @@ swww img "$SELECTED_WALLPAPER" --transition-type random --transition-duration 3
 
 # Generate colors using pywal
 wal -n -e --cols16 darken -i "$SELECTED_WALLPAPER" 
-
-# Update Hyprland colors
-# Replace colors in your Hyprland config using pywal colors
-sed -i "s/^col.active_border = .*/col.active_border = $(cat ~/.cache/wal/colors | sed -n '2p');/" "$HYPR_CONFIG"
-sed -i "s/^col.inactive_border = .*/col.inactive_border = $(cat ~/.cache/wal/colors | sed -n '3p');/" "$HYPR_CONFIG"
-sed -i "s/^col.background = .*/col.background = $(cat ~/.cache/wal/colors | sed -n '1p');/" "$HYPR_CONFIG"
-
-# # Update Waybar colors
-# # Replace @define-color values in your Waybar style.css file
-# # waybard imports the file itself this part is not needed
-# sed -i "s/@define-color backgrounddark .*/@define-color backgrounddark $(cat ~/.cache/wal/colors | sed -n '1p');/" "$WAYBAR_STYLE"
-# sed -i "s/@define-color backgroundlight .*/@define-color backgroundlight $(cat ~/.cache/wal/colors | sed -n '2p');/" "$WAYBAR_STYLE"
-# sed -i "s/@define-color workspacesbackground1 .*/@define-color workspacesbackground1 $(cat ~/.cache/wal/colors | sed -n '3p');/" "$WAYBAR_STYLE"
-# sed -i "s/@define-color workspacesbackground2 .*/@define-color workspacesbackground2 $(cat ~/.cache/wal/colors | sed -n '4p');/" "$WAYBAR_STYLE"
-# sed -i "s/@define-color bordercolor .*/@define-color bordercolor $(cat ~/.cache/wal/colors | sed -n '5p');/" "$WAYBAR_STYLE"
-# sed -i "s/@define-color textcolor1 .*/@define-color textcolor1 $(cat ~/.cache/wal/colors | sed -n '6p');/" "$WAYBAR_STYLE"
-# sed -i "s/@define-color textcolor2 .*/@define-color textcolor2 $(cat ~/.cache/wal/colors | sed -n '7p');/" "$WAYBAR_STYLE"
-# sed -i "s/@define-color iconcolor .*/@define-color iconcolor $(cat ~/.cache/wal/colors | sed -n '9p');/" "$WAYBAR_STYLE"
+cp $SELECTED_WALLPAPER ~/.cache/current_wp
 
 # Restart Hyprland and Waybar to apply the changes
 hyprctl reload
