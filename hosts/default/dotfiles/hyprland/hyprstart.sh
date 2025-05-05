@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# run clipboard listener on startup
+clipse -listen 
 # wallpaper
 swww-daemon &
 swww img ~/Wallpapers/wp9223560-4k-night-hd-wallpapers.jpg &
