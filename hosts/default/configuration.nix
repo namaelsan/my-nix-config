@@ -19,7 +19,7 @@
     ./game.nix
     ./system-services.nix
   ];
-  
+
   hardware.bluetooth.enable = false;
 
   # default = lts kernel
@@ -180,7 +180,6 @@
     ];
   };
 
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -217,6 +216,7 @@
     heroic # Native GOG, Epic, and Amazon Games Launcher for Linux, Windows and Mac
     inputs.kwin-effects-forceblur.packages.${pkgs.system}.default # forceblur effect for manually setting blur in kde. transparency = blur in selected window classes
     fira # fira font family
+    mesa-demos # mesa tools (glxgears glxinfo)
 
     # hyprland stuff
     gtk3 # for image rendering in waybar
@@ -270,6 +270,21 @@
     zapret = {
       enable = true;
       params = [ "--dpi-desync=fake --dpi-desync-ttl=3" ];
+    };
+
+    power-profiles-daemon.enable = false; # has to be disabled to use tlp
+
+    tlp = {
+      enable = true;
+      settings = {
+        # Set the min/max/turbo frequency for the Intel GPU. Possible values depend on your hardware. See the output of tlp-stat -g for available frequencies.
+        INTEL_GPU_MIN_FREQ_ON_AC=300;
+        INTEL_GPU_MIN_FREQ_ON_BAT=100;
+        # INTEL_GPU_MAX_FREQ_ON_AC=0
+        # INTEL_GPU_MAX_FREQ_ON_BAT=0
+        # INTEL_GPU_BOOST_FREQ_ON_AC=0
+        # INTEL_GPU_BOOST_FREQ_ON_BAT=0
+      };
     };
   };
 
