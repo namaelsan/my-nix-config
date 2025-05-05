@@ -7,7 +7,7 @@ in
   imports = [
     ./user-services.nix
   ];
-
+  
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "namael";
@@ -74,7 +74,6 @@ in
   # Install librewolf.
   programs.librewolf = {
     enable = true;
-
   };
 
   home.file = {
@@ -84,6 +83,8 @@ in
       config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/fish/config.fish;
     ".config/alacritty/alacritty.toml".source =
       config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/alacritty/alacritty.toml;
+    ".config/hypr/hyprlock.conf".source =
+      config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/hyprlock/hyprlock.conf;
   };
 
   home.sessionVariables = {

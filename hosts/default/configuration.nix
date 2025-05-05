@@ -19,7 +19,7 @@
     ./game.nix
     ./system-services.nix
   ];
-
+  
   hardware.bluetooth.enable = false;
 
   # default = lts kernel
@@ -237,6 +237,7 @@
     wl-clipboard # copy to clipboard wayland
     pavucontrol # sound controls
     clipse # clipbard manager
+    hyprlock # lockscreen
     # hyprland stuff over
   ];
 
