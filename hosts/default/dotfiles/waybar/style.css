@@ -16,7 +16,7 @@
 @import '/home/namael/.cache/wal/colors-waybar.css';
 
 * {
-    font-family: "Fira Sans Semibold", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: "Symbols Nerd Font Mono", "Fira Sans Semibold", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 14px;
     border-radius: 20px;
 }
@@ -92,15 +92,35 @@ button {
 #language,
 #mpd {
     margin: 6px 10px 6px 0px;
-    padding: 0 0px;
+    padding: 0 5px;
     color: #ffffff;
     font-size:14;
 }
 
+#disk,
+#cpu,
+#memory {
+    /* margin: 5px 10px; */
+    /* padding: 5 10px; */
+    margin: 5px 0px;
+    padding: 0px 5px 0px 0px;
+}
+
+
+#custom-tools,
+#custom-cliphist,
+#custom-hypridle,
+#custom-hyprshade {
+    margin: 0px 5px;
+}
+
+
 #window {
-    margin: 5 20px 5 20px;
+    margin: 5 10px;   /* Adjust margins */
     background-color:@color11;
     opacity:0.8;
+    padding: 0 10px;
+    /* min-width: 200px; Set minimum width */
 }
 
 #workspaces {
@@ -178,6 +198,7 @@ label:focus {
 
 #disk {
     background-color: #964B00;
+    background-position: center;
 }
 
 #backlight {
@@ -235,6 +256,9 @@ label:focus {
 }
 
 #tray {
+    margin: 5 10px;   /* Adjust margins */
+    opacity:0.8;
+    padding: 0 8px;
     background-color: #2980b9;
 }
 

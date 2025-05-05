@@ -28,16 +28,11 @@
       }
     },
   
-    // "hyprland/window": {
-    //   "rewrite": {
-    //     "(.*) - Brave": "$1",
-    //     "(.*) - Chromium": "$1",
-    //     "(.*) - Brave Search": "$1",
-    //     "(.*) - Outlook": "$1",
-    //     "(.*) Microsoft Teams": "$1"
-    //   },
-    //   "separate-outputs": true
-    // },
+    "hyprland/window": {
+      "max-length": 120,  // Increase this value
+      "width": 300,       // Or adjust width if needed
+      "separate-outputs": true
+    },
   
     "custom/empty": {
       "format": ""
@@ -179,7 +174,7 @@
     },
   
     "cpu": {
-      "format": "/ C {usage}% ",
+      "format": "/ C {usage}%",
       "on-click": "~/.config/ml4w/settings/system-monitor.sh"
     },
   
@@ -191,7 +186,7 @@
     // Harddisc space used
     "disk": {
       "interval": 30,
-      "format": "D {percentage_used}% ",
+      "format": "  D {percentage_used}%",
       "path": "/",
       "on-click": "~/.config/ml4w/settings/system-monitor.sh"
     },
@@ -207,7 +202,7 @@
         "children-class": "not-memory",
         "transition-left-to-right": false
       },
-      "modules": ["custom/system", "disk", "cpu", "memory", "hyprland/language"]
+      "modules": ["custom/system", "disk", "cpu", "memory" /*, "hyprland/language" */]
     },
   
     "group/tools": {
