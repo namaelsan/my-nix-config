@@ -12,6 +12,3 @@ swww img "$SELECTED_WALLPAPER" --transition-type random --transition-duration 3
 # Generate colors using pywal
 wal -n -e --cols16 darken -i "$SELECTED_WALLPAPER" 
 cp $SELECTED_WALLPAPER ~/.cache/current_wp
-
-# Restart Hyprland and Waybar to apply the changes
-hyprctl reload
