@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 let
   system = "x86_64-linux";
@@ -6,8 +11,9 @@ in
 {
   imports = [
     ./user-services.nix
+  inputs.zen-nebula.homeModules.default
   ];
-  
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "namael";
@@ -62,6 +68,12 @@ in
     cemu # wiiu emulator
     ppsspp-sdl # psp emulator
   ];
+
+
+  zen-nebula = {
+    enable = true;
+    profile = "myprofile"; # add firefox profile name here
+  };
 
   fonts.fontconfig.enable = true;
 
