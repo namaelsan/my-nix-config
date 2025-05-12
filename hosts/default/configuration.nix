@@ -66,6 +66,14 @@
     57621
   ]; # Replace PORT_NUMBER with qBittorrent's port.
 
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
+
   # Set your time zone.
   time.timeZone = "Europe/Istanbul";
 
@@ -175,6 +183,7 @@
       "wheel"
       "gamemode"
       "input"
+      "docker"
     ];
     packages = with pkgs; [
       kdePackages.kate
