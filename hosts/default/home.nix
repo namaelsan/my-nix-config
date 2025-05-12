@@ -72,7 +72,7 @@ in
 
   zen-nebula = {
     enable = true;
-    profile = "myprofile"; # add firefox profile name here
+    profile = "0atmftff.Default"; # add firefox profile name here
   };
 
   fonts.fontconfig.enable = true;
