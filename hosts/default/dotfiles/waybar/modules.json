@@ -214,11 +214,59 @@
       },
       "modules": [
         "custom/tools",
-        "custom/cliphist",
-        "custom/hypridle",
-        "custom/hyprshade"
+        "custom/cliphist"
+        // "custom/hypridle",
+        // "custom/hyprshade"
       ]
     },
+
+
+    // Group container with label
+    "group/brightness": {"orientation": "inherit",
+      "drawer": {
+        "transition-duration": 300,
+        "children-class": "not-memory",
+        "transition-left-to-right": false
+      },
+      "modules": [
+        "custom/brightness-label",
+        "custom/brightness-builtin",
+        "custom/brightness-external"
+      ],
+      "tooltip": false
+    },
+
+    // Individual brightness modules
+    "custom/brightness-builtin": {
+      "format": "{percentage}%",
+      "exec": "~/nixos/hosts/default/scripts/brightness/brightness_view.sh brightnessctl",
+      "interval": 5,
+      "signal": 5,
+      "return-type": "json",
+      "tooltip-format": "Internal Display",
+      "on-click": "~/nixos/hosts/default/scripts/brightness/brightness_change.sh u 1,0",
+      "on-click-right": "~/nixos/hosts/default/scripts/brightness/brightness_change.sh d 1,0"
+    },
+
+    "custom/brightness-external": {
+      "format": "{percentage}%",
+      "exec": "~/nixos/hosts/default/scripts/brightness/brightness_view.sh ddcutil",
+      "interval": 5,
+      "signal": 6,
+      "return-type": "json",
+      "tooltip-format": "External Display",
+      "on-click": "~/nixos/hosts/default/scripts/brightness/brightness_change.sh u -1,0",
+      "on-click-right": "~/nixos/hosts/default/scripts/brightness/brightness_change.sh d -1,0"
+    },
+
+    // Optional: Label module (if you want it separate)
+    "custom/brightness-label": {
+      "format": "󰃟",
+      "tooltip-format": "Screen Brightness"
+    },
+    
+
+
   
     "group/links": {
       "orientation": "horizontal",

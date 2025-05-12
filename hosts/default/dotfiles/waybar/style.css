@@ -28,7 +28,7 @@ window#waybar {
     background: transparent;
     transition-property: background-color;
     transition-duration: .5s;
-    border-radius: 20;
+    border-radius: 20px;
 }
 
 /*
@@ -92,9 +92,9 @@ button {
 #language,
 #mpd {
     margin: 6px 10px 6px 0px;
-    padding: 0 5px;
+    padding: 0px 5px;
     color: #ffffff;
-    font-size:14;
+    font-size:14px;
 }
 
 #disk,
@@ -104,6 +104,38 @@ button {
     /* padding: 5 10px; */
     margin: 5px 0px;
     padding: 0px 5px 0px 0px;
+}
+
+/* Style the group container
+#group-brightness {
+    background: #3b4252;
+    border-radius: 5px;
+    padding: 0 10px;
+    margin: 0 5px;
+} */
+
+/* Style individual modules */
+#custom-brightness-label,
+#custom-brightness-builtin,
+#custom-brightness-external {
+    padding: 0px 5px;
+    margin: 0px 5px;
+}
+
+/* Highlight active display
+#custom-brightness-builtin.active {
+    color: #a3be8c;
+}
+
+#custom-brightness-external.active {
+    color: #88c0d0;
+} */
+
+/* Label styling */
+#custom-brightness-label {
+    font-weight: bold;
+    margin-right: 5px;
+    /* color: #d8dee9; */
 }
 
 
@@ -116,15 +148,15 @@ button {
 
 
 #window {
-    margin: 5 10px;   /* Adjust margins */
+    margin: 5px 10px;   /* Adjust margins */
     background-color:@color11;
     opacity:0.8;
-    padding: 0 10px;
+    padding: 0px 10px;
     /* min-width: 200px; Set minimum width */
 }
 
 #workspaces {
-    margin: 5 10px 5 10px;
+    margin: 5px 10px 5px 10px;
     background-color:@color11;
     opacity:0.8;
 }
@@ -138,8 +170,8 @@ button {
 }
 
 #custom-appmenu {
-    margin-left:16;
-    font-size:18;
+    margin-left:16px;
+    font-size:18px;
     font-weight:bold;
     background-image: url('~/nixos/hosts/default/dotfiles/waybar/resources/nix-snowflake-colours.svg');
     background-position: center;
@@ -155,7 +187,7 @@ button {
 
 #clock {
     background-color: transparent;
-    font-size:18;
+    font-size:18px;
 }
 
 #battery {
@@ -256,7 +288,7 @@ label:focus {
 }
 
 #tray {
-    margin: 5 10px;   /* Adjust margins */
+    margin: 5px 10px;   /* Adjust margins */
     opacity:0.8;
     padding: 0 8px;
     background-color: #2980b9;
@@ -311,13 +343,13 @@ label:focus {
 #keyboard-state {
     background: #97e1ad;
     color: #000000;
-    padding: 0 0px;
-    margin: 0 5px;
+    padding: 0px 0px;
+    margin: 5px 5px;
     min-width: 16px;
 }
 
 #keyboard-state > label {
-    padding: 0 5px;
+    padding: 0px 5px;
 }
 
 #keyboard-state > label.locked {
