@@ -28,7 +28,7 @@
     automatic = true;
     dates = "weekly";
     persistent = true;
-    options = "--delete-older-than 30d";
+    options = "--delete-older-than 7d";
   };
   nix.settings.auto-optimise-store = true;
 }
