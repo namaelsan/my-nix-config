@@ -24,8 +24,8 @@
   hardware.i2c.enable = true;
 
   # default = lts kernel
-  # boot.kernelPackages = pkgs.linuxPackages_latest; # use latest kernel
-  boot.kernelPackages = pkgs.linuxPackages_lqx; # Liquorix kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest; # use latest kernel
+  # boot.kernelPackages = pkgs.linuxPackages_lqx; # Liquorix kernel
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
@@ -173,6 +173,8 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  nix.settings.trusted-users = [ "root" "namael" ];
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.namael = {
     shell = pkgs.fish;
@@ -229,6 +231,8 @@
     mesa-demos # mesa tools (glxgears glxinfo)
     ddcutil # external monitor brightness
     brightnessctl # laptop display brightness
+    devenv # development tool
+    nix-output-monitor # pretty build dialog for nix
 
     # hyprland stuff
     gtk3 # for image rendering in waybar
@@ -263,7 +267,7 @@
   programs.gamemode.enable = true;
 
   environment.shellAliases = {
-    rebuild = "sudo nixos-rebuild switch --flake /home/namael/nixos/#default";
+    rebuild = "sudo nixos-rebuild switch --log-format internal-json --flake /home/namael/nixos/#default &| nom --json";
     nixdiff = "nix profile diff-closures --profile /nix/var/nix/profiles/system";
     "cd.." = "cd ..";
     "cd-" = "cd -";
