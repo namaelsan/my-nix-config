@@ -48,6 +48,7 @@
       xorg.libXext
       xorg.libXfixes
       xorg.libXi
+      xorg.libXinerama
       xorg.libXrandr
       xorg.libXrender
       xorg.libXtst
