@@ -233,6 +233,7 @@
     brightnessctl # laptop display brightness
     devenv # development tool
     nix-output-monitor # pretty build dialog for nix
+    btop # process & resource monitor
 
     # hyprland stuff
     gtk3 # for image rendering in waybar
