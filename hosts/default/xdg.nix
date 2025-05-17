@@ -8,8 +8,7 @@
 
   # Set default applications
   xdg = {
-    mime.enable = true;
-    mimeApps = {
+    mime = {
       enable = true;
       defaultApplications = {
         # "" = [ "" ];
