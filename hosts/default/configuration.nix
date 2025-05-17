@@ -18,6 +18,8 @@
     ./nvidia.nix
     ./game.nix
     ./system-services.nix
+    ./nix-ld.nix
+    ./xdg.nix
   ];
 
   hardware.bluetooth.enable = false;
@@ -173,7 +175,10 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  nix.settings.trusted-users = [ "root" "namael" ];
+  nix.settings.trusted-users = [
+    "root"
+    "namael"
+  ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.namael = {
@@ -237,6 +242,7 @@
 
     # hyprland stuff
     gtk3 # for image rendering in waybar
+    swayimg # image viewer
     hyprsome # multiple monitor workspace configuration
     waybar # waybar
     pywal16 # colorcheme creator for wallpaper
@@ -260,9 +266,6 @@
     fira # fira font family
     nerd-fonts.symbols-only
   ];
-
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   virtualisation.libvirtd.enable = true;
   programs.gamemode.enable = true;
