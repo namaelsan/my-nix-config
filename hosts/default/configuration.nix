@@ -243,6 +243,7 @@
     # hyprland stuff
     gtk3 # for image rendering in waybar
     swayimg # image viewer
+    xfce.thunar # file manager
     hyprsome # multiple monitor workspace configuration
     waybar # waybar
     pywal16 # colorcheme creator for wallpaper
