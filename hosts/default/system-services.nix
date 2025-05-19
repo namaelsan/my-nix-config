@@ -26,7 +26,7 @@
 
   nix.gc = {
     automatic = true;
-    dates = "weekly";
+    dates = "*-*-1/3 03:00:00"; # every 3 days
     persistent = true;
     options = "--delete-older-than 7d";
   };
