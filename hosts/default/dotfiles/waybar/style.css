@@ -22,7 +22,7 @@
 }
 
 window#waybar {
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0, 0, 0, 0.8);
     /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
     color: #FFFFFF;
     background: transparent;
@@ -44,25 +44,26 @@ button {
     border-radius: 10px;
     color: #FFFFFF;
     /* font-weight:bold; */
-    border:0;
+    border: 0;
 }
 
 #workspaces button.active {
     color: #FFFFFF;
     border-radius: 15px;
-    font-weight:bold;
-    border:0;
+    font-weight: bold;
+    border: 0;
 }
 
 #workspaces button:hover {
-	color: #FFFFFF;
-	border-radius: 15px;
-    border:0;
+    color: #FFFFFF;
+    border-radius: 15px;
+    border: 0;
 }
+
 #workspaces button.focused {
-	color: #FFFFFF;
-	border-radius: 15px;
-    font-weight:bold;
+    color: #FFFFFF;
+    border-radius: 15px;
+    font-weight: bold;
 }
 
 #workspaces button.urgent {
@@ -94,7 +95,7 @@ button {
     margin: 6px 10px 6px 0px;
     padding: 0px 5px;
     color: #ffffff;
-    font-size:14px;
+    font-size: 14px;
 }
 
 #disk,
@@ -102,6 +103,11 @@ button {
 #memory {
     /* margin: 5px 10px; */
     /* padding: 5 10px; */
+    margin: 5px 0px;
+    padding: 0px 5px 0px 0px;
+}
+
+#power-profiles-daemon {
     margin: 5px 0px;
     padding: 0px 5px 0px 0px;
 }
@@ -148,53 +154,55 @@ button {
 
 
 #window {
-    margin: 5px 10px;   /* Adjust margins */
-    background-color:@color11;
-    opacity:0.8;
+    margin: 5px 10px;
+    /* Adjust margins */
+    background-color: @color11;
+    opacity: 0.8;
     padding: 0px 10px;
     /* min-width: 200px; Set minimum width */
 }
 
 #workspaces {
     margin: 5px 10px 5px 10px;
-    background-color:@color11;
-    opacity:0.8;
+    background-color: @color11;
+    opacity: 0.8;
 }
 
-.modules-left > widget:first-child > #workspaces {
+.modules-left>widget:first-child>#workspaces {
     margin-left: 0;
 }
 
-.modules-right > widget:last-child > #workspaces {
+.modules-right>widget:last-child>#workspaces {
     margin-right: 0;
 }
 
 #custom-appmenu {
-    margin-left:16px;
-    font-size:18px;
-    font-weight:bold;
+    margin-left: 16px;
+    font-size: 18px;
+    font-weight: bold;
     background-image: url('~/nixos/hosts/default/dotfiles/waybar/resources/nix-snowflake-colours.svg');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain; 
+    background-size: contain;
 }
 
 
 #custom-exit {
     margin-right: 10px;
-    font-size:16px;
+    font-size: 16px;
 }
 
 #clock {
     background-color: transparent;
-    font-size:18px;
+    font-size: 18px;
 }
 
 #battery {
     color: @color11;
 }
 
-#battery.charging, #battery.plugged {
+#battery.charging,
+#battery.plugged {
     color: #ffffff;
     background-color: #26A65B;
 }
@@ -221,7 +229,7 @@ label:focus {
 }
 
 #cpu {
-   background-color: transparent;
+    background-color: transparent;
 }
 
 #memory {
@@ -288,17 +296,18 @@ label:focus {
 }
 
 #tray {
-    margin: 5px 10px;   /* Adjust margins */
-    opacity:0.8;
+    margin: 5px 10px;
+    /* Adjust margins */
+    opacity: 0.8;
     padding: 0 8px;
     background-color: #2980b9;
 }
 
-#tray > .passive {
+#tray>.passive {
     -gtk-icon-effect: dim;
 }
 
-#tray > .needs-attention {
+#tray>.needs-attention {
     -gtk-icon-effect: highlight;
     background-color: #eb4d4b;
 }
@@ -330,7 +339,7 @@ label:focus {
 }
 
 #language {
-    color:#FFFFFF;
+    color: #FFFFFF;
     /*
     background: #00b093;
     color: #740864;
@@ -348,11 +357,11 @@ label:focus {
     min-width: 16px;
 }
 
-#keyboard-state > label {
+#keyboard-state>label {
     padding: 0px 5px;
 }
 
-#keyboard-state > label.locked {
+#keyboard-state>label.locked {
     background: rgba(0, 0, 0, 0.2);
 }
 
@@ -362,5 +371,5 @@ label:focus {
 }
 
 #scratchpad.empty {
-	background-color: transparent;
+    background-color: transparent;
 }

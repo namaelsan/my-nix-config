@@ -1,9 +1,7 @@
 {
-
     "include": [
         "/home/namael/nixos/hosts/default/dotfiles/waybar/modules.json"
     ],
-
     "layer": "top", // Waybar at top layer
     "height": 30, // Waybar height (to be removed for auto height)
     "spacing": 4, // Gaps between modules (4px)
@@ -19,13 +17,14 @@
     ],
     "modules-right": [
         "tray",
+        "power-profiles-daemon",
         "group/tools",
-        "keyboard-state", 
+        "keyboard-state",
         "group/hardware",
         "group/brightness",
-        "pulseaudio", 
-        "battery", 
-        "clock", 
-        "custom/exit", 
+        "pulseaudio",
+        "battery",
+        "clock",
+        "custom/exit",
     ]
 }
