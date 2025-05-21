@@ -97,6 +97,8 @@ in
       config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/alacritty/alacritty.toml;
     ".config/hypr/hyprlock.conf".source =
       config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/hyprlock/hyprlock.conf;
+    ".config/i3/config".source =
+      config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/i3/config;
   };
 
   home.sessionVariables = {

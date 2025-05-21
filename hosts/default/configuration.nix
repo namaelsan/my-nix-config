@@ -97,9 +97,24 @@
   services = {
     # Enable the X11 windowing system.
     # You can disable this if you're only using the Wayland session.
-    xserver.enable = false;
+    xserver = {
+      enable = true;
+      desktopManager = {
+        xterm.enable = false;
+      };
 
-    # Enable the KDE Plasma Desktop Environment.
+      windowManager.i3 = {
+        enable = true;
+        extraPackages = with pkgs; [
+          dmenu # application launcher most people use
+          i3status # gives you the default i3 status bar
+          i3lock # default i3 screen locker
+          i3blocks # if you are planning on using i3blocks over i3status
+        ];
+      };
+    };
+
+    displayManager.defaultSession = "hyprland";
     displayManager.sddm = {
       enable = true;
       wayland.enable = true;
@@ -131,8 +146,9 @@
     # # If cursor becomes invisible ENABLE
     WLR_NO_HARDWARE_CURSORS = "1";
     # # Hint electron apps to use wayland
-    # NIXOS_OZONE_WL = "1";
+    NIXOS_OZONE_WL = "1";
     # hyprland vars over
+    WLR_RENDERER="vulkan";
   };
 
   # Configure console keymap
@@ -239,6 +255,7 @@
     devenv # development tool
     nix-output-monitor # pretty build dialog for nix
     btop # process & resource monitor
+    powertop # view power consumption etc
 
     # hyprland stuff
     gtk3 # for image rendering in waybar
@@ -261,6 +278,9 @@
     clipse # clipbard manager
     hyprlock # lockscreen
     # hyprland stuff over
+
+    # i3 stuff
+    polybar
   ];
 
   fonts.packages = with pkgs; [
@@ -269,7 +289,6 @@
   ];
 
   virtualisation.libvirtd.enable = true;
-  programs.gamemode.enable = true;
 
   environment.shellAliases = {
     rebuild = "sudo nixos-rebuild switch --log-format internal-json --flake /home/namael/nixos/#default &| nom --json";
@@ -296,20 +315,20 @@
       params = [ "--dpi-desync=fake --dpi-desync-ttl=3" ];
     };
 
-    power-profiles-daemon.enable = false; # has to be disabled to use tlp
+    power-profiles-daemon.enable = true; # has to be disabled to use tlp
 
-    tlp = {
-      enable = true;
-      settings = {
-        # Set the min/max/turbo frequency for the Intel GPU. Possible values depend on your hardware. See the output of tlp-stat -g for available frequencies.
-        INTEL_GPU_MIN_FREQ_ON_AC = 500;
-        INTEL_GPU_MIN_FREQ_ON_BAT = 100;
-        # INTEL_GPU_MAX_FREQ_ON_AC=0
-        # INTEL_GPU_MAX_FREQ_ON_BAT=0
-        # INTEL_GPU_BOOST_FREQ_ON_AC=0
-        # INTEL_GPU_BOOST_FREQ_ON_BAT=0
-      };
-    };
+    # tlp = {
+    #   enable = true;
+    #   settings = {
+    #     # Set the min/max/turbo frequency for the Intel GPU. Possible values depend on your hardware. See the output of tlp-stat -g for available frequencies.
+    #     INTEL_GPU_MIN_FREQ_ON_AC = 500;
+    #     INTEL_GPU_MIN_FREQ_ON_BAT = 100;
+    #     # INTEL_GPU_MAX_FREQ_ON_AC=0
+    #     # INTEL_GPU_MAX_FREQ_ON_BAT=0
+    #     # INTEL_GPU_BOOST_FREQ_ON_AC=0
+    #     # INTEL_GPU_BOOST_FREQ_ON_BAT=0
+    #   };
+    # };
   };
 
   programs.appimage.enable = true;
