@@ -9,6 +9,8 @@
 # by Stephan Raabe (2023) 
 # ----------------------------------------------------- 
 
+echo 󰐥;
+
 option1="  lock"
 option2="  logout"
 option3="  reboot"
@@ -22,9 +24,9 @@ choice=$(echo -e "$options" | rofi -dmenu -i -no-show-icons -theme ~/.cache/wal/
 
 case $choice in
 	$option1)
-		hyprlock;;
+		hyprlock || i3lock -c 000000;;
 	$option2)
-		hyprctl dispatch exit ;;
+		hyprctl dispatch exit || i3-msg exit;;
 	$option3)
 		systemctl reboot ;;
 	$option4)
