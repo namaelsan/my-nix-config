@@ -19,8 +19,12 @@
     ./game.nix
     ./system-services.nix
     ./nix-ld.nix
-    ./xdg.nix
+    # ./xdg.nix
   ];
+
+  # hyprland communication between apps
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   hardware.bluetooth.enable = false;
   hardware.i2c.enable = true;
@@ -102,6 +106,7 @@
       desktopManager = {
         xterm.enable = false;
       };
+      displayManager.lightdm.enable = true;
 
       windowManager.i3 = {
         enable = true;
@@ -115,15 +120,15 @@
     };
 
     displayManager.defaultSession = "hyprland";
-    displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
-      settings = {
-        General = {
-          Numlock = "on"; # enable numlock on login
-        };
-      };
-    };
+    # displayManager.sddm = {
+    #   enable = true;
+    #   wayland.enable = true;
+    #   settings = {
+    #     General = {
+    #       Numlock = "on"; # enable numlock on login
+    #     };
+    #   };
+    # };
     desktopManager.plasma6.enable = true;
     # xserver.desktopManager.gnome.enable = true;
 
@@ -148,7 +153,7 @@
     # # Hint electron apps to use wayland
     NIXOS_OZONE_WL = "1";
     # hyprland vars over
-    WLR_RENDERER="vulkan";
+    WLR_RENDERER = "vulkan";
   };
 
   # Configure console keymap
@@ -280,7 +285,12 @@
     # hyprland stuff over
 
     # i3 stuff
-    polybar
+    autotiling
+    polybarFull # status bar
+    feh # background
+    pamixer # for sound control with pipewire
+    xdotool # helper for some window actions
+    picom-pijulius # x11 compositor with fancy eyecandy
   ];
 
   fonts.packages = with pkgs; [
