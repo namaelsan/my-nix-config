@@ -43,6 +43,7 @@
         # Video player
         "video/mp4" = [ "mpv.desktop" ];
         "video/x-matroska" = [ "mpv.desktop" ];
+        "application/vnd.apple.mpegurl" = [ "mpv.desktop" ]; # m3u8 files
 
         # Email client
         # "x-scheme-handler/mailto" = [ "thunderbird.desktop" ];

@@ -11,7 +11,8 @@ in
 {
   imports = [
     ./user-services.nix
-  inputs.zen-nebula.homeModules.default
+    inputs.zen-nebula.homeModules.default
+    ./xdg-home.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -69,7 +70,6 @@ in
     ppsspp-sdl # psp emulator
   ];
 
-
   zen-nebula = {
     enable = true;
     profile = "0atmftff.Default"; # add firefox profile name here
@@ -99,6 +99,10 @@ in
       config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/hyprlock/hyprlock.conf;
     ".config/i3/config".source =
       config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/i3/config;
+    ".Xresources".source =
+      config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/xresources/xresources;
+    ".config/picom/picom.conf".source =
+      config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/picom/picom.conf;
   };
 
   home.sessionVariables = {

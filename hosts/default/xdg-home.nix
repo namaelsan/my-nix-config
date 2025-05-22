@@ -31,10 +31,15 @@
         "application/pdf" = [ "zen-beta.desktop" ];
 
         # Image viewer
-        "image/png" = [ "swayimg.desktop" ];
-        "image/jpeg" = [ "swayimg.desktop" ];
-        "image/webp" = [ "swayimg.desktop" ];
-        "image/svg+xml" = [ "swayimg.desktop" ];
+        # "image/png" = [ "swayimg.desktop" ];
+        # "image/jpeg" = [ "swayimg.desktop" ];
+        # "image/webp" = [ "swayimg.desktop" ];
+        # "image/svg+xml" = [ "swayimg.desktop" ];
+
+        "image/png" = [ "feh.desktop" ];
+        "image/jpeg" = [ "feh.desktop" ];
+        "image/webp" = [ "feh.desktop" ];
+        "image/svg+xml" = [ "feh.desktop" ];
 
         # Video player
         "video/mp4" = [ "mpv.desktop" ];
