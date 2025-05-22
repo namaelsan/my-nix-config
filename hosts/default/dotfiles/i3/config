@@ -190,6 +190,7 @@ bindsym $mod+r mode "resize"
 # }
 exec --no-startup-id autotiling
 exec --no-startup-id xrandr --output HDMI-0 --mode 1920x1080 --rate 75 --auto --left-of eDP-1-1
+exec light-locker
 exec picom -b
 exec_always exec ~/nixos/hosts/default/dotfiles/i3/polybar/launch.sh
 

@@ -285,12 +285,13 @@
     # hyprland stuff over
 
     # i3 stuff
-    autotiling
+    autotiling # i3 autotiling script
     polybarFull # status bar
     feh # background
     pamixer # for sound control with pipewire
     xdotool # helper for some window actions
     picom-pijulius # x11 compositor with fancy eyecandy
+    lightlocker # screenlock for lightdm
   ];
 
   fonts.packages = with pkgs; [

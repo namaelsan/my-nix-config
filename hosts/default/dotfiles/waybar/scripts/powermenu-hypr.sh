@@ -24,7 +24,7 @@ choice=$(echo -e "$options" | rofi -dmenu -i -no-show-icons -theme ~/.cache/wal/
 
 case $choice in
 	$option1)
-		hyprlock || i3lock -c 000000;;
+		hyprlock || light-locker-command -l;;
 	$option2)
 		hyprctl dispatch exit || i3-msg exit;;
 	$option3)
