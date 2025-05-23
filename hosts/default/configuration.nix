@@ -292,7 +292,7 @@
     xdotool # helper for some window actions
     picom-pijulius # x11 compositor with fancy eyecandy
     lightlocker # screenlock for lightdm
-    flameshot # screenshot utility
+    maim # screenshot utility
   ];
 
   fonts.packages = with pkgs; [
