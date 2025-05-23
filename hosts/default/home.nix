@@ -68,6 +68,9 @@ in
     inputs.zen-browser.packages."${system}".default # zen browser
     cemu # wiiu emulator
     ppsspp-sdl # psp emulator
+    nodejs_24 # nodejs
+    postman # api development env
+    prettierd # formatting for various programming languages
   ];
 
   zen-nebula = {
