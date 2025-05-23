@@ -195,7 +195,7 @@ exec picom -b
 exec_always exec ~/nixos/hosts/default/dotfiles/i3/polybar/launch.sh
 
 # remove titlebar
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 4
 
 # floating & in center
 for_window [class="pavucontrol"] floating enable, resize set 916 476, move window to workspace current, move position center
@@ -208,12 +208,12 @@ for_window [class="Nm-connection-editor"] floating enable, resize set 600 400, m
 # it fails to get colors from Xresources.
 set_from_resource $fg i3wm.color7 #f0f0f0
 set_from_resource $bg i3wm.color2 #f0f0f0
-set_from_resource $unfocused i3wm.color0 #f0f0f0
+set_from_resource $uf i3wm.color0 #f0f0f0
 
 # class                 border  backgr. text indicator child_border
 client.focused          $bg     $bg     $fg  $bg       $bg
 client.focused_inactive $bg     $bg     $fg  $bg       $bg
-client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.unfocused        $uf     $uf     $fg  $uf       $uf
 client.urgent           $bg     $bg     $fg  $bg       $bg
 client.placeholder      $bg     $bg     $fg  $bg       $bg
 

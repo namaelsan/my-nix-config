@@ -23,12 +23,17 @@
       glib
       gtk3
       harfbuzz
+      keybinder3
       libGL
       libappindicator-gtk3
       libdrm
       libepoxy
       libnotify
+      libayatana-appindicator
+      libayatana-indicator
+      ayatana-ido
       libpulseaudio
+      libdbusmenu
       libuuid
       xorg.libxcb
       libxkbcommon
