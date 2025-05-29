@@ -21,7 +21,7 @@ font pango:monospace 8
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
-exec --no-startup-id dex --autostart --environment i3
+# exec --no-startup-id dex --autostart --environment i3
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -32,7 +32,6 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -193,10 +192,13 @@ bindsym $mod+r mode "resize"
 # bar {
 #         status_command i3status
 # }
+# exec --no-startup-id env AQ_DRM_DEVICES=/dev/dri/card1:/dev/dri/card0
 exec --no-startup-id autotiling
-exec --no-startup-id xrandr --output HDMI-0 --mode 1920x1080 --rate 75 --auto --left-of eDP-1-1
-exec light-locker
-exec picom -b
+exec --no-startup-id xrandr --output HDMI-1-0 --mode 1920x1080 --rate 75 --auto --left-of eDP-1
+exec --no-startup-id xrandr --output eDP-1 --mode 1920x1080 --rate 144 --right-of HDMI-1-0
+exec --no-startup-id light-locker
+exec --no-startup-id picom -b
+exec --no-startup-id nm-applet
 exec_always exec ~/nixos/hosts/default/dotfiles/i3/polybar/launch.sh
 
 # remove titlebar
@@ -217,7 +219,7 @@ set_from_resource $uf i3wm.color0 #f0f0f0
 
 # class                 border  backgr. text indicator child_border
 client.focused          $bg     $bg     $fg  $bg       $bg
-client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $uf     $uf     $fg  $uf       $uf
 client.unfocused        $uf     $uf     $fg  $uf       $uf
 client.urgent           $bg     $bg     $fg  $bg       $bg
 client.placeholder      $bg     $bg     $fg  $bg       $bg

@@ -23,7 +23,10 @@ i3-msg reload
 # Launch mybar
 echo "---" | tee -a /tmp/polybar1.log
 
-MONITOR=HDMI-0 polybar mybar --config=$POLYBAR_CONFIG 2>&1 | tee -a /tmp/polybar1.log & disown &
-MONITOR=eDP-1-1 polybar secondary --config=$POLYBAR_CONFIG 2>&1 | tee -a /tmp/polybar2.log & disown &
+MONITOR=HDMI-1-0 polybar mybar --config=$POLYBAR_CONFIG 2>&1 | tee -a /tmp/polybar1.log & disown &
+MONITOR=eDP-1 polybar secondary --config=$POLYBAR_CONFIG 2>&1 | tee -a /tmp/polybar2.log & disown &
 
 echo "Bars launched..."
+
+# start notification daemon
+killall .dunst-wrapped ; dunst -config ~/.cache/wal/dunstrc

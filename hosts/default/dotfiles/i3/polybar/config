@@ -31,7 +31,7 @@ monitor = ${env:MONITOR:eDP1}
 
 [bar/secondary]
 inherit = bar/mybar
-modules-right = systray power-profiles pipewire-simple date powermenu
+modules-right = systray backlight power-profiles pipewire-simple date powermenu
 
 [bar/mybar]
 inherit = section/base
@@ -39,7 +39,7 @@ width = 100%
 height = 24pt
 radius = 6
 modules-left = xworkspaces xwindow
-modules-right = power-profiles pipewire-simple date powermenu
+modules-right = backlight power-profiles pipewire-simple date powermenu
 ; dpi = 96
 
 background = ${colors.background}
@@ -224,3 +224,14 @@ hook-0 = ~/nixos/hosts/default/dotfiles/i3/polybar/scripts/powerprofiles.sh
 initial = 1
 click-left = ~/nixos/hosts/default/dotfiles/i3/polybar/scripts/powerprofiles.sh --left
 click-right = ~/nixos/hosts/default/dotfiles/i3/polybar/scripts/powerprofiles.sh --right
+
+[module/backlight]
+type = internal/backlight
+; Use the following command to list available cards:
+; $ ls -1 /sys/class/backlight/
+card = intel_backlight
+use-actual-brightness = true
+enable-scroll = true
+format = <label>
+format-prefix = "  "
+label = %percentage%%
