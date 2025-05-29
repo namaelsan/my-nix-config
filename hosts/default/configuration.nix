@@ -302,7 +302,7 @@
     feh # background
     pamixer # for sound control with pipewire
     xdotool # helper for some window actions
-    picom-pijulius # x11 compositor with fancy eyecandy
+    picom # x11 compositor with fancy eyecandy
     lightlocker # screenlock for lightdm
     maim # screenshot utility
     dunst # notification manager
