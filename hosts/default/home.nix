@@ -106,6 +106,11 @@ in
       config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/xresources/xresources;
     ".config/picom/picom.conf".source =
       config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/picom/picom.conf;
+    ".config/wal/templates/dunstrc".source =
+      config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/dunst/dunstrc.wal.template;
+    ".config/river/init".source =
+      config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/river/init;
+
   };
 
   home.sessionVariables = {
