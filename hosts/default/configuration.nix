@@ -106,7 +106,9 @@
       desktopManager = {
         xterm.enable = false;
       };
-      displayManager.lightdm.enable = true;
+      # displayManager.lightdm.enable = true;
+      displayManager.gdm.enable = true;
+      displayManager.gdm.wayland = true;
 
       windowManager.i3 = {
         enable = true;
@@ -146,6 +148,11 @@
     xwayland.enable = true;
   };
 
+  programs.river = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
   environment.sessionVariables = {
     # somehyprland variables
     # # If cursor becomes invisible ENABLE
@@ -153,7 +160,10 @@
     # # Hint electron apps to use wayland
     NIXOS_OZONE_WL = "1";
     # hyprland vars over
-    WLR_RENDERER = "vulkan";
+    WLR_RENDERER = "gles2";
+    # prefer igpu instead of dgpu
+    AQ_DRM_DEVICES="/dev/dri/card1:/dev/dri/card0";
+
   };
 
   # Configure console keymap
@@ -212,6 +222,7 @@
       "gamemode"
       "input"
       "docker"
+      "video"
     ];
     packages = with pkgs; [
       kdePackages.kate
@@ -253,6 +264,7 @@
     dotool # simulate key press
     protonvpn-gui # vpn
     heroic # Native GOG, Epic, and Amazon Games Launcher for Linux, Windows and Mac
+    hydralauncher # game launcher with builtin bittorrent client 
     inputs.kwin-effects-forceblur.packages.${pkgs.system}.default # forceblur effect for manually setting blur in kde. transparency = blur in selected window classes
     mesa-demos # mesa tools (glxgears glxinfo)
     ddcutil # external monitor brightness
@@ -293,6 +305,10 @@
     picom-pijulius # x11 compositor with fancy eyecandy
     lightlocker # screenlock for lightdm
     maim # screenshot utility
+    dunst # notification manager
+
+    # river stuff
+    wlr-randr # xrandr for wayland
   ];
 
   fonts.packages = with pkgs; [
