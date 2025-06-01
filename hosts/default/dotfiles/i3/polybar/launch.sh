@@ -12,7 +12,7 @@ SELECTED_WALLPAPER=$(find "$WALLPAPER_DIR" -type f | shuf -n 1)  # Select random
 POLYBAR_CONFIG="$HOME/nixos/hosts/default/dotfiles/i3/polybar/config"
 
 # Set the wallpaper
-feh --bg-scale --zoom fill $SELECTED_WALLPAPER
+feh --bg-fill $SELECTED_WALLPAPER
 
 # Generate colors using pywal
 wal -n -e --cols16 darken -i "$SELECTED_WALLPAPER" 
