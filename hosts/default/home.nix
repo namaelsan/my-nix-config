@@ -91,6 +91,8 @@ in
     enable = true;
   };
 
+  programs.lazydocker.enable = true;
+
   home.file = {
     ".config/hypr/hyprland.conf".source =
       config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/hyprland/hyprland.conf;
