@@ -71,13 +71,12 @@
     29549
     57621
   ]; # Replace PORT_NUMBER with qBittorrent's port.
+  # doesnt change anything
 
-  virtualisation.docker = {
+  virtualisation.docker.rootless = {
+    # Use the rootless mode - run Docker daemon as non-root user
     enable = true;
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
+    setSocketVariable = true;
   };
 
   # Set your time zone.
@@ -113,7 +112,6 @@
       windowManager.i3 = {
         enable = true;
         extraPackages = with pkgs; [
-          dmenu # application launcher most people use
           i3status # gives you the default i3 status bar
           i3lock # default i3 screen locker
           i3blocks # if you are planning on using i3blocks over i3status
@@ -121,7 +119,7 @@
       };
     };
 
-    displayManager.defaultSession = "hyprland";
+    displayManager.defaultSession = "none+i3";
     # displayManager.sddm = {
     #   enable = true;
     #   wayland.enable = true;
@@ -162,7 +160,7 @@
     # hyprland vars over
     WLR_RENDERER = "gles2";
     # prefer igpu instead of dgpu
-    AQ_DRM_DEVICES="/dev/dri/card1:/dev/dri/card0";
+    AQ_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
 
   };
 
@@ -264,7 +262,7 @@
     dotool # simulate key press
     protonvpn-gui # vpn
     heroic # Native GOG, Epic, and Amazon Games Launcher for Linux, Windows and Mac
-    hydralauncher # game launcher with builtin bittorrent client 
+    hydralauncher # game launcher with builtin bittorrent client
     inputs.kwin-effects-forceblur.packages.${pkgs.system}.default # forceblur effect for manually setting blur in kde. transparency = blur in selected window classes
     mesa-demos # mesa tools (glxgears glxinfo)
     ddcutil # external monitor brightness
@@ -277,7 +275,7 @@
     # hyprland stuff
     gtk3 # for image rendering in waybar
     swayimg # image viewer
-    xfce.thunar # file manager
+    nemo-with-extensions # file manager
     hyprsome # multiple monitor workspace configuration
     waybar # waybar
     pywal16 # colorcheme creator for wallpaper
@@ -306,6 +304,8 @@
     lightlocker # screenlock for lightdm
     maim # screenshot utility
     dunst # notification manager
+    bc # gnu software calculator
+    jq # command line json processor
 
     # river stuff
     wlr-randr # xrandr for wayland
