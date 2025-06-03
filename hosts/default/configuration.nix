@@ -28,6 +28,7 @@
 
   hardware.bluetooth.enable = false;
   hardware.i2c.enable = true;
+  hardware.tuxedo-drivers.enable = true; # tuxedo keyboard driver
 
   # default = lts kernel
   boot.kernelPackages = pkgs.linuxPackages_latest; # use latest kernel
@@ -98,6 +99,10 @@
   };
 
   services = {
+    # displayManager.lightdm.enable = true;
+    displayManager.gdm.enable = true;
+    displayManager.gdm.wayland = true;
+
     # Enable the X11 windowing system.
     # You can disable this if you're only using the Wayland session.
     xserver = {
@@ -105,9 +110,6 @@
       desktopManager = {
         xterm.enable = false;
       };
-      # displayManager.lightdm.enable = true;
-      displayManager.gdm.enable = true;
-      displayManager.gdm.wayland = true;
 
       windowManager.i3 = {
         enable = true;
@@ -139,6 +141,11 @@
     };
   };
 
+  # programs.coolercontrol = {
+  #   enable = true;
+  #   nvidiaSupport = true;
+  # };
+
   # Enable hyprland
   programs.hyprland = {
     enable = true;
@@ -169,6 +176,8 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+
+  security.polkit.enable = true; # enable polkit
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -306,6 +315,7 @@
     dunst # notification manager
     bc # gnu software calculator
     jq # command line json processor
+    pantheon.pantheon-agent-polkit # polkit authenticator
 
     # river stuff
     wlr-randr # xrandr for wayland
