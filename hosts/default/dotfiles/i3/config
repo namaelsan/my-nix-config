@@ -243,6 +243,7 @@ for_window [class="^.*"] border pixel 4
 for_window [class="pavucontrol"] floating enable, resize set 916 476, move window to workspace current, move position center
 for_window [class="Nm-connection-editor"] floating enable, resize set 600 400, move position center
 for_window [class="io.elementary.desktop.agent-polkit"] floating enable, move position center
+for_window [class="Sublime_text"] move window to workspace current, move position center
 
 # Set colors from Xresources
 # Change 'color7' and 'color2' to whatever colors you want i3 to use 
