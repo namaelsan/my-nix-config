@@ -18,6 +18,7 @@ feh --bg-fill $SELECTED_WALLPAPER
 wal -n -e --cols16 darken -i "$SELECTED_WALLPAPER" 
 cp $SELECTED_WALLPAPER ~/.cache/current_wp
 xrdb -merge $HOME/.cache/wal/colors.Xresources
+~/nixos/hosts/default/scripts/sublimetext4/pywal_sublime.py
 i3-msg reload
 
 # Launch mybar

@@ -9,6 +9,12 @@
       defaultApplications = {
         # "" = [ "" ];
 
+        # File Manager
+        "inode/directory" = "nemo.desktop";
+
+        # Text Editor
+        "text/plain" =  "sublime.desktop";
+
         # Web browser
         "text/html" = [ "zen-beta.desktop" ];
         "x-scheme-handler/http" = [ "zen-beta.desktop" ];

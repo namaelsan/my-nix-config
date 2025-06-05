@@ -71,6 +71,13 @@ in
     nodejs_24 # nodejs
     postman # api development env
     prettierd # formatting for various programming languages
+    sublime4
+  ];
+
+  # RELEVANT: https://github.com/sublimehq/sublime_text/issues/5984
+  nixpkgs.config.permittedInsecurePackages = [
+    # SOME SUBLIMETEXT EXTENSIONS USE OPENSSL & THEY ARE OLD SO SUBLIMETEXT HAS TO RELY ON AN OLD OPENSSL VERSION THATS EOL
+    "openssl-1.1.1w" # REMOVE THIS IF SUBLIMETEXT IS NOT INSTALLED
   ];
 
   zen-nebula = {
@@ -112,11 +119,13 @@ in
       config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/dunst/dunstrc.wal.template;
     ".config/river/init".source =
       config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/river/init;
+    ".config/sublime-text/Packages/User".source =
+      config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/sublimetext4/preferences.sublime-settings;
 
   };
 
   home.sessionVariables = {
-    EDITOR = "code";
+    EDITOR = "sublime";
   };
 
   nixpkgs.config = {
