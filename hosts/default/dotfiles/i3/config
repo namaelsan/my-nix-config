@@ -231,7 +231,6 @@ exec --no-startup-id autotiling
 exec --no-startup-id xrandr --output HDMI-1-0 --mode 1920x1080 --rate 75 --auto --left-of eDP-1
 # exec --no-startup-id xrandr --output eDP-1 --mode 1920x1080 --rate 144 --right-of HDMI-1-0
 exec --no-startup-id light-locker
-exec --no-startup-id picom -b
 exec --no-startup-id nm-applet
 exec --no-startup-id /run/current-system/sw/libexec/policykit-1-pantheon/io.elementary.desktop.agent-polkit
 exec_always exec ~/nixos/hosts/default/dotfiles/i3/polybar/launch.sh

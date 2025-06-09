@@ -31,3 +31,6 @@ echo "Bars launched..."
 
 # start notification daemon
 killall .dunst-wrapped ; dunst -config ~/.cache/wal/dunstrc
+
+# picom
+killall picom ; picom -b
