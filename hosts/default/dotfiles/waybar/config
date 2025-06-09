@@ -21,7 +21,7 @@
         "group/tools",
         "keyboard-state",
         "group/hardware",
-        "group/brightness",
+        // "group/brightness",
         "pulseaudio",
         "battery",
         "clock",
