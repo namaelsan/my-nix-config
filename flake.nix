@@ -3,7 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    tuxedopkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
@@ -15,6 +16,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    tuxedopkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
     tuxedo-nixos = {
       url = "github:sund3RRR/tuxedo-nixos";
       inputs.nixpkgs.follows = "tuxedopkgs";
@@ -41,6 +43,7 @@
           ./hosts/default/configuration.nix
           inputs.home-manager.nixosModules.default
           inputs.tuxedo-nixos.nixosModules.default
+          inputs.chaotic.nixosModules.default
           {
             hardware.tuxedo-control-center.enable = true;
             hardware.tuxedo-control-center.package = inputs.tuxedo-nixos.packages.x86_64-linux.default;

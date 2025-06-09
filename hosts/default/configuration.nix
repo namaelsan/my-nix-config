@@ -31,7 +31,8 @@
   hardware.tuxedo-drivers.enable = true; # tuxedo keyboard driver
 
   # default = lts kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest; # use latest kernel
+  # boot.kernelPackages = pkgs.linuxPackages_latest; # use latest kernel
+  boot.kernelPackages = pkgs.linuxPackages_cachyos;
   # boot.kernelPackages = pkgs.linuxPackages_lqx; # Liquorix kernel
   boot.loader = {
     efi = {
@@ -161,7 +162,7 @@
   environment.sessionVariables = {
     # somehyprland variables
     # # If cursor becomes invisible ENABLE
-    WLR_NO_HARDWARE_CURSORS = "1";
+    # WLR_NO_HARDWARE_CURSORS = "1";
     # # Hint electron apps to use wayland
     NIXOS_OZONE_WL = "1";
     # hyprland vars over
@@ -271,7 +272,6 @@
     dotool # simulate key press
     protonvpn-gui # vpn
     heroic # Native GOG, Epic, and Amazon Games Launcher for Linux, Windows and Mac
-    hydralauncher # game launcher with builtin bittorrent client
     inputs.kwin-effects-forceblur.packages.${pkgs.system}.default # forceblur effect for manually setting blur in kde. transparency = blur in selected window classes
     mesa-demos # mesa tools (glxgears glxinfo)
     ddcutil # external monitor brightness
@@ -280,6 +280,7 @@
     nix-output-monitor # pretty build dialog for nix
     btop # process & resource monitor
     powertop # view power consumption etc
+    busybox # various unix tools ex: tree pwd ip bc
 
     # hyprland stuff
     gtk3 # for image rendering in waybar
@@ -309,11 +310,9 @@
     feh # background
     pamixer # for sound control with pipewire
     xdotool # helper for some window actions
-    picom # x11 compositor with fancy eyecandy
     lightlocker # screenlock for lightdm
     maim # screenshot utility
     dunst # notification manager
-    bc # gnu software calculator
     jq # command line json processor
     pantheon.pantheon-agent-polkit # polkit authenticator
 
@@ -323,6 +322,7 @@
 
   fonts.packages = with pkgs; [
     fira # fira font family
+    jetbrains-mono
     nerd-fonts.symbols-only
   ];
 
@@ -346,6 +346,10 @@
     };
 
     flatpak.enable = true;
+
+    picom = {
+      enable = true;
+    };
 
     # dont forget to change dns in network settings
     zapret = {
