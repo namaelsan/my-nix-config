@@ -25,7 +25,7 @@
     automatic = true;
     frequency = "*-*-1/3 00:00:00"; # every 3 days
     persistent = true;
-    options = "--delete-older-than 7d";
+    options = "--delete-older-than 2d";
   };
   nix.settings.auto-optimise-store = true;
 }
