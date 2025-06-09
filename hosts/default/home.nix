@@ -103,6 +103,10 @@ in
   home.file = {
     ".config/hypr/hyprland.conf".source =
       config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/hyprland/hyprland.conf;
+    ".config/hypr/keybinds.conf".source =
+      config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/hyprland/keybinds.conf;
+    ".config/hypr/windowrule.conf".source =
+      config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/hyprland/windowrule.conf;
     ".config/fish/config.fish".source =
       config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/fish/config.fish;
     ".config/alacritty/alacritty.toml".source =
