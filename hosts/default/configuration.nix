@@ -149,10 +149,12 @@
 
   # Enable hyprland
   programs.hyprland = {
+    withUWSM = true;
     enable = true;
     # nvidiaPatches = true; #NO LONGER NEEDED DONT ADD BACK
     xwayland.enable = true;
   };
+  services.hypridle.enable = true;
 
   programs.river = {
     enable = true;
@@ -163,12 +165,12 @@
     # somehyprland variables
     # # If cursor becomes invisible ENABLE
     # WLR_NO_HARDWARE_CURSORS = "1";
-    # # Hint electron apps to use wayland
     NIXOS_OZONE_WL = "1";
     # hyprland vars over
-    WLR_RENDERER = "gles2";
-    # prefer igpu instead of dgpu
-    AQ_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
+
+    # WLR_RENDERER = "gles2";
+    # # prefer igpu instead of dgpu
+    # AQ_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
 
   };
 
