@@ -61,6 +61,8 @@
       xorg.libxshmfence
       xorg.libXxf86vm
       zlib
+      SDL2
+      SDL2_image
     ];
   };
 }
