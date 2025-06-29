@@ -24,12 +24,12 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
     
-  fileSystems."/mnt/win10" =
-   {
-     device = "/dev/disk/by-uuid/C4BA53F2BA53DF8A";
-     fsType = "ntfs-3g";
-     options = [ "rw" "uid=1000"];
-   };
+  #fileSystems."/mnt/win10" =
+  # {
+  #   device = "/dev/disk/by-uuid/C4BA53F2BA53DF8A";
+  #   fsType = "ntfs-3g";
+  #   options = [ "rw" "uid=1000"];
+  # };
 
   swapDevices = [ ];
 
