@@ -27,6 +27,7 @@
       libGL
       libappindicator-gtk3
       libdrm
+      libdecor
       libepoxy
       libnotify
       libayatana-appindicator

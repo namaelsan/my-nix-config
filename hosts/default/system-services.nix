@@ -26,9 +26,10 @@
 
   nix.gc = {
     automatic = true;
-    dates = "*-*-1/3 03:00:00"; # every 3 days
+    # dates = "*-*-1/3 03:00:00"; # every 3 days
+    dates = "daily";
     persistent = true;
-    options = "--delete-older-than 2d";
+    options = "--delete-older-than 3d";
   };
   nix.settings.auto-optimise-store = true;
 }

@@ -3,8 +3,6 @@
 # Paths
 WALLPAPER_DIR="$HOME/Wallpapers"  # Change to your wallpapers folder
 SELECTED_WALLPAPER=$(find "$WALLPAPER_DIR" -type f | shuf -n 1)  # Select random wallpaper
-HYPR_CONFIG="$HOME/nixos/hosts/default/dotfiles/hyprland/hyprland.conf"
-WAYBAR_STYLE="$HOME/nixos/hosts/default/dotfiles/waybar/style.css"
 
 # Set the wallpaper
 swww img "$SELECTED_WALLPAPER" --transition-type random --transition-duration 3

@@ -240,6 +240,7 @@ for_window [class="^.*"] border pixel 4
 
 # floating & in center
 for_window [class="pavucontrol"] floating enable, resize set 916 476, move window to workspace current, move position center
+for_window [title="Friends List"] floating enable, resize set 376 816, move window to workspace current, move position center
 for_window [class="Nm-connection-editor"] floating enable, resize set 600 400, move position center
 for_window [class="io.elementary.desktop.agent-polkit"] floating enable, move position center
 for_window [class="Sublime_text"] move window to workspace current, move position center
