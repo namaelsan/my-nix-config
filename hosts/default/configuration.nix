@@ -147,6 +147,16 @@
   #   nvidiaSupport = true;
   # };
 
+  programs.gamescope = {
+    enable = true;
+    # capSysNice = true;
+  };
+
+  programs.gamemode = {
+    enable = true;
+    enableRenice = true;
+  };
+
   # Enable hyprland
   programs.hyprland = {
     withUWSM = true;
@@ -283,6 +293,11 @@
     btop # process & resource monitor
     powertop # view power consumption etc
     busybox # various unix tools ex: tree pwd ip bc
+    gnome-keyring # gnome keyring manager
+    intel-gpu-tools
+    toybox # for cmdline tool file
+    mangohud # hardware info hud ingame
+    vulkan-tools
 
     # hyprland stuff
     gtk3 # for image rendering in waybar
@@ -317,6 +332,7 @@
     dunst # notification manager
     jq # command line json processor
     pantheon.pantheon-agent-polkit # polkit authenticator
+    picom # compositor
 
     # river stuff
     wlr-randr # xrandr for wayland
@@ -349,9 +365,6 @@
 
     flatpak.enable = true;
 
-    picom = {
-      enable = true;
-    };
 
     # dont forget to change dns in network settings
     zapret = {
