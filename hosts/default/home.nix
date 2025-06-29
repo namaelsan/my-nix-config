@@ -43,9 +43,6 @@ in
     vesktop # discord with plugins
     keepassxc
     git # version control
-    gamescope # tool for starting games in isolated environments
-    gamemode # optimize system resources for gameplay
-    mangohud # systeminfo hud
     universal-android-debloater # debloat your android device
     telegram-desktop # messaging app
     # spotify installed from flatpak
