@@ -11,7 +11,6 @@ in
 {
   imports = [
     ./user-services.nix
-    inputs.zen-nebula.homeModules.default
     ./xdg-home.nix
   ];
 
@@ -30,6 +29,35 @@ in
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
   nixpkgs.config.allowUnfree = true;
+  
+  nixpkgs.overlays = [
+    (final: prev: {
+      zen-browser = prev.stdenv.mkDerivation {
+        pname = "zen-browser-with-sine";
+        version = inputs.zen-browser.packages.${prev.system}.default.version;
+
+        dontUnpack = true;
+
+        installPhase = ''
+          mkdir -p $out
+
+          # Copy the original zen-browser from the flake input
+          cp -r ${inputs.zen-browser.packages.${prev.system}.default}/. $out/
+
+          chmod -R u+w $out/lib/zen
+
+          # Inject Sine mod files
+          cp ${./sine-mod/config.js} \
+            $out/lib/zen/config.js
+
+          mkdir -p $out/lib/zen/defaults/pref
+
+          cp ${./sine-mod/config-prefs.js} \
+            $out/lib/zen/defaults/pref/config-pref.js
+        '';
+      };
+    })
+  ];
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -49,7 +77,7 @@ in
     android-studio # NOTE: android sdk was installed manually
     vdhcoapp # video download helper coapp
     flutter # flutter programming language sdk
-    stremio # watch movies etc from different sources
+    #stremio # watch movies etc from different sources
     font-awesome # font for waybar theme
     syncplay # play video files in sync online
     # qbittorrent # torrent client
@@ -62,25 +90,24 @@ in
     prismlauncher # official minecraft launcher
     jetbrains.rider # webdevelopment
     signal-desktop # signal messaging app
-    inputs.zen-browser.packages."${system}".default # zen browser
+    #inputs.zen-browser.packages."${system}".default # zen browser
+    pkgs.zen-browser
     cemu # wiiu emulator
     ppsspp-sdl # psp emulator
     nodejs_24 # nodejs
     postman # api development env
     prettierd # formatting for various programming languages
     sublime4
+    element-desktop
   ];
 
   # RELEVANT: https://github.com/sublimehq/sublime_text/issues/5984
   nixpkgs.config.permittedInsecurePackages = [
     # SOME SUBLIMETEXT EXTENSIONS USE OPENSSL & THEY ARE OLD SO SUBLIMETEXT HAS TO RELY ON AN OLD OPENSSL VERSION THATS EOL
     "openssl-1.1.1w" # REMOVE THIS IF SUBLIMETEXT IS NOT INSTALLED
-  ];
 
-  zen-nebula = {
-    enable = true;
-    profile = "0atmftff.Default"; # add firefox profile name here
-  };
+    "qtwebengine-5.15.19" # for stremio
+  ];
 
   fonts.fontconfig.enable = true;
 
