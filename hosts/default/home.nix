@@ -29,34 +29,83 @@ in
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
   nixpkgs.config.allowUnfree = true;
-  
+
   nixpkgs.overlays = [
-    (final: prev: {
-      zen-browser = prev.stdenv.mkDerivation {
-        pname = "zen-browser-with-sine";
-        version = inputs.zen-browser.packages.${prev.system}.default.version;
+    (
+      final: prev:
+      let
+        system = prev.stdenv.hostPlatform.system;
+        origZen = inputs.zen-browser.packages.${system}.default;
+      in
+      {
+        linuxPackages_6_18 = prev.linuxPackages_6_18.extend (
+          _lfinal: lprev: {
+            xpadneo = lprev.xpadneo.overrideAttrs (old: {
+              patches = (old.patches or [ ]) ++ [
+                (prev.fetchpatch {
+                  url = "https://github.com/orderedstereographic/xpadneo/commit/233e1768fff838b70b9e942c4a5eee60e57c54d4.patch";
+                  hash = "sha256-HL+SdL9kv3gBOdtsSyh49fwYgMCTyNkrFrT+Ig0ns7E=";
+                  stripLen = 2;
+                })
+              ];
+            });
+          }
+        );
+        zen-browser = prev.stdenv.mkDerivation {
+          pname = "zen-browser-with-sine";
+          version = origZen.version;
 
-        dontUnpack = true;
+          dontUnpack = true;
+          dontBuild = true;
+          phases = [
+            "preInstall"
+            "installPhase"
+          ];
 
-        installPhase = ''
-          mkdir -p $out
+          nativeBuildInputs = [ prev.makeWrapper ];
 
-          # Copy the original zen-browser from the flake input
-          cp -r ${inputs.zen-browser.packages.${prev.system}.default}/. $out/
+          preInstall = ''
+            echo "→ Preparing work directory"
+            mkdir work
 
-          chmod -R u+w $out/lib/zen
+            # ★ keep permissions, avoid reflinks, but allow editing
+            cp -r --preserve=mode --reflink=never ${origZen}/* work/
+            chmod -R u+w work
 
-          # Inject Sine mod files
-          cp ${./sine-mod/config.js} \
-            $out/lib/zen/config.js
+            # find lib directory
+            libName=$(basename $(find work/lib -maxdepth 1 -type d -name "zen-bin-*"))
+            libDir="work/lib/$libName"
 
-          mkdir -p $out/lib/zen/defaults/pref
+            echo "→ Found lib dir: $libDir"
 
-          cp ${./sine-mod/config-prefs.js} \
-            $out/lib/zen/defaults/pref/config-pref.js
-        '';
-      };
-    })
+            # apply your sine patches
+            cp ${./sine-mod/config.js} "$libDir/config.js"
+            mkdir -p "$libDir/defaults/pref"
+            cp ${./sine-mod/config-prefs.js} "$libDir/defaults/pref/config-pref.js"
+
+            # launcher path
+            if [ -x "work/bin/zen-browser" ]; then
+              launcher="work/bin/zen-browser"
+            else
+              launcher="$libDir/zen"
+            fi
+
+            # # ensure executable (preserved, but safe)
+            # chmod +x "$launcher"
+
+            wrapProgram "$launcher" \
+              --set MOZ_APP_LAUNCHER "zen-browser"
+          '';
+
+          installPhase = ''
+            echo "→ Installing patched Zen into $out"
+            mkdir -p $out
+            cp -r work/* $out/
+          '';
+        };
+      }
+    )
+
   ];
 
   # The home.packages option allows you to install Nix packages into your
@@ -92,6 +141,7 @@ in
     signal-desktop # signal messaging app
     #inputs.zen-browser.packages."${system}".default # zen browser
     pkgs.zen-browser
+    inputs.sls-steam.packages.${pkgs.system}.wrapped
     cemu # wiiu emulator
     ppsspp-sdl # psp emulator
     nodejs_24 # nodejs
@@ -99,6 +149,8 @@ in
     prettierd # formatting for various programming languages
     sublime4
     element-desktop
+    lsfg-vk # framegen
+    lsfg-vk-ui
   ];
 
   # RELEVANT: https://github.com/sublimehq/sublime_text/issues/5984

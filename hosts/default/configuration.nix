@@ -19,6 +19,7 @@
     ./game.nix
     ./system-services.nix
     ./nix-ld.nix
+    ./network.nix
     # ./xdg.nix
   ];
 
@@ -28,7 +29,29 @@
 
   hardware.bluetooth.enable = false;
   hardware.i2c.enable = true;
+  services.udev.extraRules = ''
+    KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660", TAG+="uaccess"
+  '';
+
   hardware.tuxedo-drivers.enable = true; # tuxedo keyboard driver
+  nixpkgs.overlays = [
+    (final: prev: {
+      linuxPackages_cachyos = prev.linuxPackages_6_18.extend (
+        lfinal: lprev: {
+          xpadneo = lprev.xpadneo.overrideAttrs (old: {
+            patches = (old.patches or [ ]) ++ [
+              (prev.fetchpatch {
+                url = "https://github.com/orderedstereographic/xpadneo/commit/233e1768fff838b70b9e942c4a5eee60e57c54d4.patch";
+                hash = "sha256-HL+SdL9kv3gBOdtsSyh49fwYgMCTyNkrFrT+Ig0ns7E=";
+                stripLen = 2;
+              })
+            ];
+          });
+        }
+      );
+    }
+    )
+  ];
 
   # default = lts kernel
   # boot.kernelPackages = pkgs.linuxPackages_latest; # use latest kernel
@@ -56,24 +79,6 @@
   ];
 
   programs.direnv.enable = true;
-  networking.hostName = "nixos-laptop"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager = {
-    enable = true;
-    wifi.scanRandMacAddress = false;
-  };
-
-  networking.firewall.allowedTCPPorts = [
-    29549
-    57621
-  ]; # Replace PORT_NUMBER with qBittorrent's port.
-  # doesnt change anything
 
   virtualisation.docker.rootless = {
     # Use the rootless mode - run Docker daemon as non-root user
@@ -122,7 +127,7 @@
       };
     };
 
-    displayManager.defaultSession = "none+i3";
+    displayManager.defaultSession = "hyprland-uwsm";
     # displayManager.sddm = {
     #   enable = true;
     #   wayland.enable = true;
@@ -166,11 +171,6 @@
   };
   services.hypridle.enable = true;
 
-  programs.river = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
   environment.sessionVariables = {
     # somehyprland variables
     # # If cursor becomes invisible ENABLE
@@ -181,7 +181,6 @@
     # WLR_RENDERER = "gles2";
     # # prefer igpu instead of dgpu
     # AQ_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
-
   };
 
   # Configure console keymap
@@ -232,6 +231,7 @@
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.groups.i2c = { };
   users.users.namael = {
     shell = pkgs.fish;
     isNormalUser = true;
@@ -243,6 +243,7 @@
       "input"
       "docker"
       "video"
+      "i2c" # for brightness control
     ];
     packages = with pkgs; [
       kdePackages.kate
@@ -311,7 +312,7 @@
     swww # wallpaper
     kitty # default terminal
     alacritty # pref terminal
-    rofi-wayland # app launcher
+    rofi # app launcher
     networkmanagerapplet
     hyprshot # standalone screenshot tool
     libnotify # library to send notification
@@ -352,6 +353,7 @@
     "cd.." = "cd ..";
     "cd-" = "cd -";
     hotspot = "sudo create_ap wlo1 enp4s0 MyAccesPoint";
+    nixupdate = "cd /home/namael/nixos & nix flake update & cd-";
   };
 
   # android debugger
@@ -364,13 +366,6 @@
     };
 
     flatpak.enable = true;
-
-
-    # dont forget to change dns in network settings
-    zapret = {
-      enable = true;
-      params = [ "--dpi-desync=fake --dpi-desync-ttl=3" ];
-    };
 
     power-profiles-daemon.enable = true; # has to be disabled to use tlp
 

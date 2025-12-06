@@ -16,6 +16,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    sls-steam = {
+      url = "github:AceSLS/SLSsteam";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     tuxedopkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
     tuxedo-nixos = {
       url = "github:sund3RRR/tuxedo-nixos";
@@ -26,11 +31,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    zen-nebula = {
-      url ="github:JustAdumbPrsn/Nebula-A-Minimal-Theme-for-Zen-Browser";
-      inputs.nixpkgs.follows = "nixpkgs";
-      };
 
   };
 

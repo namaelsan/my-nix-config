@@ -2,7 +2,7 @@
 
 {
   networking.hostName = "nixos-laptop"; # Define your hostname.
-  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Enable networking
   networking.networkmanager = {
@@ -17,43 +17,43 @@
   ## doesnt change anything
 
   # DPI blocker
-  zapret = {
+  services.zapret = {
     enable = true;
-    params = [ "--dpi-desync=fake --dpi-desync-ttl=3" ]; # can depend on the network/isp
+    params = [ "--dpi-desync=fake --dpi-desync-ttl=06" ]; # can depend on the network/isp
   };
 
-  # Enable dnscrypt-proxy
-  services.dnscrypt-proxy2.enable = true;
+  services.dnscrypt-proxy = {
+    enable = true;
 
-  # See https://github.com/DNSCrypt/dnscrypt-resolvers/blob/master/v3/public-resolvers.md
-  services.dnscrypt-proxy2.settings = {
-    listen_addresses = [ "127.0.0.1:53" ];
-    server_names = [ "cloudflare", "google", "opendns" ]; # or "google", "quad9", etc.
-    # anonymize the connection to cloudflare aswell
-    routes = {
-      "cloudflare" = {
-        via = [ "anon-*" ]; # Using anon-* lets the proxy choose from many relays. Manually specifying one distant relay (e.g., anon-sg) could hurt performance.
-      };
-      "google" = {
-        via = [ "anon-*" ];
-      };
-      "opendns" = {
-        via = [ "anon-*" ];
+    # Use the public server list built into dnscrypt-proxy
+    settings = {
+      ipv4_servers = true;
+      ipv6_servers = false;
+
+      # Require DNS encryption
+      require_dnssec = true;
+      require_nolog = true;
+      require_nofilter = true;
+
+      listen_addresses = ["127.0.0.1:53" "[::1]:53"];
+
+      # enable anonymized DNS relays
+      anonymized_dns = {
+        skip_incompatible = true;
+        routes = [
+          {
+            server_name = "*";
+            via = [ "anon-*" ];
+          }
+        ];
       };
     };
-    relay_filters = {
-      # Only use relays with low latency and good uptime
-      availability = 1; # skip relays with >1% downtime
-    };
-    cache = true;
-    cache_size = 512;  # in MB
   };
-
   # Prevent DHCP or NetworkManager from overriding your DNS
   networking.dhcpcd.extraConfig = "nohook resolv.conf";
   # if you use NetworkManager:
   networking.networkmanager.dns = "none"; # Then manage /etc/resolv.conf yourself
 
   # Set your system to use localhost for DNS
-  networking.nameservers = [ "127.0.0.1" ];
+  networking.nameservers = [ "127.0.0.1" "::1"];
 }
