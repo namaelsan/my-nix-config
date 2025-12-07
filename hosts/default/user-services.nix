@@ -23,7 +23,7 @@
 
   nix.gc = {
     automatic = true;
-    frequency = "daily"; # every 3 days
+    dates = "daily"; # every 3 days
     persistent = true;
     options = "--delete-older-than 3d";
   };
