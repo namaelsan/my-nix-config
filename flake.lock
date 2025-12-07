@@ -251,11 +251,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1764934807,
-        "narHash": "sha256-GMj7H+yitm+eKc3r6W3dLLJW8WzOISiN3YQy0rhPtpM=",
+        "lastModified": 1765017247,
+        "narHash": "sha256-+nfPFd7uusfhhiXSfpCuA6E3tDc/qVW82fKNrjcMOi0=",
         "owner": "AceSLS",
         "repo": "SLSsteam",
-        "rev": "e99bad69c71352cb098e20c812aed8e6f24ea499",
+        "rev": "721b0012e6451ac4f44b11be4a9f1bb05054c668",
         "type": "github"
       },
       "original": {
@@ -342,11 +342,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1764995001,
-        "narHash": "sha256-jx0CmXLSJP0kttcrh7AvTMttS5gbst44h03Xe2fBCmM=",
+        "lastModified": 1765084755,
+        "narHash": "sha256-Da6OF+dMG/L8IRrWE7bgJPclrh6e8BJCUs0mp8V9MsA=",
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
-        "rev": "298788c28f8e1d912a678ab4108383c1ac979801",
+        "rev": "3865973f52b821abc9c1cb2b21245391de42cc79",
         "type": "github"
       },
       "original": {
