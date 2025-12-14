@@ -36,7 +36,7 @@
   hardware.tuxedo-drivers.enable = true; # tuxedo keyboard driver
   nixpkgs.overlays = [
     (final: prev: {
-      linuxPackages_cachyos = prev.linuxPackages_6_18.extend (
+      linuxPackages_latest = prev.linuxPackages_6_18.extend (
         lfinal: lprev: {
           xpadneo = lprev.xpadneo.overrideAttrs (old: {
             patches = (old.patches or [ ]) ++ [
@@ -54,8 +54,8 @@
   ];
 
   # default = lts kernel
-  # boot.kernelPackages = pkgs.linuxPackages_latest; # use latest kernel
-  boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  boot.kernelPackages = pkgs.linuxPackages_latest; # use latest kernel
+  # boot.kernelPackages = pkgs.linuxPackages_cachyos;
   # boot.kernelPackages = pkgs.linuxPackages_lqx; # Liquorix kernel
   boot.loader = {
     efi = {
