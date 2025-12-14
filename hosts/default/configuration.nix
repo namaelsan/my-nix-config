@@ -170,6 +170,7 @@
     xwayland.enable = true;
   };
   services.hypridle.enable = true;
+  programs.xwayland.enable = true;
 
   environment.sessionVariables = {
     # somehyprland variables

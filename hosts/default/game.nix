@@ -17,25 +17,36 @@
 
   nixpkgs.config.packageOverrides = pkgs: {
     steam = pkgs.steam.override {
-      extraPkgs = pkgs: with pkgs; [
-        xorg.libXcursor
-        xorg.libXi
-        xorg.libXinerama
-        xorg.libXScrnSaver
-        libpng
-        libpulseaudio
-        libvorbis
-        stdenv.cc.cc.lib
-        libkrb5
-        keyutils
-      ];
+      extraPkgs =
+        pkgs: with pkgs; [
+          xorg.libXcursor
+          xorg.libXi
+          xorg.libXinerama
+          xorg.libXScrnSaver
+          libpng
+          libpulseaudio
+          libvorbis
+          stdenv.cc.cc.lib
+          libkrb5
+          keyutils
+        ];
     };
   };
 
-  programs.gamescope.enable = true;
+  programs.gamescope = {
+    capSysNice = false;
+    enable = true;
+    # package = inputs.nixpkgs-gamescope.legacyPackages.${pkgs.system}.gamescope;
+  };
   programs.gamemode.enable = true;
 
   hardware = {
     xpadneo.enable = true; # controller in xbox one mode
+  };
+
+  services.ananicy = {
+    enable = true;
+    package = pkgs.ananicy-cpp;
+    rulesProvider = pkgs.ananicy-rules-cachyos;
   };
 }
