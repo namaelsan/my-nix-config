@@ -24,8 +24,15 @@
   ];
 
   # hyprland communication between apps
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  services.dbus.enable = true;
+  xdg.portal = {
+    enable = true;
+    # Set hyprland as the preferred backend
+    config.common.default = [ "hyprland" ];
+    # Ensure these packages are installed
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; # Good fallback/compatibility
+    wlr.enable = true; # Explicitly enable the wlroots-based portal if needed
+  };
 
   hardware.bluetooth.enable = false;
   hardware.i2c.enable = true;
@@ -34,24 +41,6 @@
   '';
 
   hardware.tuxedo-drivers.enable = true; # tuxedo keyboard driver
-  nixpkgs.overlays = [
-    (final: prev: {
-      linuxPackages_latest = prev.linuxPackages_6_18.extend (
-        lfinal: lprev: {
-          xpadneo = lprev.xpadneo.overrideAttrs (old: {
-            patches = (old.patches or [ ]) ++ [
-              (prev.fetchpatch {
-                url = "https://github.com/orderedstereographic/xpadneo/commit/233e1768fff838b70b9e942c4a5eee60e57c54d4.patch";
-                hash = "sha256-HL+SdL9kv3gBOdtsSyh49fwYgMCTyNkrFrT+Ig0ns7E=";
-                stripLen = 2;
-              })
-            ];
-          });
-        }
-      );
-    }
-    )
-  ];
 
   # default = lts kernel
   boot.kernelPackages = pkgs.linuxPackages_latest; # use latest kernel
@@ -80,10 +69,8 @@
 
   programs.direnv.enable = true;
 
-  virtualisation.docker.rootless = {
-    # Use the rootless mode - run Docker daemon as non-root user
+  virtualisation.docker = {
     enable = true;
-    setSocketVariable = true;
   };
 
   # Set your time zone.
@@ -302,6 +289,7 @@
     vulkan-tools
 
     # hyprland stuff
+    xdg-desktop-portal-hyprland
     gtk3 # for image rendering in waybar
     swayimg # image viewer
     nemo-with-extensions # file manager
