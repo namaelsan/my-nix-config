@@ -117,7 +117,6 @@ in
     vscode # text editor
     protonplus # protonge etc. version installer
     rclone # used for mounting dropbox drive
-    vesktop # discord with plugins
     keepassxc
     git # version control
     universal-android-debloater # debloat your android device
@@ -175,6 +174,7 @@ in
   };
 
   programs.lazydocker.enable = true;
+  programs.vesktop.enable = true;
 
   home.file = {
     ".config/hypr/hyprland.conf".source =
