@@ -10,8 +10,8 @@ let
 in
 {
   imports = [
-    ./user-services.nix
-    ./xdg-home.nix
+    ./services/user-services.nix
+    ./xdg-settings/xdg-home.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -105,7 +105,6 @@ in
         };
       }
     )
-
   ];
 
   # The home.packages option allows you to install Nix packages into your
@@ -121,6 +120,7 @@ in
     git # version control
     universal-android-debloater # debloat your android device
     telegram-desktop # messaging app
+    discord
     # spotify installed from flatpak
     android-studio # NOTE: android sdk was installed manually
     vdhcoapp # video download helper coapp
@@ -174,7 +174,7 @@ in
   };
 
   programs.lazydocker.enable = true;
-  programs.vesktop.enable = true;
+  # programs.vesktop.enable = true;
 
   home.file = {
     ".config/hypr/hyprland.conf".source =

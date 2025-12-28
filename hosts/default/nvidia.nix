@@ -4,16 +4,28 @@
   pkgs,
   ...
 }:
-
+let
+  pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+in
 {
   # Enable OpenGL
   hardware.graphics = {
     enable = true;
+    package = pkgs-unstable.mesa;
     enable32Bit = true;
+    package32 = pkgs-unstable.pkgsi686Linux.mesa;
+
+    extraPackages = with pkgs; [
+      intel-media-driver
+      libvdpau-va-gl
+    ];
   };
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = [
+    "nvidia"
+    "modesetting"
+  ];
 
   hardware.nvidia = {
 
@@ -40,7 +52,7 @@
 
     # Fine-grained power management. Turns off GPU when not in use.
     # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-    powerManagement.finegrained = false;
+    powerManagement.finegrained = true;
 
     # Use the NVidia open source kernel module (not to be confused with the
     # independent third-party "nouveau" open source driver).

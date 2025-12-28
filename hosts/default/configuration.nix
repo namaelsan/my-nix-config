@@ -17,21 +17,20 @@
     inputs.home-manager.nixosModules.default
     ./nvidia.nix
     ./game.nix
-    ./system-services.nix
+    ./services/system-services.nix
     ./nix-ld.nix
     ./network.nix
-    # ./xdg.nix
+    # ./xdg-settings/xdg.nix
   ];
 
   # hyprland communication between apps
   services.dbus.enable = true;
   xdg.portal = {
     enable = true;
-    # Set hyprland as the preferred backend
-    config.common.default = [ "hyprland" ];
+    # config.common.default = [ "hyprland" ];
     # Ensure these packages are installed
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; # Good fallback/compatibility
-    wlr.enable = true; # Explicitly enable the wlroots-based portal if needed
+    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ]; # Good fallback/compatibility
+    # wlr.enable = true; # Explicitly enable the wlroots-based portal if needed
   };
 
   hardware.bluetooth.enable = false;
@@ -93,8 +92,17 @@
 
   services = {
     # displayManager.lightdm.enable = true;
-    displayManager.gdm.enable = true;
-    displayManager.gdm.wayland = true;
+    # displayManager.gdm.enable = true;
+    # displayManager.gdm.wayland = true;
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd 'env WLR_RENDERER=vulkan __GLX_VENDOR_LIBRARY_NAME=mesa GBM_BACKEND=mesa-drm WLR_DRM_DEVICES=/dev/dri/card1 AQ_DRM_DEVICES=/dev/dri/card1 Hyprland'";
+          user = "namael";
+        };
+      };
+    };
 
     # Enable the X11 windowing system.
     # You can disable this if you're only using the Wayland session.
@@ -164,11 +172,12 @@
     # # If cursor becomes invisible ENABLE
     # WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
-    # hyprland vars over
-
     # WLR_RENDERER = "gles2";
     # # prefer igpu instead of dgpu
     # AQ_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
+    # hyprland vars over
+
+    MANGOHUD_CONFIG = "fps_limit=75,no_display";
   };
 
   # Configure console keymap
@@ -289,7 +298,6 @@
     vulkan-tools
 
     # hyprland stuff
-    xdg-desktop-portal-hyprland
     gtk3 # for image rendering in waybar
     swayimg # image viewer
     nemo-with-extensions # file manager
@@ -326,6 +334,9 @@
 
     # river stuff
     wlr-randr # xrandr for wayland
+
+    # greetd
+    tuigreet
   ];
 
   fonts.packages = with pkgs; [
@@ -349,9 +360,9 @@
   programs.adb.enable = true;
 
   services = {
-    deluge = {
+    qbittorrent = {
       enable = true;
-      web.enable = true;
+      user = "namael";
     };
 
     flatpak.enable = true;

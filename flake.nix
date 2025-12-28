@@ -5,7 +5,11 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
-    # nixpkgs-gamescope.url = "github:nixos/nixpkgs/a36371c97d82e5ba08d6e3951a890e9573d3d99b";
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -45,6 +49,7 @@
           ./hosts/default/configuration.nix
           inputs.home-manager.nixosModules.default
           inputs.tuxedo-nixos.nixosModules.default
+          inputs.stylix.nixosModules.stylix
           # inputs.chaotic.nixosModules.default
           {
             hardware.tuxedo-control-center.enable = true;
