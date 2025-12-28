@@ -201,11 +201,22 @@ in
       config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/river/init;
     ".config/sublime-text/Packages/User/Preferences.sublime-settings".source =
       config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/sublimetext4/preferences.sublime-settings;
-
+    ".config/matugen/config.toml".source =
+      config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/matugen/config.conf;
   };
 
   home.sessionVariables = {
     EDITOR = "sublime";
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "adw-gtk3";
+      package = pkgs.adw-gtk3;
+    };
+    gtk4.extraCss = "@import url(\"file:///home/namael/.config/gtk-4.0/colors.css\");";
+    gtk3.extraCss = "@import url(\"file:///home/namael/.config/gtk-3.0/colors.css\");";
   };
 
   nixpkgs.config = {

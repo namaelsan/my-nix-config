@@ -305,7 +305,9 @@
     hyprsome # multiple monitor workspace configuration
     waybar # waybar
     glib # gsettings for gtk
+    gsettings-desktop-schemas # for using themes
     pywal16 # colorcheme creator for wallpaper
+    inputs.matugen.packages.${system}.default # colorscheme generator with dark&light mode
     imagemagick # cli image manipulation tools
     mako # notifications
     swww # wallpaper

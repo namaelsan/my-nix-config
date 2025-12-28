@@ -13,7 +13,7 @@
 /* -----------------------------------------------------
  * Import Pywal colors 
  * ----------------------------------------------------- */
-@import '/home/namael/.cache/wal/colors-waybar.css';
+@import '/home/namael/.cache/matugen/waybar.css';
 
 * {
     font-family: "Symbols Nerd Font Mono", "Fira Sans Semibold", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
@@ -156,7 +156,7 @@ button {
 #window {
     margin: 5px 10px;
     /* Adjust margins */
-    background-color: @color11;
+    background-color: @primary;
     opacity: 0.8;
     padding: 0px 10px;
     /* min-width: 200px; Set minimum width */
@@ -164,7 +164,7 @@ button {
 
 #workspaces {
     margin: 5px 10px 5px 10px;
-    background-color: @color11;
+    background-color: @primary;
     opacity: 0.8;
 }
 
@@ -198,7 +198,7 @@ button {
 }
 
 #battery {
-    color: @color11;
+    color: @primary;
 }
 
 #battery.charging,

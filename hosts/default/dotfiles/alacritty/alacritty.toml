@@ -1,5 +1,5 @@
 [general]
-import=["~/.cache/wal/alacritty.toml"]
+import=["~/.cache/matugen/alacritty.conf"]
 
 [font]
 normal = { family = "JetBrains Mono", style = "Regular"}

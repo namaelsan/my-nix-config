@@ -4,9 +4,43 @@
 WALLPAPER_DIR="$HOME/Wallpapers"  # Change to your wallpapers folder
 SELECTED_WALLPAPER=$(find "$WALLPAPER_DIR" -type f | shuf -n 1)  # Select random wallpaper
 
-# Set the wallpaper
-swww img "$SELECTED_WALLPAPER" --transition-type random --transition-duration 3
+# 1. Calculate Brightness
+# Returns a value between 0 (black) and 1 (white)
+# We check the standard deviation to avoid issues with high contrast images, 
+# but mean is usually enough.
+BRIGHTNESS=$(magick "$SELECTED_WALLPAPER" -colorspace gray -format "%[fx:mean]" info:)
 
-# Generate colors using pywal
-wal -n -e --cols16 darken -i "$SELECTED_WALLPAPER" 
+# Threshold: < 0.5 is Dark, > 0.5 is Light
+if (( $(echo "$BRIGHTNESS < 0.5" | bc -l) )); then
+    MODE="dark"
+    GTK_MODE="prefer-dark"
+else
+    MODE="light"
+    GTK_MODE="prefer-light"
+fi
+
+echo "Detected Brightness: $BRIGHTNESS -> Mode: $MODE"
+
+# 2. Generate Colors (Using Matugen for Material Design or Wallust)
+# Matugen is great because you can FORCE the mode.
+matugen image "$SELECTED_WALLPAPER" -m $MODE
+
+# If using Wallust, it detects automatically, but you might want to swap config files
+# wallust run "$SELECTED_WALLPAPER"
+
+# 3. Apply to System (The "Imperative" part)
+
+# --- GTK (Gnome/GTK Apps) ---
+gsettings set org.gnome.desktop.interface color-scheme $GTK_MODE
+# Optional: force specific theme names if you have them installed
+# gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-$MODE"
+
+# --- QT (KDE/QT Apps) ---
+# QT is tricky on Hyprland. The best way is to tell it to follow GTK.
+# Ensure you have 'qt5ct' or 'qt6ct' installed and configured.
+# You can use a sed command to swap the setting in qt5ct.conf if needed,
+# but usually, setting the GTK mode is enough if using Adwaita-qt.
+
+# --- Set Wallpaper ---
+swww img "$SELECTED_WALLPAPER" --transition-type grow --transition-pos 0.85,0.85 --transition-step 90
 cp $SELECTED_WALLPAPER ~/.cache/current_wp
