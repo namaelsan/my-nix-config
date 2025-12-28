@@ -29,7 +29,7 @@
     enable = true;
     # config.common.default = [ "hyprland" ];
     # Ensure these packages are installed
-    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ]; # Good fallback/compatibility
+    # extraPortals = [ pkgs.xdg-desktop-portal-hyprland ]; # Good fallback/compatibility
     # wlr.enable = true; # Explicitly enable the wlroots-based portal if needed
   };
 
@@ -146,6 +146,7 @@
   #   enable = true;
   #   nvidiaSupport = true;
   # };
+  programs.dconf.enable = true;
 
   programs.gamescope = {
     enable = true;
@@ -303,6 +304,7 @@
     nemo-with-extensions # file manager
     hyprsome # multiple monitor workspace configuration
     waybar # waybar
+    glib # gsettings for gtk
     pywal16 # colorcheme creator for wallpaper
     imagemagick # cli image manipulation tools
     mako # notifications

@@ -2,18 +2,15 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
-let
-  pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-in
+
 {
   # Enable OpenGL
   hardware.graphics = {
     enable = true;
-    package = pkgs-unstable.mesa;
     enable32Bit = true;
-    package32 = pkgs-unstable.pkgsi686Linux.mesa;
 
     extraPackages = with pkgs; [
       intel-media-driver
