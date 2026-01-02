@@ -7,6 +7,26 @@
 }:
 
 {
+
+  specialisation = {
+    docked-mode.configuration = {
+      system.nixos.tags = [ "docked-mode" ];
+      hardware.nvidia = { 
+        prime = {
+          sync.enable = lib.mkForce true;
+          offload = {
+            enable = lib.mkForce false;
+            enableOffloadCmd = lib.mkForce false;
+          };
+        };
+        # Sync mode keeps the GPU awake, so we must disable finegrained power management
+        # to prevent it from trying to turn the card off.
+        powerManagement.finegrained = lib.mkForce false;
+      };
+    };
+  };
+  boot.kernelParams = [ "nvidia-drm.modeset=1" "nvidia-drm.fbdev=1" ];
+
   # Enable OpenGL
   hardware.graphics = {
     enable = true;
@@ -55,7 +75,7 @@
     # independent third-party "nouveau" open source driver).
     # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
     # Only available from driver 515.43.04+
-    open = true;
+    open = false;
 
     # Enable the Nvidia settings menu,
     # accessible via `nvidia-settings`.

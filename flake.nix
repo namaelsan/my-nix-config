@@ -5,10 +5,14 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
+    nix-alien.url = "github:thiagokokada/nix-alien";
+
     matugen = {
       url = "github:/InioX/Matugen";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixohess.url = "gitlab:fazzi/nixohess";
 
     stylix = {
       url = "github:nix-community/stylix";
@@ -48,6 +52,7 @@
     { self, nixpkgs, ... }@inputs:
     {
       nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/default/configuration.nix

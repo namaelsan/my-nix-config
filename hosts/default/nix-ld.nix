@@ -36,6 +36,12 @@
       libpulseaudio
       libdbusmenu
       libuuid
+      libxcb-cursor
+      libxcb-util
+      libxcb-render-util
+      libxcb-image
+      libxcb-keysyms
+      libxcb-wm
       xorg.libxcb
       libxkbcommon
       mesa

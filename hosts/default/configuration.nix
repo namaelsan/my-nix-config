@@ -33,7 +33,8 @@
     # wlr.enable = true; # Explicitly enable the wlroots-based portal if needed
   };
 
-  hardware.bluetooth.enable = false;
+  services.blueman.enable = true;
+  hardware.bluetooth.enable = true;
   hardware.i2c.enable = true;
   services.udev.extraRules = ''
     KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660", TAG+="uaccess"
@@ -98,7 +99,7 @@
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd 'env WLR_RENDERER=vulkan __GLX_VENDOR_LIBRARY_NAME=mesa GBM_BACKEND=mesa-drm WLR_DRM_DEVICES=/dev/dri/card1 AQ_DRM_DEVICES=/dev/dri/card1 Hyprland'";
+          command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd 'Hyprland'";
           user = "namael";
         };
       };
@@ -297,6 +298,7 @@
     toybox # for cmdline tool file
     mangohud # hardware info hud ingame
     vulkan-tools
+    inputs.nix-alien.packages.${system}.nix-alien
 
     # hyprland stuff
     gtk3 # for image rendering in waybar

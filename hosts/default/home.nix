@@ -125,10 +125,11 @@ in
     android-studio # NOTE: android sdk was installed manually
     vdhcoapp # video download helper coapp
     flutter # flutter programming language sdk
-    #stremio # watch movies etc from different sources
+    # stremio # watch movies etc from different sources
+    inputs.nixohess.packages.${pkgs.system}.stremio-linux-shell
     font-awesome # font for waybar theme
     syncplay # play video files in sync online
-    # qbittorrent # torrent client
+    qbittorrent # torrent client
     lutris # game launcher/helper
     libreoffice-qt # fos office alternative
     puddletag # mp3 info editor
@@ -176,6 +177,8 @@ in
   programs.lazydocker.enable = true;
   # programs.vesktop.enable = true;
 
+  services.blueman-applet.enable = true;
+
   home.file = {
     ".config/hypr/hyprland.conf".source =
       config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/hosts/default/dotfiles/hyprland/hyprland.conf;
@@ -218,6 +221,7 @@ in
     gtk4.extraCss = "@import url(\"file:///home/namael/.config/gtk-4.0/colors.css\");";
     gtk3.extraCss = "@import url(\"file:///home/namael/.config/gtk-3.0/colors.css\");";
   };
+  xdg.configFile."mimeapps.list".force = true;
 
   nixpkgs.config = {
     android_sdk.accept_license = true;
