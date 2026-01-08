@@ -9,11 +9,11 @@
     gamescopeSession.enable = true;
   };
 
-  programs.steam.package = pkgs.steam.override {
-    extraEnv = {
-      LD_AUDIT = "${inputs.sls-steam.packages.${pkgs.system}.sls-steam}/SLSsteam.so";
-    };
-  };
+  # programs.steam.package = pkgs.steam.override {
+  #   extraEnv = {
+  #     LD_AUDIT = "${inputs.sls-steam.packages.${pkgs.system}.sls-steam}/SLSsteam.so";
+  #   };
+  # };
 
   nixpkgs.config.packageOverrides = pkgs: {
     steam = pkgs.steam.override {

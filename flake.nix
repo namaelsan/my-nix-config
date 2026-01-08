@@ -23,17 +23,20 @@
       url = "github:0xc000022070/zen-browser-flake";
       # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
       # to have it up to date or simply don't specify the nixpkgs input
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
     };
     kwin-effects-forceblur = {
       url = "github:taj-ny/kwin-effects-forceblur";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    sls-steam = {
-      url = "github:AceSLS/SLSsteam";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # sls-steam = {
+    #   url = "github:AceSLS/SLSsteam";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     tuxedopkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
     tuxedo-nixos = {

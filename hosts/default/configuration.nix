@@ -99,7 +99,7 @@
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd 'Hyprland'";
+          command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd 'start-hyprland'";
           user = "namael";
         };
       };
@@ -134,7 +134,8 @@
     #   };
     # };
     desktopManager.plasma6.enable = true;
-    # xserver.desktopManager.gnome.enable = true;
+    # desktopManager.gnome.enable = true;
+    gnome.gnome-keyring.enable = true;
 
     # Configure keymap in X11
     xserver.xkb = {
@@ -279,7 +280,7 @@
     unrar # enables rar uncompressing
     sqlite # local sql database tool
     jdk # java development kit
-    linux-wifi-hotspot # tool for hotspot
+    # linux-wifi-hotspot # tool for hotspot ## doesnt build?
     nixfmt-rfc-style # format .nix files
     dotool # simulate key press
     protonvpn-gui # vpn
@@ -298,7 +299,7 @@
     toybox # for cmdline tool file
     mangohud # hardware info hud ingame
     vulkan-tools
-    inputs.nix-alien.packages.${system}.nix-alien
+    inputs.nix-alien.packages.${system}.nix-alien #
 
     # hyprland stuff
     gtk3 # for image rendering in waybar
@@ -319,24 +320,24 @@
     networkmanagerapplet
     hyprshot # standalone screenshot tool
     libnotify # library to send notification
+    pantheon.pantheon-agent-polkit # polkit authenticator
     wl-clipboard # copy to clipboard wayland
     pavucontrol # sound controls
     clipse # clipbard manager
     hyprlock # lockscreen
     # hyprland stuff over
 
-    # i3 stuff
-    autotiling # i3 autotiling script
-    polybarFull # status bar
-    feh # background
-    pamixer # for sound control with pipewire
-    xdotool # helper for some window actions
-    lightlocker # screenlock for lightdm
-    maim # screenshot utility
-    dunst # notification manager
-    jq # command line json processor
-    pantheon.pantheon-agent-polkit # polkit authenticator
-    picom # compositor
+    # # i3 stuff
+    # autotiling # i3 autotiling script
+    # polybarFull # status bar
+    # feh # background
+    # pamixer # for sound control with pipewire
+    # xdotool # helper for some window actions
+    # lightlocker # screenlock for lightdm
+    # maim # screenshot utility
+    # dunst # notification manager
+    # jq # command line json processor
+    # picom # compositor
 
     # river stuff
     wlr-randr # xrandr for wayland
