@@ -8,23 +8,23 @@
 
 {
 
-  specialisation = {
-    docked-mode.configuration = {
-      system.nixos.tags = [ "docked-mode" ];
-      hardware.nvidia = { 
-        prime = {
-          sync.enable = lib.mkForce true;
-          offload = {
-            enable = lib.mkForce false;
-            enableOffloadCmd = lib.mkForce false;
-          };
-        };
-        # Sync mode keeps the GPU awake, so we must disable finegrained power management
-        # to prevent it from trying to turn the card off.
-        powerManagement.finegrained = lib.mkForce false;
-      };
-    };
-  };
+  # specialisation = {
+  #   docked-mode.configuration = {
+  #     system.nixos.tags = [ "docked-mode" ];
+  #     hardware.nvidia = { 
+  #       prime = {
+  #         sync.enable = lib.mkForce true;
+  #         offload = {
+  #           enable = lib.mkForce false;
+  #           enableOffloadCmd = lib.mkForce false;
+  #         };
+  #       };
+  #       # Sync mode keeps the GPU awake, so we must disable finegrained power management
+  #       # to prevent it from trying to turn the card off.
+  #       powerManagement.finegrained = lib.mkForce false;
+  #     };
+  #   };
+  # };
   boot.kernelParams = [ "nvidia-drm.modeset=1" "nvidia-drm.fbdev=1" ];
 
   # Enable OpenGL
