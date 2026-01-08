@@ -180,7 +180,7 @@ button {
     margin-left: 16px;
     font-size: 18px;
     font-weight: bold;
-    background-image: url('~/nixos/hosts/default/dotfiles/waybar/resources/nix-snowflake-colours.svg');
+    background-image: url('~/nixos/dotfiles/waybar/resources/nix-snowflake-colours.svg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;

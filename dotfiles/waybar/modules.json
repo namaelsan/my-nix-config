@@ -54,9 +54,9 @@
   },
   "custom/cliphist": {
     "format": "",
-    "on-click": "sleep 0.1 && ~/nixos/hosts/default/scripts/cliphist/cliphist.sh",
-    // "on-click-right": "sleep 0.1 && ~/nixos/hosts/default/scripts/cliphist/cliphist.sh w",
-    "on-click-middle": "sleep 0.1 && ~/nixos/hosts/default/scripts/cliphist/cliphist.sh d",
+    "on-click": "sleep 0.1 && ~/nixos/dotfiles/waybar/scripts/cliphist/cliphist.sh",
+    // "on-click-right": "sleep 0.1 && ~/nixos/scripts/cliphist/cliphist.sh w",
+    "on-click-middle": "sleep 0.1 && ~/nixos/dotfiles/waybar/scripts/cliphist/cliphist.sh d",
     "tooltip-format": "Left: Open clipboard Manager\nMiddle: Clear list"
   },
   "custom/updates": {
@@ -71,12 +71,12 @@
   "custom/wallpaper": {
     "format": "",
     "on-click": "bash -c waypaper &",
-    "on-click-right": "/home/namael/nixos/hosts/default/dotfiles/waybar/scripts/wallpaper-effects.sh",
+    "on-click-right": "/home/namael/nixos/dotfiles/waybar/scripts/wallpaper-effects.sh",
     "tooltip-format": "Left: Select a wallpaper\nRight: Select wallpaper effect"
   },
   "custom/waybarthemes": {
     "format": "",
-    "on-click": "/home/namael/nixos/hosts/default/dotfiles/waybar/scripts/themeswitcher.sh",
+    "on-click": "/home/namael/nixos/dotfiles/waybar/scripts/themeswitcher.sh",
     "tooltip-format": "Select a waybar theme"
   },
   "custom/settings": {
@@ -108,7 +108,7 @@
     // START APPS LABEL
     "format": "",
     // END APPS LABEL
-    "on-click": "~/nixos/hosts/default/dotfiles/waybar/scripts/applauncher.sh",
+    "on-click": "~/nixos/dotfiles/waybar/scripts/applauncher.sh",
     "on-click-right": "~/.config/hypr/scripts/keybindings.sh",
     "tooltip-format": "Left: Open the application launcher\nRight: Show all keybindings",
   },
@@ -121,15 +121,15 @@
   // Power Menu
   "custom/exit": {
     "format": "",
-    "on-click": "~/nixos/hosts/default/dotfiles/waybar/scripts/powermenu-hypr.sh",
+    "on-click": "~/nixos/dotfiles/waybar/scripts/powermenu-hypr.sh",
     "on-click-right": "hyprlock",
     "tooltip-format": "Left: Power menu\nRight: Lock screen"
   },
   "custom/hyprshade": {
     "format": "",
     "tooltip-format": "Toggle Screen Shader",
-    "on-click": "sleep 0.5; /home/namael/nixos/hosts/default/dotfiles/waybar/scripts/hyprshade.sh",
-    "on-click-right": "sleep 0.5; /home/namael/nixos/hosts/default/dotfiles/waybar/scripts/hyprshade.sh rofi"
+    "on-click": "sleep 0.5; /home/namael/nixos/dotfiles/waybar/scripts/hyprshade.sh",
+    "on-click-right": "sleep 0.5; /home/namael/nixos/dotfiles/waybar/scripts/hyprshade.sh rofi"
   },
   "custom/hypridle": {
     "format": "",
@@ -137,8 +137,8 @@
     "escape": true,
     "exec-on-event": true,
     "interval": 60,
-    "exec": "/home/namael/nixos/hosts/default/dotfiles/waybar/scripts/hypridle.sh status",
-    "on-click": "/home/namael/nixos/hosts/default/dotfiles/waybar/scripts/hypridle.sh toggle"
+    "exec": "/home/namael/nixos/dotfiles/waybar/scripts/hypridle.sh status",
+    "on-click": "/home/namael/nixos/dotfiles/waybar/scripts/hypridle.sh toggle"
   },
   "keyboard-state": {
     "numlock": true,
@@ -228,23 +228,23 @@
   // Individual brightness modules
   "custom/brightness-builtin": {
     "format": "{percentage}%",
-    "exec": "~/nixos/hosts/default/scripts/brightness/brightness_view.sh brightnessctl",
+    "exec": "~/nixos/scripts/brightness/brightness_view.sh brightnessctl",
     "interval": 5,
     "signal": 5,
     "return-type": "json",
     "tooltip-format": "Internal Display",
-    "on-click": "~/nixos/hosts/default/scripts/brightness/brightness_change.sh u 1,0",
-    "on-click-right": "~/nixos/hosts/default/scripts/brightness/brightness_change.sh d 1,0"
+    "on-click": "~/nixos/scripts/brightness/brightness_change.sh u 1,0",
+    "on-click-right": "~/nixos/scripts/brightness/brightness_change.sh d 1,0"
   },
   "custom/brightness-external": {
     "format": "{percentage}%",
-    "exec": "~/nixos/hosts/default/scripts/brightness/brightness_view.sh ddcutil",
+    "exec": "~/nixos/scripts/brightness/brightness_view.sh ddcutil",
     "interval": 5,
     "signal": 6,
     "return-type": "json",
     "tooltip-format": "External Display",
-    "on-click": "~/nixos/hosts/default/scripts/brightness/brightness_change.sh u -1,0",
-    "on-click-right": "~/nixos/hosts/default/scripts/brightness/brightness_change.sh d -1,0"
+    "on-click": "~/nixos/scripts/brightness/brightness_change.sh u -1,0",
+    "on-click-right": "~/nixos/scripts/brightness/brightness_change.sh d -1,0"
   },
   // Optional: Label module (if you want it separate)
   "custom/brightness-label": {
