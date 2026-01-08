@@ -7,11 +7,36 @@
 
 let
   system = "x86_64-linux";
+  custom-zen =
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.beta-unwrapped.overrideAttrs
+      (oldAttrs: rec {
+        libName = "zen-bin-1.17.15b";
+        fsautoconfig = (
+          builtins.fetchurl {
+            url = "https://raw.githubusercontent.com/MrOtherGuy/fx-autoconfig/master/program/config.js";
+            sha256 = "1mx679fbc4d9x4bnqajqx5a95y1lfasvf90pbqkh9sm3ch945p40";
+          }
+        );
+        configpref = (
+          builtins.fetchurl {
+            url = "https://raw.githubusercontent.com/MrOtherGuy/fx-autoconfig/refs/heads/master/program/defaults/pref/config-prefs.js";
+            sha256 = "sha256-a/0u0TnRj/UXjg/GKjtAWFQN2+ujrckSwNae23DBfs4=";
+          }
+        );
+
+        postInstall = (oldAttrs.postInstall or "") + ''
+          chmod -R u+w "$out/lib/${libName}"
+          cp "${fsautoconfig}" "$out/lib/${libName}/config.js"
+          mkdir -p "$out/lib/${libName}/defaults/pref"
+          cp "${configpref}" "$out/lib/${libName}/defaults/pref/config-pref.js"
+        '';
+      });
 in
 {
   imports = [
     ./services/user-services.nix
     ./xdg-settings/xdg-home.nix
+    inputs.zen-browser.homeModules.beta
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -30,89 +55,9 @@ in
 
   nixpkgs.config.allowUnfree = true;
 
-  nixpkgs.overlays = [
-    (
-      final: prev:
-      let
-        system = prev.stdenv.hostPlatform.system;
-        origZen = inputs.zen-browser.packages.${system}.default;
-      in
-      {
-        linuxPackages_6_18 = prev.linuxPackages_6_18.extend (
-          _lfinal: lprev: {
-            xpadneo = lprev.xpadneo.overrideAttrs (old: {
-              patches = (old.patches or [ ]) ++ [
-                (prev.fetchpatch {
-                  url = "https://github.com/orderedstereographic/xpadneo/commit/233e1768fff838b70b9e942c4a5eee60e57c54d4.patch";
-                  hash = "sha256-HL+SdL9kv3gBOdtsSyh49fwYgMCTyNkrFrT+Ig0ns7E=";
-                  stripLen = 2;
-                })
-              ];
-            });
-          }
-        );
-        zen-browser = prev.stdenv.mkDerivation {
-          pname = "zen-browser-with-sine";
-          version = origZen.version;
-
-          dontUnpack = true;
-          dontBuild = true;
-          phases = [
-            "preInstall"
-            "installPhase"
-          ];
-
-          nativeBuildInputs = [ prev.makeWrapper ];
-
-          preInstall = ''
-            echo "→ Preparing work directory"
-            mkdir work
-
-            # ★ keep permissions, avoid reflinks, but allow editing
-            cp -r --preserve=mode --reflink=never ${origZen}/* work/
-            chmod -R u+w work
-
-            # find lib directory
-            libName=$(basename $(find work/lib -maxdepth 1 -type d -name "zen-bin-*"))
-            libDir="work/lib/$libName"
-
-            echo "→ Found lib dir: $libDir"
-
-            # apply your sine patches
-            cp ${./sine-mod/config.js} "$libDir/config.js"
-            mkdir -p "$libDir/defaults/pref"
-            cp ${./sine-mod/config-prefs.js} "$libDir/defaults/pref/config-pref.js"
-
-            # launcher path
-            if [ -x "work/bin/zen-browser" ]; then
-              launcher="work/bin/zen-browser"
-            else
-              launcher="$libDir/zen"
-            fi
-
-            # # ensure executable (preserved, but safe)
-            # chmod +x "$launcher"
-
-            wrapProgram "$launcher" \
-              --set MOZ_APP_LAUNCHER "zen-browser"
-          '';
-
-          installPhase = ''
-            echo "→ Installing patched Zen into $out"
-            mkdir -p $out
-            cp -r work/* $out/
-          '';
-        };
-      }
-    )
-  ];
-
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
     vscode # text editor
     protonplus # protonge etc. version installer
     rclone # used for mounting dropbox drive
@@ -126,7 +71,7 @@ in
     vdhcoapp # video download helper coapp
     flutter # flutter programming language sdk
     # stremio # watch movies etc from different sources
-    inputs.nixohess.packages.${pkgs.system}.stremio-linux-shell
+    # inputs.nixohess.packages.${pkgs.system}.stremio-linux-shell
     font-awesome # font for waybar theme
     syncplay # play video files in sync online
     qbittorrent # torrent client
@@ -139,18 +84,15 @@ in
     prismlauncher # official minecraft launcher
     jetbrains.rider # webdevelopment
     signal-desktop # signal messaging app
-    #inputs.zen-browser.packages."${system}".default # zen browser
-    pkgs.zen-browser
-    inputs.sls-steam.packages.${pkgs.system}.wrapped
     cemu # wiiu emulator
     ppsspp-sdl # psp emulator
     nodejs_24 # nodejs
     postman # api development env
     prettierd # formatting for various programming languages
-    sublime4
     element-desktop
     lsfg-vk # framegen
     lsfg-vk-ui
+    antigravity
   ];
 
   # RELEVANT: https://github.com/sublimehq/sublime_text/issues/5984
@@ -162,6 +104,11 @@ in
   ];
 
   fonts.fontconfig.enable = true;
+
+  programs.zen-browser = {
+    enable = true;
+    package = (config.lib.nixGL.wrap ((pkgs.wrapFirefox) custom-zen {}));
+  };
 
   programs.git = {
     enable = true;
