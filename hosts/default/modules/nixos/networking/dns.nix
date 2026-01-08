@@ -1,21 +1,6 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
-  networking.hostName = "nixos-laptop"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Enable networking
-  networking.networkmanager = {
-    enable = true;
-    wifi.scanRandMacAddress = false;
-  };
-
-  networking.firewall.allowedTCPPorts = [
-    29549
-    57621
-  ]; # Replace PORT_NUMBER with qBittorrent's port.
-  ## doesnt change anything
-
   # DPI blocker
   services.zapret = {
     enable = true;
@@ -35,7 +20,10 @@
       require_nolog = true;
       require_nofilter = true;
 
-      listen_addresses = ["127.0.0.1:53" "[::1]:53"];
+      listen_addresses = [
+        "127.0.0.1:53"
+        "[::1]:53"
+      ];
 
       # enable anonymized DNS relays
       anonymized_dns = {
@@ -49,11 +37,15 @@
       };
     };
   };
+
   # Prevent DHCP or NetworkManager from overriding your DNS
   networking.dhcpcd.extraConfig = "nohook resolv.conf";
   # if you use NetworkManager:
   networking.networkmanager.dns = "none"; # Then manage /etc/resolv.conf yourself
 
   # Set your system to use localhost for DNS
-  networking.nameservers = [ "127.0.0.1" "::1"];
+  networking.nameservers = [
+    "127.0.0.1"
+    "::1"
+  ];
 }

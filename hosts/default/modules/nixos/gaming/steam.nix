@@ -2,7 +2,6 @@
 
 {
   # Install steam
-
   programs.steam = {
     enable = true;
     extraCompatPackages = [ pkgs.proton-ge-bin ];
@@ -31,22 +30,5 @@
           keyutils
         ];
     };
-  };
-
-  programs.gamescope = {
-    capSysNice = false;
-    enable = true;
-    # package = inputs.nixpkgs-gamescope.legacyPackages.${pkgs.system}.gamescope;
-  };
-  programs.gamemode.enable = true;
-
-  hardware = {
-    xpadneo.enable = true; # controller in xbox one mode
-  };
-
-  services.ananicy = {
-    enable = true;
-    package = pkgs.ananicy-cpp;
-    rulesProvider = pkgs.ananicy-rules-cachyos;
   };
 }

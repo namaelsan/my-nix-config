@@ -11,7 +11,7 @@
   # specialisation = {
   #   docked-mode.configuration = {
   #     system.nixos.tags = [ "docked-mode" ];
-  #     hardware.nvidia = { 
+  #     hardware.nvidia = {
   #       prime = {
   #         sync.enable = lib.mkForce true;
   #         offload = {
@@ -25,7 +25,10 @@
   #     };
   #   };
   # };
-  boot.kernelParams = [ "nvidia-drm.modeset=1" "nvidia-drm.fbdev=1" ];
+  boot.kernelParams = [
+    "nvidia-drm.modeset=1"
+    "nvidia-drm.fbdev=1"
+  ];
 
   # Enable OpenGL
   hardware.graphics = {

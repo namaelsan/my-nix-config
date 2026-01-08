@@ -72,7 +72,7 @@
       SDL2_image
       pkgsi686Linux.glibc
       pkgsi686Linux.openssl
-      pkgsi686Linux.curl      
+      pkgsi686Linux.curl
       pkgsi686Linux.zlib
     ];
   };

@@ -58,7 +58,7 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          ./hosts/default/configuration.nix
+          ./hosts/default/default.nix
           inputs.home-manager.nixosModules.default
           inputs.tuxedo-nixos.nixosModules.default
           inputs.stylix.nixosModules.stylix
