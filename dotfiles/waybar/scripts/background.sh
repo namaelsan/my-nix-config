@@ -42,5 +42,5 @@ gsettings set org.gnome.desktop.interface color-scheme $GTK_MODE
 # but usually, setting the GTK mode is enough if using Adwaita-qt.
 
 # --- Set Wallpaper ---
-swww img "$SELECTED_WALLPAPER" --transition-type grow --transition-pos 0.85,0.85 --transition-step 90
+swww img "$SELECTED_WALLPAPER" --transition-type fade
 cp $SELECTED_WALLPAPER ~/.cache/current_wp
