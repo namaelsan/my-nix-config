@@ -18,10 +18,10 @@
     kitty # default terminal
     alacritty # pref terminal
     rofi # app launcher
+    fuzzel
     networkmanagerapplet
     hyprshot # standalone screenshot tool
     libnotify # library to send notification
-    pantheon.pantheon-agent-polkit # polkit authenticator
     pavucontrol # sound controls
     clipse # clipbard manager
     hyprlock # lockscreen
@@ -41,8 +41,5 @@
 
     # river stuff
     wlr-randr # xrandr for wayland
-
-    # greetd
-    tuigreet
   ];
 }
