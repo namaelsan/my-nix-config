@@ -108,7 +108,7 @@
     // START APPS LABEL
     "format": "",
     // END APPS LABEL
-    "on-click": "~/nixos/dotfiles/waybar/scripts/applauncher.sh",
+    "on-click": "~/nixos/hosts/default/scripts/applauncher.sh",
     "on-click-right": "~/.config/hypr/scripts/keybindings.sh",
     "tooltip-format": "Left: Open the application launcher\nRight: Show all keybindings",
   },

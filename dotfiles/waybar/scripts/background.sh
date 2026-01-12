@@ -14,9 +14,11 @@ BRIGHTNESS=$(magick "$SELECTED_WALLPAPER" -colorspace gray -format "%[fx:mean]" 
 if (( $(echo "$BRIGHTNESS < 0.5" | bc -l) )); then
     MODE="dark"
     GTK_MODE="prefer-dark"
+    echo "export BtnCol='white'" > ~/.cache/wlogout_theme
 else
     MODE="light"
     GTK_MODE="prefer-light"
+    echo "export BtnCol='black'" > ~/.cache/wlogout_theme
 fi
 
 echo "Detected Brightness: $BRIGHTNESS -> Mode: $MODE"
@@ -24,9 +26,6 @@ echo "Detected Brightness: $BRIGHTNESS -> Mode: $MODE"
 # 2. Generate Colors (Using Matugen for Material Design or Wallust)
 # Matugen is great because you can FORCE the mode.
 matugen image "$SELECTED_WALLPAPER" -m $MODE
-
-# If using Wallust, it detects automatically, but you might want to swap config files
-# wallust run "$SELECTED_WALLPAPER"
 
 # 3. Apply to System (The "Imperative" part)
 

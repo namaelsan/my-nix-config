@@ -1,34 +1,67 @@
 #!/usr/bin/env bash
-#  ____                                                    
-# |  _ \ _____      _____ _ __ _ __ ___   ___ _ __  _   _  
-# | |_) / _ \ \ /\ / / _ \ '__| '_ ` _ \ / _ \ '_ \| | | | 
-# |  __/ (_) \ V  V /  __/ |  | | | | | |  __/ | | | |_| | 
-# |_|   \___/ \_/\_/ \___|_|  |_| |_| |_|\___|_| |_|\__,_| 
-#                                                          
-#  
-# by Stephan Raabe (2023) 
-# ----------------------------------------------------- 
 
-echo 󰐥;
+#// Check if wlogout is already running
 
-option1="  lock"
-option2="  logout"
-option3="  reboot"
-option4="  power off"
+if pgrep -x "wlogout" >/dev/null; then
+    pkill -x "wlogout"
+    exit 0
+fi
 
-options="$option1\n"
-options="$options$option2\n"
-options="$options$option3\n$option4"
+#// set file variables
 
-choice=$(echo -e "$options" | rofi -dmenu -i -no-show-icons -theme ~/.cache/wal/colors-rofi-dark.rasi -l 4 -width 30 -p "Powermenu") 
 
-case $choice in
-	$option1)
-		hyprlock || light-locker-command -l;;
-	$option2)
-		hyprctl dispatch exit || i3-msg exit;;
-	$option3)
-		systemctl reboot ;;
-	$option4)
-		systemctl poweroff ;;
-esac
+scrDir="$HOME/nixos/dotfiles/wlogout"
+#//source "$scrDir/globalcontrol.sh"
+wlogoutStyle=1
+wlogoutStyle=${wlogoutStyle:-$WLOGOUT_STYLE}
+confDir="${confDir:-$HOME/nixos/dotfiles}"
+wLayout="${confDir}/wlogout/layout"
+wlTmplt="${confDir}/wlogout/style.css"
+#//echo "wlogoutStyle: ${wlogoutStyle}"
+#//echo "wLayout: ${wLayout}"
+#//echo "wlTmplt: ${wlTmplt}"
+
+if [ ! -f "${wLayout}" ] || [ ! -f "${wlTmplt}" ]; then
+    echo "ERROR: Config ${wlogoutStyle} not found..."
+    wlogoutStyle=1
+    wLayout="${confDir}/wlogout/layout"
+    wlTmplt="${confDir}/wlogout/style.css"
+fi
+
+#// detect monitor res
+
+x_mon=$(hyprctl -j monitors | jq '.[] | select(.focused==true) | .width')
+y_mon=$(hyprctl -j monitors | jq '.[] | select(.focused==true) | .height')
+hypr_scale=$(hyprctl -j monitors | jq '.[] | select (.focused == true) | .scale' | sed 's/\.//')
+#// scale config layout and style
+
+wlColms=6
+export mgn=$((y_mon * 28 / hypr_scale))
+export hvr=$((y_mon * 23 / hypr_scale))
+
+#// scale font size
+
+export fntSize=$((y_mon * 2 / 100))
+
+#// detect wallpaper brightness
+
+#// detect wallpaper brightness (Read from cache)
+if [ -f "$HOME/.cache/wlogout_theme" ]; then
+    source "$HOME/.cache/wlogout_theme"
+else
+    export BtnCol="white" # Fallback
+fi
+
+#// eval hypr border radius
+
+hypr_border="${hypr_border:-10}"
+export active_rad=$((hypr_border * 5))
+export button_rad=$((hypr_border * 8))
+
+#// eval config files
+
+wlStyle="$(envsubst <"${wlTmplt}")"
+
+#// launch wlogout
+
+wlogout -b "${wlColms}" -c 0 -r 0 -m 0 --layout "${wLayout}" --css <(echo "${wlStyle}") --protocol layer-shell

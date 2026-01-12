@@ -16,5 +16,7 @@
     wl-clipboard # copy to clipboard wayland
     imagemagick # cli image manipulation tools
     devenv # development tool
+    jq
+    gettext
   ];
 }

@@ -25,6 +25,7 @@
     pavucontrol # sound controls
     clipse # clipbard manager
     hyprlock # lockscreen
+    wlogout # logout menu
     # hyprland stuff over
 
     # # i3 stuff
