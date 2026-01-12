@@ -3,6 +3,7 @@
 {
   # Core system packages
   environment.systemPackages = with pkgs; [
+    tuigreet # greetd
     fish # shell
     wget
     ntfs3g # read / mount ntfs
