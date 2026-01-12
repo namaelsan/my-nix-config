@@ -28,5 +28,7 @@
       config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/dotfiles/sublimetext4/preferences.sublime-settings;
     ".config/matugen/config.toml".source =
       config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/dotfiles/matugen/config.conf;
+    ".config/wofi/config".source =
+      config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/dotfiles/wofi/config;
   };
 }
