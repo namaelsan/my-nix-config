@@ -23,5 +23,6 @@
     inputs.kwin-effects-forceblur.packages.${pkgs.system}.default # forceblur effect for manually setting blur in kde
     mangohud # hardware info hud ingame
     gnome-keyring # gnome keyring manager
+    calibre # book library app
   ];
 }
