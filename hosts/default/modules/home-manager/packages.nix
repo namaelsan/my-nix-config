@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   # The home.packages option allows you to install Nix packages into your
@@ -28,6 +28,7 @@
     ffmpeg # video and stuff helper tool
     python3 # python programing language support
     prismlauncher # official minecraft launcher
+    inputs.hyprism.packages.${system}.default # hytale launcher with local defined flake
     jetbrains.rider # webdevelopment
     signal-desktop # signal messaging app
     cemu # wiiu emulator
