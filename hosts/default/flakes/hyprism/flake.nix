@@ -72,7 +72,7 @@
           pname = "hyprism-frontend";
           version = "remote";
           src = "${hyprism}/frontend";
-          npmDepsHash = "sha256-l/wJ1H8txNIBJuC/0OwloURz32291XJI9JQB7JC4OuI=";
+          npmDepsHash = "sha256-EiF94aMbMac8p0bWAx/VbIz6eSWiU5PuC7GHFMab6So=";
           buildPhase = "runHook preBuild; npm run build; runHook postBuild";
           installPhase = "runHook preInstall; mkdir -p $out; cp -r dist/* $out/; runHook postInstall";
         };

@@ -465,8 +465,8 @@
         "nixpkgs-unstable": "nixpkgs-unstable"
       },
       "locked": {
-        "lastModified": 1768658691,
-        "narHash": "sha256-XQT6/kCXg5vKtbMgd887Xds7O2qdk7bPWahHwKk1ELA=",
+        "lastModified": 1769075211,
+        "narHash": "sha256-x9h5sUDAmR4Pi2F3G5YqWdt4N1l6RzzsrO5rsDkAE4E=",
         "path": "/home/namael/nixos/hosts/default/flakes/hyprism",
         "type": "path"
       },
@@ -478,11 +478,11 @@
     "hyprism_2": {
       "flake": false,
       "locked": {
-        "lastModified": 1768619604,
-        "narHash": "sha256-nVDZMMIKv1N2ghneha6/0x3vTWHZjnyertMsCg3x3SA=",
+        "lastModified": 1769035380,
+        "narHash": "sha256-OuaP2HR5f/URhQtHMb4WgzEaCYfhGhpK7hlWtPat25E=",
         "owner": "yyyumeniku",
         "repo": "HyPrism",
-        "rev": "0f829dd810764596e1a81e15c0a795d8cb5df380",
+        "rev": "e67a6f965cd0ec2abde10855498c0c3c2f28a450",
         "type": "github"
       },
       "original": {
@@ -1049,11 +1049,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1768564909,
-        "narHash": "sha256-Kell/SpJYVkHWMvnhqJz/8DqQg2b6PguxVWOuadbHCc=",
+        "lastModified": 1768886240,
+        "narHash": "sha256-C2TjvwYZ2VDxYWeqvvJ5XPPp6U7H66zeJlRaErJKoEM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e4bae1bd10c9c57b2cf517953ab70060a828ee6f",
+        "rev": "80e4adbcf8992d3fd27ad4964fbb84907f9478b0",
         "type": "github"
       },
       "original": {
