@@ -18,5 +18,6 @@
     devenv # development tool
     jq
     gettext
+    baobab # gnome disk usage analyzer
   ];
 }
