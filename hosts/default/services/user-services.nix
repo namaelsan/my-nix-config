@@ -9,8 +9,8 @@
         KillMode = "mixed"; # Ensures the signal propagates to child processes
         ExecStart = "${pkgs.rclone}/bin/rclone mount dropbox: /home/namael/Documents/dropbox/ --config /home/namael/.config/rclone/rclone.conf";
         # Retry every 5 seconds if the mount fails
-        Restart = "on-failure";
-        RestartSec = "5s";
+        Restart = "always";
+        RestartSec = "30s";
       };
       Unit = {
         Description = "Rclone Sync Service"; # Set the description here
