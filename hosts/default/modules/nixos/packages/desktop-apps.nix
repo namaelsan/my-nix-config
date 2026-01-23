@@ -15,7 +15,7 @@
     rar # enables rar compressing
     unrar # enables rar uncompressing
     sqlite # local sql database tool
-    jdk # java development kit
+    jdk25_headless # java development kit
     # linux-wifi-hotspot # tool for hotspot ## doesnt build?
     dotool # simulate key press
     protonvpn-gui # vpn
