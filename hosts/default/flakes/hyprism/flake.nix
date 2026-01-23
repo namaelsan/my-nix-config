@@ -5,7 +5,8 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-    hyprism.url = "github:yyyumeniku/HyPrism/main";
+    # hyprism.url = "github:yyyumeniku/HyPrism/main";
+    hyprism.url = "github:yyyumeniku/HyPrism/1f785a39376ea7dc946ca91690fc95f4429b04ea";
     hyprism.flake = false;
   };
 

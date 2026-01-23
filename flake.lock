@@ -465,8 +465,8 @@
         "nixpkgs-unstable": "nixpkgs-unstable"
       },
       "locked": {
-        "lastModified": 1769075211,
-        "narHash": "sha256-x9h5sUDAmR4Pi2F3G5YqWdt4N1l6RzzsrO5rsDkAE4E=",
+        "lastModified": 1769174219,
+        "narHash": "sha256-DQ62ApztpMsMoPVrmGwzH3PPElNKZoHUDph+fyJKdwU=",
         "path": "/home/namael/nixos/hosts/default/flakes/hyprism",
         "type": "path"
       },
@@ -478,17 +478,17 @@
     "hyprism_2": {
       "flake": false,
       "locked": {
-        "lastModified": 1769035380,
-        "narHash": "sha256-OuaP2HR5f/URhQtHMb4WgzEaCYfhGhpK7hlWtPat25E=",
+        "lastModified": 1769114354,
+        "narHash": "sha256-BSTvu37w02Mu8YztkwECk3QlS6k5V+4YlJKUeezHsFg=",
         "owner": "yyyumeniku",
         "repo": "HyPrism",
-        "rev": "e67a6f965cd0ec2abde10855498c0c3c2f28a450",
+        "rev": "1f785a39376ea7dc946ca91690fc95f4429b04ea",
         "type": "github"
       },
       "original": {
         "owner": "yyyumeniku",
-        "ref": "main",
         "repo": "HyPrism",
+        "rev": "1f785a39376ea7dc946ca91690fc95f4429b04ea",
         "type": "github"
       }
     },
@@ -1049,11 +1049,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1768886240,
-        "narHash": "sha256-C2TjvwYZ2VDxYWeqvvJ5XPPp6U7H66zeJlRaErJKoEM=",
+        "lastModified": 1769018530,
+        "narHash": "sha256-MJ27Cy2NtBEV5tsK+YraYr2g851f3Fl1LpNHDzDX15c=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "80e4adbcf8992d3fd27ad4964fbb84907f9478b0",
+        "rev": "88d3861acdd3d2f0e361767018218e51810df8a1",
         "type": "github"
       },
       "original": {
