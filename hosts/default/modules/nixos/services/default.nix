@@ -7,5 +7,6 @@
     ./flatpak.nix
     ./power.nix
     ./calibre-server.nix
+    ./zerotier.nix
   ];
 }
