@@ -4,7 +4,7 @@
   # DPI blocker
   services.zapret = {
     enable = true;
-    params = [ "--dpi-desync=fake --dpi-desync-ttl=06" ]; # can depend on the network/isp
+    params = [ "--dpi-desync=fake --dpi-desync-ttl=07" ]; # can depend on the network/isp
   };
 
   services.dnscrypt-proxy = {
