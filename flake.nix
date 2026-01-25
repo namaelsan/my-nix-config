@@ -42,10 +42,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # sls-steam = {
-    #   url = "github:AceSLS/SLSsteam";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    sls-steam = {
+      url = "github:AceSLS/SLSsteam";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     tuxedopkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
     tuxedo-nixos = {
