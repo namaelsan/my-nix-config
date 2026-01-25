@@ -19,5 +19,6 @@
     jq
     gettext
     baobab # gnome disk usage analyzer
+    android-tools # adb
   ];
 }

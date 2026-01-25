@@ -7,8 +7,6 @@
   # Directory environment
   programs.direnv.enable = true;
 
-  # Android debugger
-  programs.adb.enable = true;
 
   # AppImage support
   programs.appimage.enable = true;
