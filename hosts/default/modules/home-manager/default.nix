@@ -39,6 +39,7 @@ in
     ./desktop
     ./xdg.nix
     inputs.zen-browser.homeModules.beta
+    inputs.hytale-f2p.homeManagerModules.default
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
