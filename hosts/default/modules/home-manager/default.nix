@@ -9,7 +9,7 @@ let
   custom-zen =
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.beta-unwrapped.overrideAttrs
       (oldAttrs: rec {
-        libName = "zen-bin-1.17.15b";
+        libName = "zen-bin-*";
         fsautoconfig = (
           builtins.fetchurl {
             url = "https://raw.githubusercontent.com/MrOtherGuy/fx-autoconfig/master/program/config.js";
@@ -24,10 +24,12 @@ let
         );
 
         postInstall = (oldAttrs.postInstall or "") + ''
-          chmod -R u+w "$out/lib/${libName}"
-          cp "${fsautoconfig}" "$out/lib/${libName}/config.js"
-          mkdir -p "$out/lib/${libName}/defaults/pref"
-          cp "${configpref}" "$out/lib/${libName}/defaults/pref/config-pref.js"
+          for libdir in "$out"/lib/${libName}; do
+            chmod -R u+w "$libdir"
+            cp "${fsautoconfig}" "$libdir/config.js"
+            mkdir -p "$libdir/defaults/pref"
+            cp "${configpref}" "$libdir/defaults/pref/config-pref.js"
+          done
         '';
       });
 in
