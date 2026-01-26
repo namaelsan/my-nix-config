@@ -25,7 +25,7 @@ echo "Detected Brightness: $BRIGHTNESS -> Mode: $MODE"
 
 # 2. Generate Colors (Using Matugen for Material Design or Wallust)
 # Matugen is great because you can FORCE the mode.
-matugen image "$SELECTED_WALLPAPER" -m $MODE
+matugen image "$SELECTED_WALLPAPER" -m $MODE --source-color-index 1
 
 # 3. Apply to System (The "Imperative" part)
 
@@ -41,5 +41,5 @@ gsettings set org.gnome.desktop.interface color-scheme $GTK_MODE
 # but usually, setting the GTK mode is enough if using Adwaita-qt.
 
 # --- Set Wallpaper ---
-swww img "$SELECTED_WALLPAPER" --transition-type fade
+# swww img "$SELECTED_WALLPAPER" --transition-type fade
 cp $SELECTED_WALLPAPER ~/.cache/current_wp
