@@ -54,9 +54,9 @@
   },
   "custom/cliphist": {
     "format": "",
-    "on-click": "sleep 0.1 && ~/nixos/dotfiles/waybar/scripts/cliphist/cliphist.sh",
+    "on-click": "~/nixos/hosts/default/scripts/cliphist/cliphist.sh",
     // "on-click-right": "sleep 0.1 && ~/nixos/scripts/cliphist/cliphist.sh w",
-    "on-click-middle": "sleep 0.1 && ~/nixos/dotfiles/waybar/scripts/cliphist/cliphist.sh d",
+    "on-click-middle": "~/nixos/hosts/default/scripts/cliphist/cliphist.sh d",
     "tooltip-format": "Left: Open clipboard Manager\nMiddle: Clear list"
   },
   "custom/updates": {

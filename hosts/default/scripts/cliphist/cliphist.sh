@@ -2,7 +2,7 @@
 echo $1
 if [ $# -eq 0 ]; then
     killall clipse
-    alacritty --class clipse -e 'clipse'
+    alacritty --title Clipse --class clipse -e 'clipse'
 fi
 if [ $1 == "d" ]; then
     clipse -clear
