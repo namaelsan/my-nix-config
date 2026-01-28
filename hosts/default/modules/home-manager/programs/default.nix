@@ -5,6 +5,5 @@
     ./git.nix
     ./browsers.nix
     ./misc.nix
-    ./gaming.nix
   ];
 }
