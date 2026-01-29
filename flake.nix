@@ -12,6 +12,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixohess.url = "gitlab:fazzi/nixohess";
 
     stylix = {
@@ -47,6 +52,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixflix = {
+      url = "github:kiriwalawren/nixflix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     tuxedopkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
     tuxedo-nixos = {
       url = "github:sund3RRR/tuxedo-nixos";
@@ -71,6 +81,7 @@
           inputs.home-manager.nixosModules.default
           inputs.tuxedo-nixos.nixosModules.default
           inputs.stylix.nixosModules.stylix
+          inputs.nixflix.nixosModules.default
           # inputs.chaotic.nixosModules.default
           {
             hardware.tuxedo-control-center.enable = true;

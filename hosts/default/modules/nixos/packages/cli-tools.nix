@@ -21,5 +21,6 @@
     baobab # gnome disk usage analyzer
     android-tools # adb
     inputs.sls-steam.packages.x86_64-linux.wrapped
+    sops
   ];
 }

@@ -780,8 +780,8 @@
         ]
       },
       "locked": {
-        "lastModified": 1769370532,
-        "narHash": "sha256-6XdrztzrBHVoGVAZYTvAYRgA8eQ0s1I8nU2k+wsMAyY=",
+        "lastModified": 1769706641,
+        "narHash": "sha256-j58nCm5jxS3hwjqubvNDJlQBohNaIW2hzbUCYX78fAY=",
         "path": "/home/namael/nixos/hosts/default/flakes/hytale-f2p",
         "type": "path"
       },
@@ -793,11 +793,11 @@
     "hytale-f2p-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1769369409,
-        "narHash": "sha256-PYzBfPk/aHmVag+qMIfKwHoBOut+NQLgq6ZUIwWxtc0=",
+        "lastModified": 1769458270,
+        "narHash": "sha256-SrHShixnamK1BDhQQO9ljUCFL1LyJt7Dnky9VWdK7C8=",
         "owner": "amiayweb",
         "repo": "Hytale-F2P",
-        "rev": "d1ab58d51b9f064e4f70014829a76991c3739818",
+        "rev": "da186333cbf37e89c76622dd3f9920a4ba4f4a00",
         "type": "github"
       },
       "original": {
@@ -845,6 +845,22 @@
       "original": {
         "owner": "InioX",
         "repo": "Matugen",
+        "type": "github"
+      }
+    },
+    "mkdocs-catppuccin": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1767028711,
+        "narHash": "sha256-YVIZAtQT2B4Xs2sBaszvyyukm+1klCJdRpsc/BYV1gw=",
+        "owner": "ruslanlap",
+        "repo": "mkdocs-catppuccin",
+        "rev": "fd8ac6106b5b6d32922cd80cbc3d221622a17408",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ruslanlap",
+        "repo": "mkdocs-catppuccin",
         "type": "github"
       }
     },
@@ -923,6 +939,27 @@
       "original": {
         "owner": "nix-community",
         "repo": "nix-index-database",
+        "type": "github"
+      }
+    },
+    "nixflix": {
+      "inputs": {
+        "mkdocs-catppuccin": "mkdocs-catppuccin",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1769704760,
+        "narHash": "sha256-/756wapI7sJNe50X5u/UDWGdc44Q6cEVfRmS7DKpDqY=",
+        "owner": "kiriwalawren",
+        "repo": "nixflix",
+        "rev": "41bc069e0c45c770414137b6591e76464f023fd7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kiriwalawren",
+        "repo": "nixflix",
         "type": "github"
       }
     },
@@ -1122,9 +1159,11 @@
         "kwin-effects-forceblur": "kwin-effects-forceblur",
         "matugen": "matugen",
         "nix-alien": "nix-alien",
+        "nixflix": "nixflix",
         "nixohess": "nixohess",
         "nixpkgs": "nixpkgs_4",
         "sls-steam": "sls-steam",
+        "sops-nix": "sops-nix",
         "stylix": "stylix",
         "tuxedo-nixos": "tuxedo-nixos",
         "tuxedopkgs": "tuxedopkgs",
@@ -1148,6 +1187,26 @@
       "original": {
         "owner": "AceSLS",
         "repo": "SLSsteam",
+        "type": "github"
+      }
+    },
+    "sops-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1769469829,
+        "narHash": "sha256-wFcr32ZqspCxk4+FvIxIL0AZktRs6DuF8oOsLt59YBU=",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "c5eebd4eb2e3372fe12a8d70a248a6ee9dd02eff",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "sops-nix",
         "type": "github"
       }
     },
