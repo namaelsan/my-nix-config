@@ -12,6 +12,7 @@
     ./virtualisation.nix
     ./nix-ld.nix
     ./shell-aliases.nix
+    ./nixflix.nix
     ./hardware
     ./desktop
     ./networking

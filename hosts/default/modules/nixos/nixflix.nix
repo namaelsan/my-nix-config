@@ -1,23 +1,33 @@
-{ ... }:
+{ config, inputs, ... }:
 
 {
+  imports = [
+    inputs.sops-nix.nixosModules.sops
+  ];
+
   sops.secrets = {
-    "nixflix" = {
-      "sonarr/api_key" = { };
-      "sonarr/password" = { };
-      "radarr/api_key" = { };
-      "radarr/password" = { };
-      "prowlarr/api_key" = { };
-      "prowlarr/password" = { };
-      "jellyfin/alice_password" = { };
-      "jellyseerr/api_key" = { };
-    };
+    "sonarr/api_key" = { };
+    "sonarr/password" = { };
+    "radarr/api_key" = { };
+    "radarr/password" = { };
+    "prowlarr/api_key" = { };
+    "prowlarr/password" = { };
+    "jellyfin/admin_password" = { };
+    # "jellyseerr/api_key" = { };
   };
+
+  sops.defaultSopsFile = ./desktop/secrets/secrets.yaml;
+  sops.age.keyFile = "/home/namael/.config/sops/age/keys.txt";
 
   nixflix = {
     enable = true;
     mediaDir = "/data/media";
     stateDir = "/data/.state";
+    mediaUsers = [ "namael" ];
+    theme = {
+      enable = true;
+      name = "overseerr";
+    };
 
     nginx.enable = true;
     postgres.enable = true;
