@@ -27,7 +27,7 @@
         };
 
         pname = "hytale-f2p-launcher";
-        version = "2.0.11";
+        version = "2.1.1";
 
         # Runtime libraries needed by Electron and game client
         runtimeLibs = with pkgs; [
@@ -88,7 +88,7 @@
           # 3. Replace the hash below with the correct one
           # If you haven't fetched the hash yet, use:
           # npmDepsHash = pkgs.lib.fakeHash;
-          npmDepsHash = "sha256-5tRTS+vqlXCd38Ukzpw5Nw8zDe93LI+ugpHZGLKU8Lc=";
+          npmDepsHash = "sha256-Fu3MBTAKA0JQtMZbz/c/ry6hSwZT0RyoTxhVPRwmvto=";
 
           # Required for git dependencies in package-lock.json
           forceGitDeps = true;

@@ -53,7 +53,8 @@
     };
 
     nixflix = {
-      url = "github:kiriwalawren/nixflix";
+      # url = "github:kiriwalawren/nixflix";
+      url = "path:/home/namael/nixflix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -86,6 +87,24 @@
           {
             hardware.tuxedo-control-center.enable = true;
             hardware.tuxedo-control-center.package = inputs.tuxedo-nixos.packages.x86_64-linux.default;
+
+            imports = [
+              inputs.sops-nix.nixosModules.sops
+            ];
+
+            sops.secrets = {
+              "sonarr/api_key" = { };
+              "sonarr/password" = { };
+              "radarr/api_key" = { };
+              "radarr/password" = { };
+              "prowlarr/api_key" = { };
+              "prowlarr/password" = { };
+              "jellyfin/admin_password" = { };
+              "jellyseerr/api_key" = { };
+            };
+
+            sops.defaultSopsFile = ./secrets/secrets.yaml;
+            sops.age.keyFile = "/home/namael/.config/sops/age/keys.txt";
           }
         ];
       };

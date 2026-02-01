@@ -14,7 +14,6 @@
     discord
     # spotify installed from flatpak
     android-studio # NOTE: android sdk was installed manually
-    vdhcoapp # video download helper coapp
     flutter # flutter programming language sdk
     # stremio # watch movies etc from different sources
     # inputs.nixohess.packages.${pkgs.system}.stremio-linux-shell

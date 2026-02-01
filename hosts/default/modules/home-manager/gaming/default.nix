@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./gaming.nix
     ./games.nix
+    ./sls-steam.nix
   ];
 }

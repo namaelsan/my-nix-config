@@ -1,33 +1,17 @@
-{ config, inputs, ... }:
+{ config, ... }:
 
 {
-  imports = [
-    inputs.sops-nix.nixosModules.sops
-  ];
 
-  sops.secrets = {
-    "sonarr/api_key" = { };
-    "sonarr/password" = { };
-    "radarr/api_key" = { };
-    "radarr/password" = { };
-    "prowlarr/api_key" = { };
-    "prowlarr/password" = { };
-    "jellyfin/admin_password" = { };
-    # "jellyseerr/api_key" = { };
+  networking.firewall = {
+    allowedTCPPorts = [
+      80 # makes nginx available to the network
+    ];
   };
-
-  sops.defaultSopsFile = ./desktop/secrets/secrets.yaml;
-  sops.age.keyFile = "/home/namael/.config/sops/age/keys.txt";
 
   nixflix = {
     enable = true;
     mediaDir = "/data/media";
     stateDir = "/data/.state";
-    mediaUsers = [ "namael" ];
-    theme = {
-      enable = true;
-      name = "overseerr";
-    };
 
     nginx.enable = true;
     postgres.enable = true;
@@ -38,8 +22,11 @@
         apiKey = {
           _secret = config.sops.secrets."sonarr/api_key".path;
         };
-        hostConfig.password = {
-          _secret = config.sops.secrets."sonarr/password".path;
+        hostConfig = {
+          username = "user";
+          password = {
+            _secret = config.sops.secrets."sonarr/password".path;
+          };
         };
       };
     };
@@ -50,8 +37,11 @@
         apiKey = {
           _secret = config.sops.secrets."radarr/api_key".path;
         };
-        hostConfig.password = {
-          _secret = config.sops.secrets."radarr/password".path;
+        hostConfig = {
+          username = "user";
+          password = {
+            _secret = config.sops.secrets."radarr/password".path;
+          };
         };
       };
     };
@@ -62,19 +52,59 @@
         apiKey = {
           _secret = config.sops.secrets."prowlarr/api_key".path;
         };
-        hostConfig.password = {
-          _secret = config.sops.secrets."prowlarr/password".path;
+        hostConfig = {
+          username = "user";
+          password = {
+            _secret = config.sops.secrets."prowlarr/password".path;
+          };
+          port = 9696;
         };
+        indexers = [
+          { name = "TorrentDownload"; }
+          { name = "Uindex"; }
+          { name = "nekoBT"; }
+          { name = "Nyaa.si"; }
+          { name = "Knaben"; }
+          { name = "The Pirate Bay"; }
+          { name = "RuTor"; }
+          { name = "Torrent Downloads"; }
+          { name = "LimeTorrents"; }
+          { name = "Bangumi Moe"; }
+          { name = "BitSearch"; }
+          # { name = "TorrentGalaxyClone"; }
+          # { name = "kickasstorrents.ws"; }
+          # { name = "Internet Archive"; }
+        ];
       };
     };
 
     jellyfin = {
       enable = true;
+      encoding = {
+        hardwareAccelerationType = "nvenc";
+        enableHardwareEncoding = true;
+        enableEnhancedNvdecDecoder = true; # For better NVIDIA decoding
+        hardwareDecodingCodecs = [
+          "h264"
+          "hevc"
+          "mpeg2video"
+          "vc1"
+          "vp9"
+          "av1"
+        ]; # RTX 3050 Ti supports these
+      };
       users.admin = {
         policy.isAdministrator = true;
         password = {
           _secret = config.sops.secrets."jellyfin/admin_password".path;
         };
+      };
+    };
+
+    jellyseerr = {
+      enable = true;
+      apiKey = {
+        _secret = config.sops.secrets."jellyseerr/api_key".path;
       };
     };
   };

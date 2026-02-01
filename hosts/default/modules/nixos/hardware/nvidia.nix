@@ -38,6 +38,7 @@
     extraPackages = with pkgs; [
       intel-media-driver
       libvdpau-va-gl
+      nvidia-vaapi-driver
     ];
   };
 
@@ -78,7 +79,7 @@
     # independent third-party "nouveau" open source driver).
     # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
     # Only available from driver 515.43.04+
-    open = false;
+    open = true;
 
     # Enable the Nvidia settings menu,
     # accessible via `nvidia-settings`.

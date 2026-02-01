@@ -5,6 +5,10 @@
   services.zapret = {
     enable = true;
     params = [ "--dpi-desync=fake --dpi-desync-ttl=07" ]; # can depend on the network/isp
+    blacklist = [
+      "localhost"
+      "127.0.0.1"
+    ];
   };
 
   services.dnscrypt-proxy = {
