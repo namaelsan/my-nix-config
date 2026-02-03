@@ -27,7 +27,6 @@
     ffmpeg # video and stuff helper tool
     python3 # python programing language support
     prismlauncher # official minecraft launcher
-    inputs.hyprism.packages.${system}.default # hytale launcher with local defined flake
     jetbrains.rider # webdevelopment
     signal-desktop # signal messaging app
     cemu # wiiu emulator

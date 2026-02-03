@@ -1,0 +1,57 @@
+[
+  {
+    "pname": "DiscordRichPresence",
+    "version": "1.6.1.70",
+    "hash": "sha256-uXTNIWfZU7Gf/JpXQ5ufKA3SQdXYSkg3yLm5yCrBDd8="
+  },
+  {
+    "pname": "Microsoft.NETCore.Platforms",
+    "version": "2.0.0",
+    "hash": "sha256-IEvBk6wUXSdyCnkj6tHahOJv290tVVT8tyemYcR0Yro="
+  },
+  {
+    "pname": "Microsoft.Win32.Registry",
+    "version": "4.5.0",
+    "hash": "sha256-WMBXsIb0DgPFPaFkNVxY9b9vcMxPqtgFgijKYMJfV/0="
+  },
+  {
+    "pname": "Newtonsoft.Json",
+    "version": "13.0.1",
+    "hash": "sha256-K2tSVW4n4beRPzPu3rlVaBEMdGvWSv/3Q1fxaDh4Mjo="
+  },
+  {
+    "pname": "Photino.Native",
+    "version": "4.0.22",
+    "hash": "sha256-owM7RGwFd6X5bw1ttMgaQ6qf+157d2OHv5IJp+VlYXs="
+  },
+  {
+    "pname": "Photino.NET",
+    "version": "4.0.16",
+    "hash": "sha256-cbxDN4nuuwYF4kYoXeZr2HGFwB0GTu8QXrED7Hzz6ps="
+  },
+  {
+    "pname": "System.IO.Pipelines",
+    "version": "10.0.2",
+    "hash": "sha256-Guh0w9aMQ5wNSI9ecuoH4tGOX4VFnlNgepvBTPGFgzc="
+  },
+  {
+    "pname": "System.Security.AccessControl",
+    "version": "4.5.0",
+    "hash": "sha256-AFsKPb/nTk2/mqH/PYpaoI8PLsiKKimaXf+7Mb5VfPM="
+  },
+  {
+    "pname": "System.Security.Principal.Windows",
+    "version": "4.5.0",
+    "hash": "sha256-BkUYNguz0e4NJp1kkW7aJBn3dyH9STwB5N8XqnlCsmY="
+  },
+  {
+    "pname": "System.Text.Encodings.Web",
+    "version": "10.0.2",
+    "hash": "sha256-DWbSR+d8DJtkMclrKKbS5Ghlvi6YYrrxgHGfyDJx50o="
+  },
+  {
+    "pname": "System.Text.Json",
+    "version": "10.0.2",
+    "hash": "sha256-Gf6L3mxsdvmN8gDyoUhfZDSFWKpmn9UjJ2v/p1CDFmk="
+  }
+]

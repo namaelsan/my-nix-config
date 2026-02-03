@@ -53,8 +53,8 @@
     };
 
     nixflix = {
-      # url = "github:kiriwalawren/nixflix";
-      url = "path:/home/namael/nixflix";
+      url = "github:kiriwalawren/nixflix";
+      # url = "path:/home/namael/nixflix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
