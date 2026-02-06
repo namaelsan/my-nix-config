@@ -3,11 +3,40 @@
 {
   gtk = {
     enable = true;
-    theme = {
-      name = "adw-gtk3";
+
+    cursorTheme = {
+      name = "Breeze-cursors";
+      package = pkgs.breeze-hacked-cursor-theme;
+    };
+
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+
+    gtk3 = {
+      theme = {
+      name = "adw-gtk3-dark";
       package = pkgs.adw-gtk3;
     };
-    gtk4.extraCss = "@import url(\"file:///home/namael/.config/gtk-4.0/colors.css\");";
-    gtk3.extraCss = "@import url(\"file:///home/namael/.config/gtk-3.0/colors.css\");";
+      extraConfig = {
+        gtk-application-prefer-dark-theme = true;
+      };
+    };
+
+    gtk4 = {
+      extraConfig = {
+        gtk-application-prefer-dark-theme = true;
+      };
+    };
   };
+
+  # home.sessionVariables = {
+  #   GTK_THEME = "adw-gtk3-dark";
+  # };
+
+  home.packages = with pkgs; [
+    # glib # gsettings for gtk
+    # gsettings-desktop-schemas # for using themes
+  ];
 }
