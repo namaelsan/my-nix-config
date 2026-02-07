@@ -30,5 +30,7 @@
       config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/dotfiles/matugen/config.conf;
     ".config/wofi/config".source =
       config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/dotfiles/wofi/config;
+    ".config/DankMaterialShell/settings.json".source =
+      config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/dotfiles/dms/settings.json;
   };
 }

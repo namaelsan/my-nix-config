@@ -6,5 +6,6 @@
     ./dotfiles.nix
     ./polkit.nix
     ./caelestia-shell.nix
+    ./dms.nix
   ];
 }

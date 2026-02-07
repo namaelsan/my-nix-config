@@ -8,7 +8,3 @@ if status is-interactive
 
     fastfetch
 end
-
-source ~/.hytalef2p/.env
-export CURSEFORGE_API_KEY
-export DISCORD_CLIENT_ID
