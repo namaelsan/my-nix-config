@@ -2,18 +2,19 @@
 
 {
 
+  # hyprland communication between apps
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+
   # Set default applications
   xdg = {
-    mimeApps = {
+    mime = {
       enable = true;
       defaultApplications = {
         # "" = [ "" ];
 
         # File Manager
         "inode/directory" = "nemo.desktop";
-
-        # Text Editor
-        "text/plain" =  "sublime.desktop";
 
         # Web browser
         "text/html" = [ "zen-beta.desktop" ];
@@ -25,7 +26,7 @@
         "application/vnd.rar" = [ "ark.desktop" ];
 
         # Torrent
-        "application/x-bittorrent" = [ "deluge.desktop" ];
+        "application/x-bittorrent" = [ "org.qbittorrent.qBittorrent.desktop" ];
 
         # Document
         "application/vnd.oasis.opendocument.txt" = [ "writer.desktop" ];
@@ -37,15 +38,10 @@
         "application/pdf" = [ "zen-beta.desktop" ];
 
         # Image viewer
-        # "image/png" = [ "swayimg.desktop" ];
-        # "image/jpeg" = [ "swayimg.desktop" ];
-        # "image/webp" = [ "swayimg.desktop" ];
-        # "image/svg+xml" = [ "swayimg.desktop" ];
-
-        "image/png" = [ "feh.desktop" ];
-        "image/jpeg" = [ "feh.desktop" ];
-        "image/webp" = [ "feh.desktop" ];
-        "image/svg+xml" = [ "feh.desktop" ];
+        "image/png" = [ "swayimg.desktop" ];
+        "image/jpeg" = [ "swayimg.desktop" ];
+        "image/webp" = [ "swayimg.desktop" ];
+        "image/svg+xml" = [ "swayimg.desktop" ];
 
         # Video player
         "video/mp4" = [ "mpv.desktop" ];

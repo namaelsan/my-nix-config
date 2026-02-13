@@ -333,7 +333,7 @@
   "updaterUseCustomCommand": false,
   "updaterCustomCommand": "",
   "updaterTerminalAdditionalParams": "",
-  "displayNameMode": "system",
+  "displayNameMode": "model",
   "screenPreferences": {},
   "showOnLastDisplay": {},
   "niriOutputSettings": {},
@@ -407,7 +407,9 @@
       "visible": true,
       "popupGapsAuto": true,
       "popupGapsManual": 4,
-      "showOnWindowsOpen": false
+      "showOnWindowsOpen": false,
+      "shadowColorMode": "text",
+      "widgetOutlineEnabled": false
     },
     {
       "id": "bar1770399633947",

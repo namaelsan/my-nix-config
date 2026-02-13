@@ -26,7 +26,7 @@
         "application/vnd.rar" = [ "ark.desktop" ];
 
         # Torrent
-        "application/x-bittorrent" = [ "deluge.desktop" ];
+        "application/x-bittorrent" = [ "qbittorrent.desktop" ];
 
         # Document
         "application/vnd.oasis.opendocument.txt" = [ "writer.desktop" ];

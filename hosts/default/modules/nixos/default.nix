@@ -19,5 +19,6 @@
     ./gaming
     ./packages
     ./services
+    ./xdg.nix
   ];
 }

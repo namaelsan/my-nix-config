@@ -39,7 +39,7 @@ in
     ./programs
     ./services
     ./desktop
-    ./xdg.nix
+    # ./xdg.nix
     ./gaming
     inputs.zen-browser.homeModules.beta
   ];

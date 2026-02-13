@@ -26,5 +26,6 @@
     calibre # book library app
     inputs.hyprism.packages.${pkgs.system}.default # hytale launcher with local defined flake
     playerctl # app for using player keybinds (stop/play/next)
+    file-roller # gnome archive manager
   ];
 }

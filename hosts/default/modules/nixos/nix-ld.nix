@@ -26,6 +26,7 @@
       keybinder3
       libGL
       libappindicator-gtk3
+      curlWithGnuTls
       libdrm
       libdecor
       libepoxy
@@ -52,6 +53,7 @@
       systemd
       icu
       openssl
+      openal
       xorg.libX11
       xorg.libXScrnSaver
       xorg.libXcomposite
