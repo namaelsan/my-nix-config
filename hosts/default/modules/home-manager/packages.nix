@@ -31,7 +31,6 @@
     signal-desktop # signal messaging app
     cemu # wiiu emulator
     ppsspp-sdl # psp emulator
-    nodejs_24 # nodejs
     postman # api development env
     prettierd # formatting for various programming languages
     element-desktop

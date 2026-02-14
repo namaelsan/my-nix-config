@@ -22,5 +22,6 @@
     android-tools # adb
     inputs.sls-steam.packages.x86_64-linux.wrapped
     sops
+    dtrx # Intelligent archive extractor
   ];
 }
