@@ -16,7 +16,7 @@
         Description = "Rclone Sync Service"; # Set the description here
       };
       Install = {
-        WantedBy = [ "graphical-session.target" ]; # Starts the service at graphical session
+        WantedBy = [ "default.target" ]; # Starts the service at user session
       };
     };
   };
