@@ -5,6 +5,7 @@
   # hyprland communication between apps
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  xdg.portal.config.common.default = [ "gtk" ]; # Tells portals to use GTK for opening files/folders
 
   # Set default applications
   xdg = {
@@ -45,6 +46,7 @@
 
         # Video player
         "video/mp4" = [ "mpv.desktop" ];
+        "video/quicktime" = [ "mpv.desktop" ];
         "video/x-matroska" = [ "mpv.desktop" ];
         "application/vnd.apple.mpegurl" = [ "mpv.desktop" ]; # m3u8 files
 
