@@ -11,7 +11,6 @@
     ./programs
     ./services
     ./desktop
-    # ./xdg.nix
     ./gaming
     inputs.zen-browser.homeModules.beta
   ];
@@ -45,6 +44,7 @@
   programs.zen-browser = {
     enable = true;
     profiles."jj9242nc.Default (release)" = {
+      isDefault = true;
       sine.enable = true;
     };
   };
