@@ -3,9 +3,13 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     nix-alien.url = "github:thiagokokada/nix-alien";
+
+    nix-cachyos-kernel = {
+      url = "github:xddxdd/nix-cachyos-kernel/release";
+      # Do not override its nixpkgs input, otherwise there can be mismatch between patches and kernel version
+    };
 
     matugen = {
       url = "github:/InioX/Matugen";
@@ -27,13 +31,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixohess.url = "gitlab:fazzi/nixohess";
-
-    stylix = {
-      url = "github:nix-community/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     hyprism = {
       url = "path:/home/namael/nixos/hosts/default/flakes/hyprism";
     };
@@ -44,7 +41,7 @@
     };
 
     zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
+      url = "github:0xc000022070/zen-browser-flake?rev=231ae41b0cd867046ff0bc3c1a7707e244fe8127";
       # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
       # to have it up to date or simply don't specify the nixpkgs input
       inputs = {
@@ -68,10 +65,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    tuxedopkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
     tuxedo-nixos = {
       url = "github:sund3RRR/tuxedo-nixos";
-      inputs.nixpkgs.follows = "tuxedopkgs";
     };
 
     home-manager = {
@@ -91,16 +86,11 @@
           ./hosts/default/default.nix
           inputs.home-manager.nixosModules.default
           inputs.tuxedo-nixos.nixosModules.default
-          inputs.stylix.nixosModules.stylix
           inputs.nixflix.nixosModules.default
-          # inputs.chaotic.nixosModules.default
+          inputs.sops-nix.nixosModules.sops
           {
             hardware.tuxedo-control-center.enable = true;
             hardware.tuxedo-control-center.package = inputs.tuxedo-nixos.packages.x86_64-linux.default;
-
-            imports = [
-              inputs.sops-nix.nixosModules.sops
-            ];
 
             sops.secrets = {
               "sonarr/api_key" = { };
