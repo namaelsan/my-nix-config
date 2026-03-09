@@ -43,7 +43,7 @@
       libxcb-image
       libxcb-keysyms
       libxcb-wm
-      xorg.libxcb
+      libxcb
       libxkbcommon
       mesa
       nspr
@@ -54,21 +54,21 @@
       icu
       openssl
       openal
-      xorg.libX11
-      xorg.libXScrnSaver
-      xorg.libXcomposite
-      xorg.libXcursor
-      xorg.libXdamage
-      xorg.libXext
-      xorg.libXfixes
-      xorg.libXi
-      xorg.libXinerama
-      xorg.libXrandr
-      xorg.libXrender
-      xorg.libXtst
-      xorg.libxkbfile
-      xorg.libxshmfence
-      xorg.libXxf86vm
+      libX11
+      libXScrnSaver
+      libXcomposite
+      libXcursor
+      libXdamage
+      libXext
+      libXfixes
+      libXi
+      libXinerama
+      libXrandr
+      libXrender
+      libXtst
+      libxkbfile
+      libxshmfence
+      libXxf86vm
       zlib
       SDL2
       SDL2_image

@@ -6,7 +6,7 @@
     flake-utils.url = "github:numtide/flake-utils";
     # Fetch the latest source from GitHub
     hytale-f2p-src = {
-      url = "github:amiayweb/Hytale-F2P";
+      url = "https://git.sanhost.net/sanasol/hytale-f2p/";
       flake = false;
     };
   };
@@ -43,13 +43,13 @@
           libglvnd
           alsa-lib
 
-          xorg.libX11
-          xorg.libXcomposite
-          xorg.libXdamage
-          xorg.libXext
-          xorg.libXfixes
-          xorg.libXrandr
-          xorg.libxcb
+          libX11
+          libXcomposite
+          libXdamage
+          libXext
+          libXfixes
+          libXrandr
+          libxcb
           glib
           pango
           cairo

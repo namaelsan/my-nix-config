@@ -10,7 +10,7 @@
     lshw # hardware info
     home-manager # home manager for nixos
     killall # process killer
-    nixfmt-rfc-style # format .nix files
+    nixfmt # format .nix files
     nix-output-monitor # pretty build dialog for nix
     busybox # various unix tools ex: tree pwd ip bc
     toybox # for cmdline tool file

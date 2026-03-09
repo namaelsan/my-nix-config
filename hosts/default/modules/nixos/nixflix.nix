@@ -12,8 +12,26 @@
     enable = true;
     mediaDir = "/data/media";
     stateDir = "/data/.state";
+    mediaUsers = [ "namael" ];
+
+    downloadsDir = "/data/downloads";
+    # torrentClients.qbittorrent = {
+    #   enable = true;
+    #   serverConfig.Preferences.WebUI = {
+    #     Username = "user";
+    #   };
+    #   password = {
+    #     _secret = config.sops.secrets."sonarr/password".path;
+    #   };
+    # };
+
+    theme = {
+      enable = true;
+      name = "overseerr";
+    };
 
     nginx.enable = true;
+    # nginx.addHostsEntries = true; # Disable this is you have your own DNS configuration
     postgres.enable = true;
 
     sonarr = {

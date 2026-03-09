@@ -20,7 +20,7 @@
     dotool # simulate key press
     protonvpn-gui # vpn
     heroic # Native GOG, Epic, and Amazon Games Launcher for Linux, Windows and Mac
-    inputs.kwin-effects-forceblur.packages.${pkgs.system}.default # forceblur effect for manually setting blur in kde
+    # inputs.kwin-effects-forceblur.packages.${pkgs.system}.default # forceblur effect for manually setting blur in kde
     mangohud # hardware info hud ingame
     gnome-keyring # gnome keyring manager
     calibre # book library app

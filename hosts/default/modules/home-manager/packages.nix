@@ -13,7 +13,7 @@
     telegram-desktop # messaging app
     discord
     # spotify installed from flatpak
-    android-studio # NOTE: android sdk was installed manually
+    # android-studio # NOTE: android sdk was installed manually
     flutter # flutter programming language sdk
     # stremio # installed from flatpak
     # inputs.nixohess.packages.${pkgs.system}.stremio-linux-shell
@@ -27,7 +27,7 @@
     ffmpeg # video and stuff helper tool
     python3 # python programing language support
     prismlauncher # official minecraft launcher
-    jetbrains.rider # webdevelopment
+    # jetbrains.rider # webdevelopment
     signal-desktop # signal messaging app
     cemu # wiiu emulator
     ppsspp-sdl # psp emulator

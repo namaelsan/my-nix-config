@@ -9,8 +9,8 @@ window {
 
 button {
     /* MATUGEN COLOR */
-    color: #e7e0e8;
-    background-color: rgba(44, 41, 47, 0.5);
+    color: #dee3e5;
+    background-color: rgba(37, 43, 45, 0.5);
 
     outline-style: none;
     border: none;
@@ -27,12 +27,12 @@ button {
 }
 
 button:focus {
-    background-color: #cdc2db;
+    background-color: #b2cbd2;
     background-size: 30%;
 }
 
 button:hover {
-    background-color: rgba(75, 67, 88, 0.8);
+    background-color: rgba(51, 74, 81, 0.8);
     background-size: 40%;
     border-radius: ${active_rad}px;
     animation: gradient_f 20s ease-in infinite;
