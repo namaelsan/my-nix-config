@@ -8,6 +8,11 @@
     blacklist = [
       "localhost"
       "127.0.0.1"
+      "sonarr.nixflix"
+      "radarr.nixflix"
+      "prowlarr.nixflix"
+      "jellyseerr.nixflix"
+      "jellyfin.nixflix"
     ];
   };
 

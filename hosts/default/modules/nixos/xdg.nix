@@ -33,6 +33,7 @@
         "application/vnd.oasis.opendocument.txt" = [ "writer.desktop" ];
         "application/vnd.openxmlformats-officedocument.presentationml.presentation" = [ "impress" ];
         "application/vnd.ms-excel" = [ "calc.desktop" ];
+        "text/plain" = ["org.gnome.gedit.desktop"];
 
 
         # PDF viewer

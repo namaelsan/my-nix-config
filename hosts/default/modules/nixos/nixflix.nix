@@ -31,7 +31,7 @@
     };
 
     nginx.enable = true;
-    # nginx.addHostsEntries = true; # Disable this is you have your own DNS configuration
+    nginx.addHostsEntries = true; # Disable this is you have your own DNS configuration
     postgres.enable = true;
 
     sonarr = {

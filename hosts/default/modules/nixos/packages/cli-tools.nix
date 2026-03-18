@@ -20,7 +20,7 @@
     gettext
     baobab # gnome disk usage analyzer
     android-tools # adb
-    inputs.sls-steam.packages.x86_64-linux.wrapped
+    inputs.sls-steam.packages.${pkgs.system}.wrapped
     sops
     dtrx # Intelligent archive extractor
     pylint # python linter
