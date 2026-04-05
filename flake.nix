@@ -41,7 +41,7 @@
     };
 
     zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake?rev=231ae41b0cd867046ff0bc3c1a7707e244fe8127";
+      url = "github:0xc000022070/zen-browser-flake";
       # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
       # to have it up to date or simply don't specify the nixpkgs input
       inputs = {
