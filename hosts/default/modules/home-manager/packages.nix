@@ -17,7 +17,6 @@
     flutter # flutter programming language sdk
     # stremio # installed from flatpak
     # inputs.nixohess.packages.${pkgs.system}.stremio-linux-shell
-    font-awesome # font for waybar theme
     syncplay # play video files in sync online
     qbittorrent # torrent client
     lutris # game launcher/helper
