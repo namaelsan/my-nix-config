@@ -19,7 +19,7 @@
     # inputs.nixohess.packages.${pkgs.system}.stremio-linux-shell
     syncplay # play video files in sync online
     qbittorrent # torrent client
-    lutris # game launcher/helper
+    # lutris # game launcher/helper
     libreoffice-qt # fos office alternative
     puddletag # mp3 info editor
     cryptomator # encryipt files

@@ -12,7 +12,7 @@
     pywal16 # colorcheme creator for wallpaper
     inputs.matugen.packages.${system}.default # colorscheme generator with dark&light mode
     mako # notifications
-    swww # wallpaper
+    awww # wallpaper
     kitty # default terminal
     alacritty # pref terminal
     rofi # app launcher

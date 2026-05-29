@@ -74,6 +74,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    claude-cowork-service.url = "github:patrickjaja/claude-cowork-service";
+
   };
 
   outputs =
@@ -99,6 +101,7 @@
               "radarr/password" = { };
               "prowlarr/api_key" = { };
               "prowlarr/password" = { };
+              "jellyfin/api_key" = { };
               "jellyfin/admin_password" = { };
               "jellyseerr/api_key" = { };
             };

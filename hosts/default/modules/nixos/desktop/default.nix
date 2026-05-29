@@ -8,6 +8,6 @@
     ./i3.nix
     ./xserver.nix
     ./greetd.nix
-    # ./samba.nix
+    ./claude-desktop.nix
   ];
 }

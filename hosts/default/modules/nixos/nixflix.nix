@@ -98,6 +98,9 @@
 
     jellyfin = {
       enable = true;
+      apiKey = {
+        _secret = config.sops.secrets."jellyfin/api_key".path;
+      };
       encoding = {
         hardwareAccelerationType = "nvenc";
         enableHardwareEncoding = true;
@@ -117,9 +120,10 @@
           _secret = config.sops.secrets."jellyfin/admin_password".path;
         };
       };
+
     };
 
-    jellyseerr = {
+    seerr = {
       enable = true;
       apiKey = {
         _secret = config.sops.secrets."jellyseerr/api_key".path;

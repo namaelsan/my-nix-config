@@ -18,7 +18,7 @@
     jdk25_headless # java development kit
     # linux-wifi-hotspot # tool for hotspot ## doesnt build?
     dotool # simulate key press
-    protonvpn-gui # vpn
+    proton-vpn # vpn
     heroic # Native GOG, Epic, and Amazon Games Launcher for Linux, Windows and Mac
     # inputs.kwin-effects-forceblur.packages.${pkgs.system}.default # forceblur effect for manually setting blur in kde
     mangohud # hardware info hud ingame
