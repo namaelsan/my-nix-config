@@ -11,7 +11,7 @@
     git # version control
     universal-android-debloater # debloat your android device
     telegram-desktop # messaging app
-    discord
+    # discord
     # spotify installed from flatpak
     # android-studio # NOTE: android sdk was installed manually
     flutter # flutter programming language sdk

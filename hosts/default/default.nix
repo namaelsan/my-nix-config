@@ -18,7 +18,7 @@
   # Home Manager configuration
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
-    backupFileExtension = "backup"; # Backup conflicting files instead of failing
+    backupFileExtension = "bak"; # Backup conflicting files instead of failing
     users = {
       "namael" = import ./modules/home-manager;
     };
