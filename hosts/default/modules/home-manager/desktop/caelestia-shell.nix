@@ -6,7 +6,7 @@
   ];
 
   programs.caelestia = {
-    enable = true;
+    enable = false;
     # systemd = {
     #   enable = false; # if you prefer starting from your compositor
     #   target = "graphical-session.target";

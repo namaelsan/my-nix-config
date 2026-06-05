@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # caelestia shell &
-dms run &
+# dms run &
 # run clipboard listener on startup
 clipse -listen
 # # wallpaper

@@ -6,6 +6,7 @@
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   xdg.portal.config.common.default = [ "gtk" ]; # Tells portals to use GTK for opening files/folders
+  xdg.portal.config.hyprland.default = [ "hyprland" "gtk" ]; # Tells portals to use GTK for opening files/folders
 
   # Set default applications
   xdg = {
