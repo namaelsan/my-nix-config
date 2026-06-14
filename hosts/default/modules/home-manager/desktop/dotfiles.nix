@@ -32,5 +32,7 @@
       config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/dotfiles/wofi/config;
     ".config/DankMaterialShell/settings.json".source =
       config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/dotfiles/dms/settings.json;
+    ".config/niri/config.kdl".source = 
+      config.lib.file.mkOutOfStoreSymlink /home/namael/nixos/dotfiles/niri/config.kdl;
   };
 }

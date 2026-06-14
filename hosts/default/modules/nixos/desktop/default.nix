@@ -9,5 +9,7 @@
     ./xserver.nix
     ./greetd.nix
     ./claude-desktop.nix
+    ./niri.nix
+    ./dms.nix
   ];
 }
