@@ -3,10 +3,20 @@
 {
 
   # hyprland communication between apps
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  xdg.portal.config.common.default = [ "gtk" ]; # Tells portals to use GTK for opening files/folders
-  xdg.portal.config.hyprland.default = [ "hyprland" "gtk" ]; # Tells portals to use GTK for opening files/folders
+  # xdg.portal.config.common.default = [ "gtk" ]; # Tells portals to use GTK for opening files/folders
+  # xdg.portal.config.hyprland.default = [ "hyprland" "gtk" ]; # Tells portals to use GTK for opening files/folders
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-gnome
+    ];
+    config = {
+      common.default = [ "gnome" ];
+    };
+  };
+
 
   # Set default applications
   xdg = {

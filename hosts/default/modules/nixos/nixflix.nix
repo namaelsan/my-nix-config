@@ -5,6 +5,7 @@
   networking.firewall = {
     allowedTCPPorts = [
       80 # makes nginx available to the network
+      8096 #jellyfin
     ];
   };
 
@@ -31,7 +32,7 @@
     };
 
     nginx.enable = true;
-    nginx.addHostsEntries = true; # Disable this is you have your own DNS configuration
+    # nginx.addHostsEntries = true; # Disable this is you have your own DNS configuration
     postgres.enable = true;
 
     sonarr = {
@@ -114,6 +115,7 @@
           "av1"
         ]; # RTX 3050 Ti supports these
       };
+      network.localNetworkAddresses = [];
       users.admin = {
         policy.isAdministrator = true;
         password = {

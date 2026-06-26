@@ -8,7 +8,7 @@
     # nvidiaPatches = true; #NO LONGER NEEDED DONT ADD BACK
     xwayland.enable = true;
   };
-  services.hypridle.enable = true;
+  # services.hypridle.enable = true;
   programs.xwayland.enable = true;
 
   environment.sessionVariables = {

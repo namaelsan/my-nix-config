@@ -28,7 +28,11 @@
   boot.kernelParams = [
     "nvidia-drm.modeset=1"
     "nvidia-drm.fbdev=1"
+    "nvidia.NVreg_EnableGpuFirmware=0" # gpu sdp disabled
   ];
+  boot.extraModprobeConfig = ''
+    options nvidia NVreg_RegistryDwords="RMUseSwI2c=0x01;RMI2cSpeed=100"
+  '';
 
   # Enable OpenGL
   hardware.graphics = {
