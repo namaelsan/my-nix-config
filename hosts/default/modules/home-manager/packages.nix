@@ -14,7 +14,7 @@
     # discord
     # spotify installed from flatpak
     # android-studio # NOTE: android sdk was installed manually
-    flutter # flutter programming language sdk
+    # flutter # flutter programming language sdk
     # stremio # installed from flatpak
     # inputs.nixohess.packages.${pkgs.system}.stremio-linux-shell
     syncplay # play video files in sync online
