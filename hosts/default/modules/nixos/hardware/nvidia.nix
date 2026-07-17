@@ -7,24 +7,6 @@
 }:
 
 {
-
-  # specialisation = {
-  #   docked-mode.configuration = {
-  #     system.nixos.tags = [ "docked-mode" ];
-  #     hardware.nvidia = {
-  #       prime = {
-  #         sync.enable = lib.mkForce true;
-  #         offload = {
-  #           enable = lib.mkForce false;
-  #           enableOffloadCmd = lib.mkForce false;
-  #         };
-  #       };
-  #       # Sync mode keeps the GPU awake, so we must disable finegrained power management
-  #       # to prevent it from trying to turn the card off.
-  #       powerManagement.finegrained = lib.mkForce false;
-  #     };
-  #   };
-  # };
   boot.kernelParams = [
     "nvidia-drm.modeset=1"
     "nvidia-drm.fbdev=1"
@@ -90,32 +72,25 @@
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
+    package = config.boot.kernelPackages.nvidiaPackages.production;
     # package = config.boot.kernelPackages.nvidiaPackages.stable;
-    # package =
-    #   let
-    #     base = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-    #       version = "590.48.01";
-    #       sha256_64bit = "sha256-ueL4BpN4FDHMh/TNKRCeEz3Oy1ClDWto1LO/LWlr1ok=";
-    #       openSha256 = "sha256-hECHfguzwduEfPo5pCDjWE/MjtRDhINVr4b1awFdP44=";
-    #       settingsSha256 = "sha256-4SfCWp3swUp+x+4cuIZ7SA5H7/NoizqgPJ6S9fm90fA=";
-    #       persistencedSha256 = "";
-    #     };
-    #     cachyos-nvidia-patch = pkgs.fetchpatch {
-    #       url = "https://raw.githubusercontent.com/CachyOS/CachyOS-PKGBUILDS/master/nvidia/nvidia-utils/kernel-6.19.patch";
-    #       sha256 = "sha256-YuJjSUXE6jYSuZySYGnWSNG5sfVei7vvxDcHx3K+IN4=";
-    #     };
-
-    #     # Patch the appropriate driver based on config.hardware.nvidia.open
-    #     driverAttr = if config.hardware.nvidia.open then "open" else "bin";
-    #   in
-    #   base
-    #   // {
-    #     ${driverAttr} = base.${driverAttr}.overrideAttrs (oldAttrs: {
-    #       patches = (oldAttrs.patches or [ ]) ++ [ cachyos-nvidia-patch ];
-    #     });
-    #   };
-
-    # END Patch for kernel 6.19
   };
+  # Nvidia Buffer Pool Fix
+  # There is a known memory management bug where Wayland compositors fail to properly return freed buffers to the Nvidia driver, leading to stuttering during window animations. Niri's official documentation highly recommends patching this
+  environment.etc."nvidia/nvidia-application-profiles-rc.d/50-niri-buffer-fix.json".text = ''
+    {
+        "rules": [
+            {
+                "pattern": { "feature": "procname", "matches": "niri" },
+                "profile": "Limit Free Buffer Pool On Wayland Compositors"
+            }
+        ],
+        "profiles": [
+            {
+                "name": "Limit Free Buffer Pool On Wayland Compositors",
+                "settings": [ { "key": "GLVidHeapReuseRatio", "value": 0 } ]
+            }
+        ]
+    }
+  '';
 }

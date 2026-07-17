@@ -37,8 +37,9 @@
     # "openssl-1.1.1w" # REMOVE THIS IF SUBLIMETEXT IS NOT INSTALLED
 
     "qtwebengine-5.15.19" # for stremio
-  ];
+    "pnpm-10.29.2"
 
+  ];
   fonts.fontconfig.enable = true;
 
   programs.zen-browser = {

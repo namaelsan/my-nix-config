@@ -11,5 +11,6 @@
     ./claude-desktop.nix
     ./niri.nix
     ./dms.nix
+    ./automount.nix
   ];
 }

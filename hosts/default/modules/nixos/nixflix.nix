@@ -126,7 +126,7 @@
     };
 
     seerr = {
-      enable = true;
+      enable = false;
       apiKey = {
         _secret = config.sops.secrets."jellyseerr/api_key".path;
       };
