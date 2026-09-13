@@ -65,7 +65,9 @@
     # independent third-party "nouveau" open source driver).
     # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
     # Only available from driver 515.43.04+
-    open = true;
+    # using the proprietary kernel module because of this memory corruption issue. try open again if fixed
+    # https://github.com/NVIDIA/open-gpu-kernel-modules/issues/1165
+    open = false;
 
     # Enable the Nvidia settings menu,
     # accessible via `nvidia-settings`.
@@ -75,6 +77,7 @@
     package = config.boot.kernelPackages.nvidiaPackages.production;
     # package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
+  
   # Nvidia Buffer Pool Fix
   # There is a known memory management bug where Wayland compositors fail to properly return freed buffers to the Nvidia driver, leading to stuttering during window animations. Niri's official documentation highly recommends patching this
   environment.etc."nvidia/nvidia-application-profiles-rc.d/50-niri-buffer-fix.json".text = ''
