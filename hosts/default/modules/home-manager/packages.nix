@@ -35,7 +35,7 @@
     element-desktop
     # lsfg-vk # framegen
     # lsfg-vk-ui
-    antigravity
+    antigravity-ide
     material-icons
     gnome-disk-utility # added for nemo to mount images
   ];
