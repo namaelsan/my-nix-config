@@ -5,7 +5,7 @@
   networking.firewall = {
     allowedTCPPorts = [
       80 # makes nginx available to the network
-      8096 #jellyfin
+      8096 # jellyfin
     ];
   };
 
@@ -16,20 +16,26 @@
     mediaUsers = [ "namael" ];
 
     downloadsDir = "/data/downloads";
-    # torrentClients.qbittorrent = {
-    #   enable = true;
-    #   serverConfig.Preferences.WebUI = {
-    #     Username = "user";
-    #   };
-    #   password = {
-    #     _secret = config.sops.secrets."sonarr/password".path;
-    #   };
-    # };
-
-    theme = {
+    torrentClients.qbittorrent = {
       enable = true;
-      name = "overseerr";
+      serverConfig.Preferences.WebUI = {
+        Username = "user";
+        Password_PBKDF2 = "@ByteArray(6tCTkDnncVq0BpwMoDGQZg==:d+Kb26NbFMQAS4uESIedarrNbpwO8yVxiigDgvpjyni5oC/4JlJLb6ua0fAJyNinBOnpMSHwu9BFs6T/u6GHxg==)";
+      };
+      password = {
+        _secret = config.sops.secrets."sonarr/password".path;
+      };
     };
+
+    downloadarr = {
+      enable = true;
+      qbittorrent.enable = true;
+    };
+
+    # theme = {
+    #   enable = true;
+    #   name = "overseerr";
+    # };
 
     nginx.enable = true;
     nginx.addHostsEntries = true; # Disable this is you have your own DNS configuration
@@ -115,7 +121,7 @@
           "av1"
         ]; # RTX 3050 Ti supports these
       };
-      network.localNetworkAddresses = [];
+      network.localNetworkAddresses = [ ];
       users.admin = {
         policy.isAdministrator = true;
         password = {
@@ -126,7 +132,7 @@
     };
 
     seerr = {
-      enable = false;
+      enable = true;
       apiKey = {
         _secret = config.sops.secrets."jellyseerr/api_key".path;
       };

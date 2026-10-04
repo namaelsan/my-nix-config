@@ -36,8 +36,7 @@
     # # SOME SUBLIMETEXT EXTENSIONS USE OPENSSL & THEY ARE OLD SO SUBLIMETEXT HAS TO RELY ON AN OLD OPENSSL VERSION THATS EOL
     # "openssl-1.1.1w" # REMOVE THIS IF SUBLIMETEXT IS NOT INSTALLED
 
-    "qtwebengine-5.15.19" # for stremio
-    "pnpm-10.29.2"
+    "electron-40.10.5" # vesktop
 
   ];
   fonts.fontconfig.enable = true;

@@ -27,5 +27,7 @@
     inputs.hyprism.packages.${pkgs.system}.default # hytale launcher with local defined flake
     playerctl # app for using player keybinds (stop/play/next)
     file-roller # gnome archive manager
+    faugus-launcher # simple game launcher
+    deadlock-mod-manager
   ];
 }

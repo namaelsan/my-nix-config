@@ -13,7 +13,7 @@ input {
             // For more information, see xkeyboard-config(7).
 
             // For example:
-            // layout "us,ru"
+            layout "tr"
             // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
 
             // If this section is empty, niri will fetch xkb settings
@@ -115,7 +115,7 @@ output "DP-3" {
     // for the resolution.
     // If the mode is omitted altogether or is invalid, niri will pick one automatically.
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "1920x1080@75"
+    mode "1920x1080@74.924"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
     scale 1
@@ -142,6 +142,9 @@ output "DP-3" {
 layout {
     // Set gaps around windows in logical pixels.
     gaps 10
+
+    background-color "transparent"
+
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -684,6 +687,11 @@ environment {
     GBM_BACKEND "nvidia-drm"
     WLR_NO_HARDWARE_CURSORS "0"
     NIXOS_OZONE_WL "1"
+}
+
+layer-rule {
+    match namespace="^quickshell$"
+    place-within-backdrop true
 }
 
 include "dms/binds.kdl"
